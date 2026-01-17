@@ -1,6 +1,7 @@
 // переменные
 let appStatus: "success" | "error" | "loading";
 let textFormat: "uppercase" | "lowercase" | "capitalize";
+
 // интерфейсы
 interface IUser {
   id: number;
