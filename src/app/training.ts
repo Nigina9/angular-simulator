@@ -9,7 +9,7 @@ interface IUser {
   surname: string;
   city: string;
   age: number;
-  address ? : string;
+  address?: string;
 }
 interface IDeveloper extends IUser {
   position: string;
@@ -17,13 +17,13 @@ interface IDeveloper extends IUser {
 }
 
 // функции
-function culcNumbers(a: number, b: number): number {
+function sumNumbers(a: number, b: number): number {
   return a + b;
 }
-culcNumbers(23, 75);
-culcNumbers(15, 16);
+sumNumbers(23, 75);
+sumNumbers(15, 16);
 
-function formatString(resultingString: string, format: string): string {
+function formatString(resultingString: string, format: "uppercase" | "lowercase" | "capitalize"): string {
   if (format === "uppercase") {
     return resultingString.toLocaleUpperCase();
   } else if (format === "lowercase") {
@@ -36,13 +36,14 @@ formatString("Привет всем", "lowercase");
 formatString("доброе утро", "uppercase");
 formatString("мороз и солнце, день чудесный", "capitalize");
 
-function getString(originalString: string, specialСharacter: string): string {
-  return originalString.replaceAll(specialСharacter, "");
+function deleteSymbolFromString(text: string, symbol: string): string {
+  return text.replaceAll(symbol, "");
 }
-getString("Как дела", "?");
+deleteSymbolFromString("Как дела", "?");
 
 // Массив объектов
-const users: IUser[] = [{
+const users: IUser[] = [
+  {
     id: 3,
     name: "Nigina",
     surname: "Zaripova",
@@ -75,6 +76,6 @@ const users: IUser[] = [{
   }
 ]
 
-const filtredUsers =  users.filter(user => user.age > 25);
+const usersOverAgeTwentyFive: IUser[] = users.filter(currentUser => currentUser.age > 25);
 console.log(users);
-console.log(filtredUsers);
+console.log(usersOverAgeTwentyFive);
