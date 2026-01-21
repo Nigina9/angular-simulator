@@ -16,29 +16,29 @@ interface IDeveloper extends IUser {
 }
 
 // функции
-function sumNumbers(a: number, b: number): number {
+function sum(a: number, b: number): number {
   return a + b;
 }
-sumNumbers(23, 75);
-sumNumbers(15, 16);
+sum(23, 75);
+sum(15, 16);
 
-function formatString(resultingString: string, format: "uppercase" | "lowercase" | "capitalize"): string {
+function formatString(text: string, format: "uppercase" | "lowercase" | "capitalize"): string {
   if (format === "uppercase") {
-    return resultingString.toLocaleUpperCase();
+    return text.toLocaleUpperCase();
   } else if (format === "lowercase") {
-    return resultingString.toLocaleLowerCase();
+    return text.toLocaleLowerCase();
   } else {
-    return resultingString.charAt(0).toLocaleUpperCase() + resultingString.slice(1).toLocaleLowerCase();
+    return text.charAt(0).toLocaleUpperCase() + text.slice(1).toLocaleLowerCase();
   }
 }
 formatString("Привет всем", "lowercase");
 formatString("доброе утро", "uppercase");
 formatString("мороз и солнце, день чудесный", "capitalize");
 
-function deleteSymbolFromString(text: string, symbol: string): string {
+function deleteSymbol(text: string, symbol: string): string {
   return text.replaceAll(symbol, "");
 }
-deleteSymbolFromString("Как дела", "?");
+deleteSymbol("Как дела", "?");
 
 // Массив объектов
 const users: IUser[] = [
@@ -75,6 +75,6 @@ const users: IUser[] = [
   }
 ]
 
-const usersOverAgeTwentyFive: IUser[] = users.filter(currentUser => currentUser.age > 25);
+const usersOverAgeTwentyFive: IUser[] = users.filter((currentUser: IUser) => currentUser.age > 25);
 console.log(users);
 console.log(usersOverAgeTwentyFive);
