@@ -76,5 +76,4 @@ const users: IUser[] = [
 ]
 
 const usersOverAgeTwentyFive: IUser[] = users.filter((currentUser: IUser) => currentUser.age > 25);
-console.log(users);
-console.log(usersOverAgeTwentyFive);
+

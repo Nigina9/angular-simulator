@@ -9,7 +9,7 @@
   "projects": {
     "angular-simulator": {
       "projectType": "application",
-      "schematics": { 
+      "schematics": {
         "@schematics/angular:component": { "type": "component", "style": "scss", "skipTests": true },
         "@schematics/angular:directive": { "type": "directive", "skipTests": true },
         "@schematics/angular:service": { "type": "service", "skipTests": true },
@@ -36,7 +36,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/styles.scss"
             ]
           },
           "configurations": {

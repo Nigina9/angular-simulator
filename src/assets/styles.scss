@@ -1,0 +1,32 @@
+@use './fonts';
+@use './normalize';
+
+* {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+}
+
+.container {
+  display: block;
+  width: 1180px;
+  margin: 0 auto;
+}
+
+:root {
+  --primary-color: #18121e;
+  --secondary-color: #fdfdfd;
+  --white-background: #ffffff;
+  --grey-background: #f3f5f4;
+  --green-background: #1a3e3e;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

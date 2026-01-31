@@ -1,1 +1,65 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+  <div class="container">
+    <div class="header-wrapper">
+      <div class="logo-wrapper">
+      <img src="/images/logo.svg" alt="Логотип сайта" width="137" height="28">
+      <span class="company-name">{{ companyName }}</span>
+      </div>
+      <nav class="navigation">
+        <ul class="list-none navigation__list">
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Главная</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Про гида</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Программа тура</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Стоимость</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Блог</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#">Контакты</a>
+          </li>
+        </ul>
+        <button class="button">Консультация</button>
+      </nav>
+    </div>
+  </div>
+</header>
+<section class="main-hero">
+  <div class="main-hero__wrapper">
+    <div class="container">
+      <p class="title-hero">Насладись прогулкой в горах <br> с командой единомышленников</p>
+      <form class="form" method="POST" action="/submit" id="form">
+        <ul class="list-none form__list">
+          <li class="form__item">
+            <label>
+              <select class="field field--location" id="location" name="location">
+                <option class="field__option">Локация для тура</option>
+              </select>
+            </label>
+            <span class="description-field">выберите из списка</span>
+          </li>
+          <li class="form__item">
+            <input class="field field--data" type="data" placeholder="Дата похода">
+            <span class="description-field">укажите диапазон</span>
+          </li>
+          <li class="form__item">
+            <label>
+              <select class="field field--select field--participants" id="participants" name="participants">
+                <option class="field__option">Участники</option>
+              </select>
+            </label>
+            <span class="description-field">минимум 4 человека</span>
+          </li>
+        </ul>
+        <button class="button button-form" type="submit">Найти программу</button>
+      </form>
+    </div>
+  </div>
+</section>
