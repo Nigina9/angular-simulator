@@ -1,38 +1,41 @@
 export class Collection<T> {
-  public arrayItems: T[] = [];
+  private items: T[] = [];
+
+  constructor(items: T[]) {
+    this.items = items;
+  }
 
   getAllItems(): T[] {
-    return this.arrayItems;
+    return this.items;
   }
 
-  getItem(): T | undefined {
-    return this.arrayItems.at(0);
+  getItem(index: number): T | undefined {
+    return this.items.at(index);
   }
 
-  clean(): void {
-    this.arrayItems = [];
+  clear(): void {
+    this.items = [];
   }
 
-  deleteItem(): void {
-    this.arrayItems.pop();
+  deleteItem(index: number): void {
+     this.items.splice(index, 1)
   }
 
-  replaceItem(newItem: T): void {
-    this.arrayItems[1] = newItem;
+  replaceItem(index: number, newItem: T): void {
+    this.items[index] = newItem;
   }
 }
 
-const cosmeticProducts = ['mascara', 'lipstick', 'powder', 'shadows', 'eyeliner', 'foundation cream'];
-const collectionCosmeticProducts = new Collection<string>();
-collectionCosmeticProducts.arrayItems = cosmeticProducts;
-collectionCosmeticProducts.getAllItems();
-collectionCosmeticProducts.replaceItem('highlighter');
+const cosmeticProducts: string[] = ['mascara', 'lipstick', 'powder', 'shadows', 'eyeliner', 'foundation cream'];
+const collectionCosmeticProducts = new Collection<string>(cosmeticProducts);
+collectionCosmeticProducts.replaceItem(1, 'highlighter');
+collectionCosmeticProducts.getItem(3);
+collectionCosmeticProducts.deleteItem(2);
 
-const movieGenres = ['drama', 'comedy', 'fantasy', 'action movie', 'melodrama'];
-const collectionMovie = new Collection<string>();
-collectionMovie.arrayItems = movieGenres;
+const movieGenres: string[] = ['drama', 'comedy', 'fantasy', 'action movie', 'melodrama'];
+const collectionMovie = new Collection<string>(movieGenres);
 collectionMovie.getAllItems();
-collectionMovie.replaceItem('horror');
+collectionMovie.replaceItem(2, 'horror');
 
 
 

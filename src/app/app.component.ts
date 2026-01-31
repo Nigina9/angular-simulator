@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Color } from '../enums/Color';
 import './collection';
+
 @Component({
   selector: 'app-root',
   imports: [],
@@ -8,21 +9,18 @@ import './collection';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
   companyName: string = 'румтибет';
 
   isPrimaryColor(color: Color): boolean {
-    if (color === Color.RED || color === Color.GREEN || color === Color.BLUE) {
-      return true;
-    }
-    return false;
+    return [Color.RED, Color.GREEN, Color.BLUE].includes(color);
   }
 
-  saveDataLocalStorage(): void {
-    let dataEntry = new Date();
-    localStorage.setItem('date-last-entry', dataEntry.toString());
+  saveDate(): void {
+    localStorage.setItem('date-last-entry', new Date().toString())
   }
 
-  savesSessions(): void {
+  saveSessions(): void {
     const visits = localStorage.getItem('visit-counter');
     let visitCount: number;
     if (visits === null) {
@@ -34,8 +32,8 @@ export class AppComponent {
   }
 
   constructor() {
-    this.saveDataLocalStorage();
-    this.savesSessions();
+    this.saveDate();
+    this.saveSessions();
     this.isPrimaryColor(Color.RED);
   }
 }
