@@ -18,7 +18,7 @@ export class Collection<T> {
   }
 
   deleteItem(index: number): void {
-     this.items.splice(index, 1)
+     this.items = this.items.filter((item, i) => i !== index);
   }
 
   replaceItem(index: number, newItem: T): void {
@@ -29,7 +29,7 @@ export class Collection<T> {
 const cosmeticProducts: string[] = ['mascara', 'lipstick', 'powder', 'shadows', 'eyeliner', 'foundation cream'];
 const collectionCosmeticProducts = new Collection<string>(cosmeticProducts);
 collectionCosmeticProducts.replaceItem(1, 'highlighter');
-collectionCosmeticProducts.getItem(3);
+console.log(collectionCosmeticProducts.getItem(3));
 collectionCosmeticProducts.deleteItem(2);
 
 const movieGenres: string[] = ['drama', 'comedy', 'fantasy', 'action movie', 'melodrama'];

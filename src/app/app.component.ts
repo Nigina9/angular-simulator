@@ -16,12 +16,12 @@ export class AppComponent {
     return [Color.RED, Color.GREEN, Color.BLUE].includes(color);
   }
 
-  saveDate(): void {
+  saveDateToLocalStorage(): void {
     localStorage.setItem('date-last-entry', new Date().toString())
   }
 
   saveSessions(): void {
-    const visits = localStorage.getItem('visit-counter');
+    const visits: string | null = localStorage.getItem('visit-counter');
     let visitCount: number;
     if (visits === null) {
       visitCount = 1;
@@ -32,7 +32,7 @@ export class AppComponent {
   }
 
   constructor() {
-    this.saveDate();
+    this.saveDateToLocalStorage();
     this.saveSessions();
     this.isPrimaryColor(Color.RED);
   }
