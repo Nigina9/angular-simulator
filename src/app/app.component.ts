@@ -36,4 +36,5 @@ export class AppComponent {
     this.saveSessions();
     this.isPrimaryColor(Color.RED);
   }
+  
 }
