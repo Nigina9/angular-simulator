@@ -1,0 +1,23 @@
+.button {
+  background-color: var(--green-background);
+  color: var(--secondary-color);
+  appearance: none;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: #fdfdfd;
+   transition: all 0.3s ease;
+
+  &:hover{
+   opacity: 0.8;
+   box-shadow: 0 5px 5px #4f7555;
+  }
+  &:disabled{
+  background-color: #878585;
+  color: #5e5c5c;
+  cursor: not-allowed;
+  opacity: 0.6;
+  }
+}
