@@ -18,9 +18,9 @@ export class AppComponent {
   selectedLocation: string = '';
   selectedDate: string = '';
   selectedParticipants: string = '';
-  currentTime: string = new Date().toString();
-  currentNumber: number = 0;
-  isActive: boolean = true;
+  currentTimeAndDate: string = new Date().toString();
+  counter: number = 0;
+  isActiveTask: boolean = true;
   liveText: string = '';
   isLoading: boolean = true;
 
@@ -98,8 +98,8 @@ export class AppComponent {
     this.saveDateToLocalStorage();
     this.saveSessions();
     this.isPrimaryColor(Color.RED);
-    this.showСurrenTime();
-    this.displaySite();
+    this.showСurrentTimeAndDate();
+    this.finishLoading();
   }
 
   isPrimaryColor(color: Color): boolean {
@@ -121,28 +121,28 @@ export class AppComponent {
     localStorage.setItem('visit-counter', visitCount.toString());
   }
 
-  showСurrenTime(): void {
+  showСurrentTimeAndDate(): void {
     setInterval(() => {
-      this.currentTime = new Date().toString();
-    }, 1000)
+      this.currentTimeAndDate = new Date().toString();
+    }, 1000);
   }
 
-  onClickAdd(): void {
-    this.currentNumber++;
+  increaseCounter(): void {
+    this.counter++;
   }
 
-  onClickSubtract(): void {
-    this.currentNumber--;
+  reduceCounter(): void {
+    this.counter--;
   }
 
-  onClickToggle(): void {
-    this.isActive = !this.isActive;
+  switchToAnotherTask(): void {
+    this.isActiveTask = !this.isActiveTask;
   }
 
-  displaySite(): void {
+  finishLoading(): void {
     setTimeout(() => {
      this.isLoading = false;
-    }, 3000)
+    }, 3000);
 }
 
 }

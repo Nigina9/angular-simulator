@@ -1,5 +1,5 @@
-@if(isLoading) {
-  <div class="preloader">
+@if (isLoading) {
+<div class="preloader">
   <div class="preloader__loading-block">
     <h1 class="preloader__title"> Идет загрузка сайта...</h1>
     <div class="loader"></div>
@@ -16,44 +16,46 @@
       <nav class="navigation">
         <ul class="list-none navigation__list">
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Главная</a>
+            <a class="navigation__link" href="#" id="main-page">Главная</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Про гида</a>
+            <a class="navigation__link" href="#" id="about-guide">Про гида</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Программа тура</a>
+            <a class="navigation__link" href="#" id="tour-program">Программа тура</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Стоимость</a>
+            <a class="navigation__link" href="#" id="cost-tour">Стоимость</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Блог</a>
+            <a class="navigation__link" href="#" id="blog">Блог</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Контакты</a>
+            <a class="navigation__link" href="#" id="contacts">Контакты</a>
           </li>
         </ul>
-        <button class="button" type="button">Консультация</button>
+        <button class="button" type="button" id="consultation-button">Консультация</button>
       </nav>
     </div>
     <div class="functional">
       <div>
-        <button class="button button-toggle" (click)="onClickToggle()">Показать счетчик</button>
-        @if(isActive){<p class="current-time">{{ currentTime }}</p>
+        <button class="button button-toggle" (click)="switchToAnotherTask()" id="task-switching-button">{{ isActiveTask ? 'Показать счётчик' : 'Показать дату и время' }}</button>
+        @if (isActiveTask) {
+        <p class="current-time">{{ currentTimeAndDate }}</p>
         } @else {
         <div class="count">
           <div class="count__wrapper">
-            <button (click)="onClickAdd()" class="button">+</button>
-            <p class="number">{{ currentNumber }}</p>
-            <button (click)="onClickSubtract()" class="button" [disabled]="currentNumber === 0">-</button>
+            <button (click)="increaseCounter()" class="button" id="increase-button">+</button>
+            <p class="number">{{ counter }}</p>
+            <button (click)="reduceCounter()" class="button" [disabled]="counter === 0" id="reduce-button">-</button>
           </div>
         </div>
         }
       </div>
       <div class="live-text-wrapper">
         <label class="label-text">Введите текст
-        <input [(ngModel)]="liveText" class="field" type="text" placeholder="Live" /></label>
+          <input [(ngModel)]="liveText" class="field" type="text" placeholder="Live" id="input-live-text">
+        </label>
         <div>{{ liveText }}</div>
       </div>
     </div>
@@ -71,7 +73,7 @@
               <select [(ngModel)]="selectedLocation" class="field field--location" id="location" name="location"
                 required>
                 <option class="field__option" value="">Локация для тура</option>
-                @for (location of locations; track location.id){
+                @for (location of locations; track location.id) {
                 <option class="field__option" [value]="location.value">{{ location.location }}</option>
                 }
               </select>
@@ -79,7 +81,7 @@
             <span class="description-field">выберите из списка</span>
           </li>
           <li class="form__item">
-            <input [(ngModel)]="selectedDate" class="field field--date" type="date" name="date">
+            <input [(ngModel)]="selectedDate" class="field field--date" type="date" name="date" id="input-date">
             <span class="description-field">укажите диапазон</span>
           </li>
           <li class="form__item">
@@ -87,7 +89,7 @@
               <select [(ngModel)]="selectedParticipants" class="field field--select field--participants"
                 id="participants" name="participants">
                 <option class="field__option" value="">Участники</option>
-                @for(quantity of participants; track quantity.id) {
+                @for (quantity of participants; track quantity.id) {
                 <option class="field__option" [value]="quantity.value">{{quantity.quantity}} участников</option>
                 }
               </select>
@@ -116,7 +118,7 @@
             то&nbsp;есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа
             Hampden-Sydney, штат Вирджиния, взял одно из&nbsp;самых странных слов в&nbsp;Lorem Ipsum,
             &quot;consectetur&quot;и занялся его поисками в&nbsp;классической латинской литературе.</p>
-          <button class="button" type="submit">Программа тура</button>
+          <button class="button" type="submit" id="tour-program-button">Программа тура</button>
         </div>
       </div>
     </div>
@@ -133,8 +135,8 @@
 
             @for(offer of offers; track offer.id){
             <li class="advantages__item">
-              <img src="/images/{{ offer.img }}.png" class="advantanges__icon" width="50" height="50"
-                alt="{{ offer.alt }}">
+              <img src="/images/{{ offer.img }}.svg" class="advantanges__icon" width="50" height="50"
+                [alt]="offer.alt">
               <div>
                 <h3 class="advantages__title">{{ offer.title }}</h3>
                 <p class="advantages__description">{{ offer.description }}</p>
@@ -143,7 +145,7 @@
             }
 
           </ul>
-          <button class="button" type="button">Стоимость программ</button>
+          <button class="button" type="button" id="program-cost-button">Стоимость программ</button>
         </div>
         <div class="advantages__images-container">
           <img class="img" src="/images/hike-tea.png" width="250" height="250">
