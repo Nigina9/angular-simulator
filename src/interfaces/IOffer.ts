@@ -3,5 +3,5 @@ export interface IOffer {
   title: string;
   description: string;
   img: string;
-  alt: string;
+  iconName: string;
 }

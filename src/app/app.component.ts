@@ -20,7 +20,7 @@ export class AppComponent {
   selectedParticipants: string = '';
   currentTimeAndDate: string = new Date().toString();
   counter: number = 0;
-  isActiveTask: boolean = true;
+  currentWidget:  'counter' | 'timeAndDate' = 'counter';
   liveText: string = '';
   isLoading: boolean = true;
 
@@ -30,21 +30,21 @@ export class AppComponent {
       title: 'Опытный гид',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       img: 'icon-hike',
-      alt: 'Hike'
+      iconName: 'Hike'
     },
     {
       id: 2,
       title: 'Безопасный поход',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       img: 'icon-safety',
-      alt: 'Safety'
+      iconName: 'Safety'
     },
     {
       id: 3,
       title: 'Лояльные цены',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       img: 'icon-price',
-      alt: 'Price'
+      iconName: 'Price'
     }
   ];
 
@@ -135,8 +135,8 @@ export class AppComponent {
     this.counter--;
   }
 
-  switchToAnotherTask(): void {
-    this.isActiveTask = !this.isActiveTask;
+  switchWidget(widget: 'counter' | 'timeAndDate'): void {
+    this.currentWidget = widget;
   }
 
   finishLoading(): void {
