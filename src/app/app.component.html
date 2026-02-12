@@ -39,15 +39,12 @@
     </div>
     <div class="functional">
       <div>
-        <button class="button button-toggle"
-                (click)="switchWidget(currentWidget === 'counter' ? 'timeAndDate' : 'counter')"
-                id="task-switching-button">
-          {{ currentWidget === 'counter' ? 'Показать время и дату' : 'Показать счётчик' }}
-        </button>
         @if (currentWidget === 'timeAndDate') {
+        <button class="button button-toggle" (click)="switchWidget('counter')" id="date-toggle-button">Показать счётчик</button>
         <p class="current-time">{{ currentTimeAndDate }}</p>
         } @else {
         <div class="count">
+          <button class="button button-toggle" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
           <div class="count__wrapper">
             <button (click)="increaseCounter()" class="button" id="increase-button">+</button>
             <p class="number">{{ counter }}</p>
@@ -140,7 +137,7 @@
             @for(offer of offers; track offer.id){
             <li class="advantages__item">
               <img [src]="'/images/' + offer.img + '.svg'" class="advantanges__icon" width="50" height="50"
-                [alt]="offer.iconName">
+                [alt]="offer.title">
               <div>
                 <h3 class="advantages__title">{{ offer.title }}</h3>
                 <p class="advantages__description">{{ offer.description }}</p>
