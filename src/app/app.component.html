@@ -42,8 +42,7 @@
         @if (currentWidget === 'timeAndDate') {
         <div class="time-date-wrapper">
           <p class="current-time">{{ currentTimeAndDate }}</p>
-          <button class="button" (click)="switchWidget('counter')" id="date-toggle-button">Показать
-            счётчик</button>
+          <button class="button" (click)="switchWidget('counter')" id="date-toggle-button">Показать счётчик</button>
         </div>
         } @else {
         <div class="count">
@@ -52,8 +51,7 @@
             <p class="number">{{ counter }}</p>
             <button (click)="reduceCounter()" class="button" [disabled]="counter === 0" id="reduce-button">-</button>
           </div>
-          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать
-            дату и время</button>
+          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
         </div>
         }
       </div>
