@@ -120,7 +120,7 @@ export class AppComponent {
 
   showСurrentTimeAndDate(): void {
     setInterval(() => {
-      this.currentTimeAndDate = new Date().toString();
+      this.currentTimeAndDate = new Date().toLocaleString();
     }, 1000);
   }
 

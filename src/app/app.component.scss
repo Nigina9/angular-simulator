@@ -135,6 +135,7 @@
   padding: 40px 42px;
   position: relative;
   z-index: 20;
+  margin-bottom: 10px;
 
   &__list {
     display: flex;
@@ -331,14 +332,16 @@
 
 .functional {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 25px;
 }
 
-.button-toggle {
-  margin-bottom: 20px;
+.time-date-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .count__wrapper {
@@ -351,17 +354,32 @@
   margin: 0;
 }
 
+.count {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .current-time {
   font-size: 20px;
   margin: 13px 0 0 0;
 }
 
 .live-text-wrapper {
+  position: relative;
+  z-index: 20;
   display: flex;
   gap: 20px;
-  flex-direction: column;
 }
 
-.label-textХ {
+.label-text {
   font-weight: 700;
+}
+
+.field-live-input {
+  background-image: url("/images/icon-arr-right.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  padding-right: 35px;
 }
