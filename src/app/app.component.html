@@ -1,65 +1,164 @@
+@if (isLoading) {
+<div class="preloader">
+  <div class="preloader__loading-block">
+    <h1 class="preloader__title"> Идет загрузка сайта...</h1>
+    <div class="loader"></div>
+  </div>
+</div>
+} @else {
 <header class="header">
   <div class="container">
     <div class="header-wrapper">
       <div class="logo-wrapper">
-      <img src="/images/logo.svg" alt="Логотип сайта" width="137" height="28">
-      <span class="company-name">{{ companyName }}</span>
+        <img src="/images/logo.svg" alt="Логотип сайта" width="137" height="28">
+        <span class="company-name">{{ companyName }}</span>
       </div>
       <nav class="navigation">
         <ul class="list-none navigation__list">
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Главная</a>
+            <a class="navigation__link" href="#" id="main-page">Главная</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Про гида</a>
+            <a class="navigation__link" href="#" id="about-guide">Про гида</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Программа тура</a>
+            <a class="navigation__link" href="#" id="tour-program">Программа тура</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Стоимость</a>
+            <a class="navigation__link" href="#" id="cost-tour">Стоимость</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Блог</a>
+            <a class="navigation__link" href="#" id="blog">Блог</a>
           </li>
           <li class="navigation__item">
-            <a class="navigation__link" href="#">Контакты</a>
+            <a class="navigation__link" href="#" id="contacts">Контакты</a>
           </li>
         </ul>
-        <button class="button">Консультация</button>
+        <button class="button" type="button" id="consultation-button">Консультация</button>
       </nav>
+    </div>
+    <div class="functional">
+      <div>
+        @if (currentWidget === 'timeAndDate') {
+        <div class="time-date-wrapper">
+          <p class="current-time">{{ currentTimeAndDate }}</p>
+          <button class="button" (click)="switchWidget('counter')" id="date-toggle-button">Показать счётчик</button>
+        </div>
+        } @else {
+        <div class="count">
+          <div class="count__wrapper">
+            <button (click)="increaseCounter()" class="button" id="increase-button">+</button>
+            <p class="number">{{ counter }}</p>
+            <button (click)="reduceCounter()" class="button" [disabled]="counter === 0" id="reduce-button">-</button>
+          </div>
+          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
+        </div>
+        }
+      </div>
     </div>
   </div>
 </header>
+
 <section class="main-hero">
   <div class="main-hero__wrapper">
     <div class="container">
       <p class="title-hero">Насладись прогулкой в горах <br> с командой единомышленников</p>
-      <form class="form" method="POST" action="/submit" id="form">
+      <form class="form" id="form">
         <ul class="list-none form__list">
           <li class="form__item">
             <label>
-              <select class="field field--location" id="location" name="location">
-                <option class="field__option">Локация для тура</option>
+              <select [(ngModel)]="selectedLocation" class="field field--location" id="location" name="location"
+                required>
+                <option class="field__option" value="">Локация для тура</option>
+                @for (location of locations; track location.id) {
+                <option class="field__option" [value]="location.value">{{ location.location }}</option>
+                }
               </select>
             </label>
             <span class="description-field">выберите из списка</span>
           </li>
           <li class="form__item">
-            <input class="field field--data" type="data" placeholder="Дата похода">
+            <input [(ngModel)]="selectedDate" class="field field--date" type="date" name="date" id="input-date">
             <span class="description-field">укажите диапазон</span>
           </li>
           <li class="form__item">
             <label>
-              <select class="field field--select field--participants" id="participants" name="participants">
-                <option class="field__option">Участники</option>
+              <select [(ngModel)]="selectedParticipants" class="field field--select field--participants"
+                id="participants" name="participants">
+                <option class="field__option" value="">Участники</option>
+                @for (quantity of participants; track quantity.id) {
+                <option class="field__option" [value]="quantity.value">{{quantity.quantity}} участников</option>
+                }
               </select>
             </label>
             <span class="description-field">минимум 4 человека</span>
           </li>
         </ul>
-        <button class="button button-form" type="submit">Найти программу</button>
+        <button class="button button-form" type="submit" id="buttom-form"
+          [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">Найти программу</button>
       </form>
+      <div class="live-text-wrapper">
+        <label class="label-text">
+          <input [(ngModel)]="liveText" class="field field-live-input" type="text" placeholder="Живой инпут"
+            id="input-live-text">
+        </label>
+        <div>{{ liveText }}</div>
+      </div>
     </div>
   </div>
 </section>
+<main>
+  <section class="history">
+    <div class="container">
+      <div class="history__wrapper">
+        <div class="history__images-container">
+          <img src="/images/mountains.png" width="350" height="400">
+          <img src="/images/house-mountains.png" width="350" height="400" class="history__img">
+        </div>
+        <div class="history__about-hike">
+          <h2 class="main-titLe">о нашем походе</h2>
+          <h3 class="main-subtile">Исследуйте все горные массивы мира вместе с нами</h3>
+          <p class="description">Его корни уходят в&nbsp;один фрагмент классической латыни 45&nbsp;года н.э.,
+            то&nbsp;есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа
+            Hampden-Sydney, штат Вирджиния, взял одно из&nbsp;самых странных слов в&nbsp;Lorem Ipsum,
+            &quot;consectetur&quot;и занялся его поисками в&nbsp;классической латинской литературе.</p>
+          <button class="button" type="submit" id="tour-program-button">Программа тура</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="advantages">
+    <div class="container">
+      <div class="advantages__wrapper">
+        <div>
+          <h2 class="main-titLe">наше предложение</h2>
+          <h3 class="main-subtile">Лучшие программы для тебя</h3>
+          <p class="description">Его корни уходят в&nbsp;один фрагмент классической латыни 45&nbsp;года н.э.,
+            то&nbsp;есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа.</p>
+          <ul class="list-none advantages__list">
+
+            @for(offer of offers; track offer.id){
+            <li class="advantages__item">
+              <img [src]="'/images/' + offer.img + '.svg'" class="advantanges__icon" width="50" height="50"
+                [alt]="offer.title">
+              <div>
+                <h3 class="advantages__title">{{ offer.title }}</h3>
+                <p class="advantages__description">{{ offer.description }}</p>
+              </div>
+            </li>
+            }
+
+          </ul>
+          <button class="button" type="button" id="program-cost-button">Стоимость программ</button>
+        </div>
+        <div class="advantages__images-container">
+          <img class="img" src="/images/hike-tea.png" width="250" height="250">
+          <img class="img" src="/images/hike-man.png" width="250" height="250">
+          <img class="img" src="/images/hike-winter.png" width="250" height="250">
+          <img class="img" src="/images/hike-summer.png" width="250" height="250">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+}

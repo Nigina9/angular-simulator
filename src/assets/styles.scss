@@ -1,5 +1,6 @@
 @use './fonts';
 @use './normalize';
+@use './button';
 
 * {
   font-family: 'Nunito Sans', sans-serif;
@@ -18,6 +19,7 @@
   --white-background: #ffffff;
   --grey-background: #f3f5f4;
   --green-background: #1a3e3e;
+  --yellow-color: #f2be22;
 }
 
 .visually-hidden {
