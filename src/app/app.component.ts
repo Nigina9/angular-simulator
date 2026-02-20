@@ -5,7 +5,8 @@ import { IOffer } from '../interfaces/IOffer';
 import { FormsModule } from '@angular/forms';
 import { ILocation } from '../interfaces/ILocation';
 import { IParticipant } from '../interfaces/IParticipant';
-
+import { IDestination } from '../interfaces/IDestination';
+import { IArticle } from '../interfaces/IArticle';
 @Component({
   selector: 'app-root',
   imports: [FormsModule],
@@ -20,7 +21,7 @@ export class AppComponent {
   selectedParticipants: string = '';
   currentTimeAndDate: string = new Date().toString();
   counter: number = 0;
-  currentWidget:  'counter' | 'timeAndDate' = 'counter';
+  currentWidget: 'counter' | 'timeAndDate' = 'counter';
   liveText: string = '';
   isLoading: boolean = true;
 
@@ -91,6 +92,64 @@ export class AppComponent {
     },
   ];
 
+  destinations: IDestination[] = [
+    {
+      id: 1,
+      title: 'Озеро возле гор',
+      description: 'романтическое приключение',
+      price: 480,
+      rating: '4.9',
+      img: 'lake',
+    },
+    {
+      id: 2,
+      title: 'Ночь в горах',
+      description: 'в компании друзей',
+      price: 500,
+      rating: '4.5',
+      img: 'night-mountains',
+    },
+    {
+      id: 3,
+      title: 'Йога в горах',
+      description: 'для тех, кто забоится о себе',
+      price: 230,
+      rating: '5.0',
+      img: 'stretching',
+    }
+  ];
+
+  articles: IArticle[] = [
+    {
+      id: 1,
+      title: 'Красивая Италия, какая она в реальности?',
+      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      publication: '01/04/2023',
+      img: 'italy'
+    },
+    {
+      id: 2,
+      title: 'Долой сомнения! Весь мир открыт для вас!',
+      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      publication: '01/04/2023',
+      img: 'plane'
+    },
+    {
+      id: 3,
+      title: 'Как подготовиться к путешествию в одиночку?',
+      decription: 'Для современного мира базовый вектор развития предполагает.',
+      publication: '01/04/2023',
+      img: 'woman'
+    },
+    {
+      id: 4,
+      title: 'Индия ... летим?',
+      decription: 'Для современного мира базовый.',
+      publication: '01/04/2023',
+      img: 'india'
+    }
+  ];
+
   constructor() {
     this.saveDateToLocalStorage();
     this.saveSessions();
@@ -138,8 +197,8 @@ export class AppComponent {
 
   finishLoading(): void {
     setTimeout(() => {
-     this.isLoading = false;
+      this.isLoading = false;
     }, 3000);
-}
+  }
 
 }

@@ -51,7 +51,8 @@
             <p class="number">{{ counter }}</p>
             <button (click)="reduceCounter()" class="button" [disabled]="counter === 0" id="reduce-button">-</button>
           </div>
-          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
+          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и
+            время</button>
         </div>
         }
       </div>
@@ -127,6 +128,7 @@
       </div>
     </div>
   </section>
+
   <section class="advantages">
     <div class="container">
       <div class="advantages__wrapper">
@@ -137,7 +139,7 @@
             то&nbsp;есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа.</p>
           <ul class="list-none advantages__list">
 
-            @for(offer of offers; track offer.id){
+            @for (offer of offers; track offer.id) {
             <li class="advantages__item">
               <img [src]="'/images/' + offer.img + '.svg'" class="advantanges__icon" width="50" height="50"
                 [alt]="offer.title">
@@ -158,6 +160,58 @@
           <img class="img" src="/images/hike-summer.png" width="250" height="250">
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="popular-tours">
+    <div class="container">
+      <h2 class="main-titLe">по версии отдыхающих</h2>
+      <h3 class="main-subtile">Популярные направления</h3>
+      <ul class="list-none popular-tours__list">
+        @for (destination of destinations; track destination.id) {
+        <li class="popular-tours__item">
+          <img [src]="'/images/' + destination.img + '.png'" [alt]="destination.title" width="380" height="500">
+          <div class="popular-tours__wrapper">
+            <div>
+              <h3 class="tour-title">{{ destination.title }}</h3>
+              <p class="tour-description">{{ destination.description }}</p>
+            </div>
+            <div class="tour-price">{{ destination.price }} &dollar;</div>
+          </div>
+          <div class="rating-wrapper">
+            <span class="tour-rating-icon"></span>
+            <span class="tour-rating">{{ destination.rating }}</span>
+          </div>
+        </li>
+        }
+      </ul>
+      <button class="button button--center" type="submit" id="rating-button">Рейтинг направлений</button>
+    </div>
+  </section>
+
+  <section class="travel-blog">
+    <div class="container">
+      <h2 class="main-titLe">делимся впечатлениями</h2>
+      <h3 class="main-subtile ">Блог о путешествиях</h3>
+      <ul class="list-none travel-blog__list">
+        @for (article of articles; track article.id) {
+        <li class="travel-blog__item">
+          <img class="travel-blog__img" [src]="'/images/' + article.img + '.png'" [alt]="article.title" width="230"
+            height="280">
+          <div class="travel-blog__wrapper">
+            <div>
+              <a href="#" class="travel-blog__link" id="link-article">{{ article.title }}</a>
+              <p class="travel-blog__description">{{ article.decription}}</p>
+            </div>
+            <div class="travel-blog__container">
+              <div class="date-publication">{{ article.publication }}</div>
+              <a href="#" class="link-to-article" id="link-read">читать статью</a>
+            </div>
+          </div>
+        </li>
+        }
+      </ul>
+      <button class="button button--center" type="submit" id="show-articles-button">Другие материалы</button>
     </div>
   </section>
 </main>
