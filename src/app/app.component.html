@@ -69,7 +69,7 @@
             <label>
               <select [(ngModel)]="selectedLocation" class="field field--location" id="location" name="location"
                 required>
-                <option class="field__option" value="">Локация для тура</option>
+                <option class="field__option" value="" disabled selected>Локация для тура</option>
                 @for (location of locations; track location.id) {
                 <option class="field__option" [value]="location.value">{{ location.location }}</option>
                 }
@@ -83,9 +83,8 @@
           </li>
           <li class="form__item">
             <label>
-              <select [(ngModel)]="selectedParticipants" class="field field--select field--participants"
-                id="participants" name="participants">
-                <option class="field__option" value="">Участники</option>
+              <select [(ngModel)]="selectedParticipants" class="field field--select field--participants" id="participants" name="participants">
+                <option class="field__option" value="" disabled selected>Участники</option>
                 @for (quantity of participants; track quantity.id) {
                 <option class="field__option" [value]="quantity.value">{{ quantity.quantity }} участников</option>
                 }
