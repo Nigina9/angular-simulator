@@ -51,8 +51,7 @@
             <p class="number">{{ counter }}</p>
             <button (click)="reduceCounter()" class="button" [disabled]="counter === 0" id="reduce-button">-</button>
           </div>
-          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и
-            время</button>
+          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
         </div>
         }
       </div>
@@ -88,15 +87,19 @@
                 id="participants" name="participants">
                 <option class="field__option" value="">Участники</option>
                 @for (quantity of participants; track quantity.id) {
-                <option class="field__option" [value]="quantity.value">{{quantity.quantity}} участников</option>
+                <option class="field__option" [value]="quantity.value">{{ quantity.quantity }} участников</option>
                 }
               </select>
             </label>
             <span class="description-field">минимум 4 человека</span>
           </li>
         </ul>
-        <button class="button button-form" type="submit" id="buttom-form"
-          [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">Найти программу</button>
+        <button
+          (click)="showMessage(MessageEnum.SUCCESS, 'Успешно')"
+          class="button button-form" type="submit"
+          id="buttom-form" [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
+          Найти программу
+        </button>
       </form>
       <div class="live-text-wrapper">
         <label class="label-text">
@@ -123,7 +126,7 @@
             то&nbsp;есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа
             Hampden-Sydney, штат Вирджиния, взял одно из&nbsp;самых странных слов в&nbsp;Lorem Ipsum,
             &quot;consectetur&quot;и занялся его поисками в&nbsp;классической латинской литературе.</p>
-          <button class="button" type="submit" id="tour-program-button">Программа тура</button>
+          <button class="button" type="submit" id="tour-program-button" (click)="showMessage(MessageEnum.WARN, 'Программа недоступна')">Программа тура</button>
         </div>
       </div>
     </div>
@@ -151,7 +154,7 @@
             }
 
           </ul>
-          <button class="button" type="button" id="program-cost-button">Стоимость программ</button>
+          <button class="button" type="button" id="program-cost-button" (click)="showMessage(MessageEnum.INFO, 'Программа отправлена на почту')">Стоимость программ</button>
         </div>
         <div class="advantages__images-container">
           <img class="img" src="/images/hike-tea.png" width="250" height="250">
@@ -185,7 +188,7 @@
         </li>
         }
       </ul>
-      <button class="button button--center" type="submit" id="rating-button">Рейтинг направлений</button>
+      <button class="button button--center" type="submit" id="rating-button" (click)="showMessage(MessageEnum.SUCCESS, 'Рейтинг получен')">Рейтинг направлений</button>
     </div>
   </section>
 
@@ -211,8 +214,23 @@
         </li>
         }
       </ul>
-      <button class="button button--center" type="submit" id="show-articles-button">Другие материалы</button>
+      <button class="button button--center" type="submit" id="show-articles-button" (click)="showMessage(MessageEnum.ERROR, 'Ошибка, материалов нет')">Другие материалы</button>
     </div>
   </section>
 </main>
 }
+
+<ng-template #message let-message>
+  <div class="template-message">
+    <div class="template-message__container">
+      <p class="template-message__title">{{ message.type }}</p>
+      <p class="template-message__subtitle">{{ message.text }}</p>
+      <button class="close-button-message" id="close-button" type="submit" (click)="closeMessage(message)"></button>
+    </div>
+  </div>
+</ng-template>
+<div class="message-container">
+  @for (notice of messageService.getMessage(); track notice) {
+  <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: notice }"></ng-container>
+  }
+</div>

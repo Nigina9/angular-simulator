@@ -562,3 +562,71 @@
   line-height: 20px;
   color: var(--green-background);
 }
+
+.message-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.template-message {
+  width: 350px;
+  box-sizing: border-box;
+  color: var(--secondary-color);
+  background-color: rgba(15, 23, 42, 0.85);
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  padding: 16px 16px 16px 70px;
+
+  &__container {
+    position: relative;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 716;
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-image: url("/images/icon-message.svg");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      width: 40px;
+      height: 40px;
+      top: 0;
+      left: -54px;
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.close-button-message {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  appearance: none;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background-image: url("/images/icon-close-bt.svg");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-color: #0f172ad9;
+}

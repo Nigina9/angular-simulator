@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Color } from '../enums/Color';
 import './collection';
 import { IOffer } from '../interfaces/IOffer';
@@ -7,22 +7,30 @@ import { ILocation } from '../interfaces/ILocation';
 import { IParticipant } from '../interfaces/IParticipant';
 import { IDestination } from '../interfaces/IDestination';
 import { IArticle } from '../interfaces/IArticle';
+import { NgTemplateOutlet } from '@angular/common';
+import { MessageService } from '../message.service';
+import { Message } from '../enums/Message';
+import { StorageService } from '../storage.service';
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  imports: [FormsModule, NgTemplateOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  providers: [MessageService, StorageService]
 })
 export class AppComponent {
 
+  messageService: MessageService = inject(MessageService);
+  MessageEnum = Message;
+  storageService: StorageService = inject(StorageService);
   companyName: string = 'румтибет';
-  selectedLocation: string = '';
-  selectedDate: string = '';
-  selectedParticipants: string = '';
+  selectedLocation!: string;
+  selectedDate!: string;
+  selectedParticipants!: string;
   currentTimeAndDate: string = new Date().toString();
   counter: number = 0;
-  currentWidget: 'counter' | 'timeAndDate' = 'counter';
-  liveText: string = '';
+  currentWidget!: 'counter' | 'timeAndDate';
+  liveText!: string;
   isLoading: boolean = true;
 
   offers: IOffer[] = [
@@ -158,23 +166,31 @@ export class AppComponent {
     this.finishLoading();
   }
 
+  showMessage(type: Message, text: string): void {
+    this.messageService.addMessage(type, text);
+  }
+
+  closeMessage(message: any): void {
+    this.messageService.closeMessage(message);
+  }
+
   isPrimaryColor(color: Color): boolean {
     return [Color.RED, Color.GREEN, Color.BLUE].includes(color);
   }
 
   saveDateToLocalStorage(): void {
-    localStorage.setItem('date-last-entry', new Date().toString())
+    this.storageService.saveToLocalStorage('date-last-entry', new Date());
   }
 
   saveSessions(): void {
-    const visits: string | null = localStorage.getItem('visit-counter');
+    const visits: string | null = this.storageService.getFromLocalStorage('visit-counter');
     let visitCount: number;
     if (visits === null) {
       visitCount = 1;
     } else {
       visitCount = Number(visits) + 1;
     }
-    localStorage.setItem('visit-counter', visitCount.toString());
+    this.storageService.saveToLocalStorage('visit-counter', visitCount.toString());
   }
 
   showСurrentTimeAndDate(): void {
