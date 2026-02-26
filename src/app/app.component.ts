@@ -10,23 +10,23 @@ import { IArticle } from '../interfaces/IArticle';
 import { NgTemplateOutlet } from '@angular/common';
 import { MessageService } from '../message.service';
 import { Message } from '../enums/Message';
-import { StorageService } from '../storage.service';
+import { LocalStorageService } from '../local-storage.service';
 @Component({
   selector: 'app-root',
   imports: [FormsModule, NgTemplateOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [MessageService, StorageService]
+  providers: [MessageService, LocalStorageService]
 })
 export class AppComponent {
 
   messageService: MessageService = inject(MessageService);
   MessageEnum = Message;
-  storageService: StorageService = inject(StorageService);
+  storageService: LocalStorageService = inject(LocalStorageService);
   companyName: string = 'румтибет';
-  selectedLocation!: string;
-  selectedDate!: string;
-  selectedParticipants!: string;
+  selectedLocation: string = '';
+  selectedDate: string = '';
+  selectedParticipants: string = '';
   currentTimeAndDate: string = new Date().toString();
   counter: number = 0;
   currentWidget!: 'counter' | 'timeAndDate';
