@@ -212,11 +212,11 @@
         @for (article of articles; track article.id) {
           <li class="travel-blog__item">
             <img
-            class="travel-blog__img"
-            [src]="'/images/' + article.img + '.png'"
-            [alt]="article.title"
-            width="230"
-            height="280">
+              class="travel-blog__img"
+              [src]="'/images/' + article.img + '.png'"
+              [alt]="article.title"
+              width="230"
+              height="280">
           <div class="travel-blog__wrapper">
             <div>
               <a href="#" class="travel-blog__link" id="link-article">{{ article.title }}</a>
