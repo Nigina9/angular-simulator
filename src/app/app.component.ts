@@ -11,6 +11,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { MessageService } from '../message.service';
 import { Message } from '../enums/Message';
 import { LocalStorageService } from '../local-storage.service';
+import { IMessage } from '../interfaces/IMessage';
 @Component({
   selector: 'app-root',
   imports: [FormsModule, NgTemplateOutlet],
@@ -21,8 +22,8 @@ import { LocalStorageService } from '../local-storage.service';
 export class AppComponent {
 
   messageService: MessageService = inject(MessageService);
-  MessageEnum = Message;
-  storageService: LocalStorageService = inject(LocalStorageService);
+  messageEnum: typeof Message = Message;
+  localStorageService: LocalStorageService = inject(LocalStorageService);
   companyName: string = 'румтибет';
   selectedLocation: string = '';
   selectedDate: string = '';
@@ -170,7 +171,7 @@ export class AppComponent {
     this.messageService.addMessage(type, text);
   }
 
-  closeMessage(message: any): void {
+  closeMessage(message: IMessage): void {
     this.messageService.closeMessage(message);
   }
 
@@ -179,18 +180,18 @@ export class AppComponent {
   }
 
   saveDateToLocalStorage(): void {
-    this.storageService.saveToLocalStorage('date-last-entry', new Date());
+    this.localStorageService.saveValue('date-last-entry', new Date());
   }
 
   saveSessions(): void {
-    const visits: string | null = this.storageService.getFromLocalStorage('visit-counter');
+    const visits: string | null = this.localStorageService.getValue('visit-counter');
     let visitCount: number;
     if (visits === null) {
       visitCount = 1;
     } else {
       visitCount = Number(visits) + 1;
     }
-    this.storageService.saveToLocalStorage('visit-counter', visitCount.toString());
+    this.localStorageService.saveValue('visit-counter', visitCount.toString());
   }
 
   showСurrentTimeAndDate(): void {

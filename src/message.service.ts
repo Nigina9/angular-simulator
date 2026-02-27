@@ -6,7 +6,7 @@ import { Message } from './enums/Message';
 export class MessageService {
 
   private messages: IMessage[] = [];
-  
+
   getMessage(): IMessage[] {
     return this.messages;
   }
@@ -20,4 +20,5 @@ export class MessageService {
   closeMessage(message: IMessage): void {
     this.messages = this.messages.filter((currentMessage: IMessage) => currentMessage !== message);
   }
+  
 }

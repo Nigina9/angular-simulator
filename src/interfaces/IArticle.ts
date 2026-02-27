@@ -1,4 +1,4 @@
-export interface IArticle  {
+export interface IArticle {
   id: number;
   title: string;
   decription: string;
