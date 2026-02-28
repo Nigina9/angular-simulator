@@ -19,4 +19,5 @@ export class LocalStorageService {
   clearAll(): void {
     localStorage.clear();
   }
+  
 }
