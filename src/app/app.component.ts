@@ -1,27 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Color } from '../enums/Color';
 import './collection';
 import { IOffer } from '../interfaces/IOffer';
 import { FormsModule } from '@angular/forms';
 import { ILocation } from '../interfaces/ILocation';
 import { IParticipant } from '../interfaces/IParticipant';
-
+import { IDestination } from '../interfaces/IDestination';
+import { IArticle } from '../interfaces/IArticle';
+import { NgTemplateOutlet } from '@angular/common';
+import { MessageService } from '../message.service';
+import { Message } from '../enums/Message';
+import { LocalStorageService } from '../local-storage.service';
+import { IMessage } from '../interfaces/IMessage';
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  imports: [FormsModule, NgTemplateOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  providers: [MessageService, LocalStorageService]
 })
 export class AppComponent {
 
+  messageService: MessageService = inject(MessageService);
+  messageEnum: typeof Message = Message;
+  localStorageService: LocalStorageService = inject(LocalStorageService);
   companyName: string = 'румтибет';
   selectedLocation: string = '';
   selectedDate: string = '';
   selectedParticipants: string = '';
   currentTimeAndDate: string = new Date().toString();
   counter: number = 0;
-  currentWidget:  'counter' | 'timeAndDate' = 'counter';
-  liveText: string = '';
+  currentWidget!: 'counter' | 'timeAndDate';
+  liveText!: string;
   isLoading: boolean = true;
 
   offers: IOffer[] = [
@@ -91,6 +101,64 @@ export class AppComponent {
     },
   ];
 
+  destinations: IDestination[] = [
+    {
+      id: 1,
+      title: 'Озеро возле гор',
+      description: 'романтическое приключение',
+      price: 480,
+      rating: '4.9',
+      img: 'lake',
+    },
+    {
+      id: 2,
+      title: 'Ночь в горах',
+      description: 'в компании друзей',
+      price: 500,
+      rating: '4.5',
+      img: 'night-mountains',
+    },
+    {
+      id: 3,
+      title: 'Йога в горах',
+      description: 'для тех, кто забоится о себе',
+      price: 230,
+      rating: '5.0',
+      img: 'stretching',
+    }
+  ];
+
+  articles: IArticle[] = [
+    {
+      id: 1,
+      title: 'Красивая Италия, какая она в реальности?',
+      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      publication: '01/04/2023',
+      img: 'italy'
+    },
+    {
+      id: 2,
+      title: 'Долой сомнения! Весь мир открыт для вас!',
+      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      publication: '01/04/2023',
+      img: 'plane'
+    },
+    {
+      id: 3,
+      title: 'Как подготовиться к путешествию в одиночку?',
+      decription: 'Для современного мира базовый вектор развития предполагает.',
+      publication: '01/04/2023',
+      img: 'woman'
+    },
+    {
+      id: 4,
+      title: 'Индия ... летим?',
+      decription: 'Для современного мира базовый.',
+      publication: '01/04/2023',
+      img: 'india'
+    }
+  ];
+
   constructor() {
     this.saveDateToLocalStorage();
     this.saveSessions();
@@ -99,23 +167,31 @@ export class AppComponent {
     this.finishLoading();
   }
 
+  showMessage(type: Message, text: string): void {
+    this.messageService.addMessage(type, text);
+  }
+
+  closeMessage(message: IMessage): void {
+    this.messageService.closeMessage(message);
+  }
+
   isPrimaryColor(color: Color): boolean {
     return [Color.RED, Color.GREEN, Color.BLUE].includes(color);
   }
 
   saveDateToLocalStorage(): void {
-    localStorage.setItem('date-last-entry', new Date().toString())
+    this.localStorageService.saveValue('date-last-entry', new Date());
   }
 
   saveSessions(): void {
-    const visits: string | null = localStorage.getItem('visit-counter');
+    const visits: string | null = this.localStorageService.getValue('visit-counter');
     let visitCount: number;
     if (visits === null) {
       visitCount = 1;
     } else {
       visitCount = Number(visits) + 1;
     }
-    localStorage.setItem('visit-counter', visitCount.toString());
+    this.localStorageService.saveValue('visit-counter', visitCount.toString());
   }
 
   showСurrentTimeAndDate(): void {
@@ -138,8 +214,8 @@ export class AppComponent {
 
   finishLoading(): void {
     setTimeout(() => {
-     this.isLoading = false;
+      this.isLoading = false;
     }, 3000);
-}
+  }
 
 }
