@@ -34,7 +34,7 @@
             <a class="navigation__link" href="#" id="contacts">Контакты</a>
           </li>
         </ul>
-        <button class="button" type="button" id="consultation-button">Консультация</button>
+        <button class="button button--white" type="button" id="consultation-button">Консультация</button>
       </nav>
     </div>
     <div class="functional">
@@ -42,16 +42,16 @@
         @if (currentWidget === 'timeAndDate') {
         <div class="time-date-wrapper">
           <p class="current-time">{{ currentTimeAndDate }}</p>
-          <button class="button" (click)="switchWidget('counter')" id="date-toggle-button">Показать счётчик</button>
+          <button class="button button--white" (click)="switchWidget('counter')" id="date-toggle-button">Показать счётчик</button>
         </div>
         } @else {
         <div class="count">
           <div class="count__wrapper">
-            <button (click)="increaseCounter()" class="button" id="increase-button">+</button>
+            <button (click)="increaseCounter()" class="button button--white" id="increase-button">+</button>
             <p class="number">{{ counter }}</p>
-            <button (click)="reduceCounter()" class="button" [disabled]="counter === 0" id="reduce-button">-</button>
+            <button (click)="reduceCounter()" class="button button--white" [disabled]="counter === 0" id="reduce-button">-</button>
           </div>
-          <button class="button" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
+          <button class="button button--white" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
         </div>
         }
       </div>
@@ -71,7 +71,7 @@
                 required>
                 <option class="field__option" value="" disabled selected>Локация для тура</option>
                 @for (location of locations; track location.id) {
-                  <option class="field__option" [value]="location.value">{{ location.location }}</option>
+                <option class="field__option" [value]="location.value">{{ location.location }}</option>
                 }
               </select>
             </label>
@@ -83,20 +83,18 @@
           </li>
           <li class="form__item">
             <label>
-              <select [(ngModel)]="selectedParticipants" class="field field--select field--participants" id="participants" name="participants">
+              <select [(ngModel)]="selectedParticipants" class="field field--select field--participants"
+                id="participants" name="participants">
                 <option class="field__option" value="" disabled selected>Участники</option>
                 @for (quantity of participants; track quantity.id) {
-                  <option class="field__option" [value]="quantity.value">{{ quantity.quantity }} участников</option>
+                <option class="field__option" [value]="quantity.value">{{ quantity.quantity }} участников</option>
                 }
               </select>
             </label>
             <span class="description-field">минимум 4 человека</span>
           </li>
         </ul>
-        <button
-          (click)="showMessage(messageEnum.SUCCESS, 'Успешно')"
-          class="button button-form"
-          type="submit"
+        <button (click)="showMessage(messageEnum.SUCCESS, 'Успешно')" class="button button-form" type="submit"
           id="buttom-form" [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
           Найти программу
         </button>
@@ -119,13 +117,14 @@
           <img src="/images/house-mountains.png" width="350" height="400" class="history__img">
         </div>
         <div class="history__about-hike">
-          <h2 class="main-titLe">о нашем походе</h2>
+          <h2 class="main-title">о нашем походе</h2>
           <h3 class="main-subtile">Исследуйте все горные массивы мира вместе с нами</h3>
           <p class="description">Его корни уходят в&nbsp;один фрагмент классической латыни 45&nbsp;года н.э.,
             то&nbsp;есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа
             Hampden-Sydney, штат Вирджиния, взял одно из&nbsp;самых странных слов в&nbsp;Lorem Ipsum,
             &quot;consectetur&quot;и занялся его поисками в&nbsp;классической латинской литературе.</p>
-          <button class="button" type="submit" id="tour-program-button" (click)="showMessage(messageEnum.WARN, 'Программа недоступна')">Программа тура</button>
+          <button class="button" type="submit" id="tour-program-button"
+            (click)="showMessage(messageEnum.WARN, 'Программа недоступна')">Программа тура</button>
         </div>
       </div>
     </div>
@@ -135,29 +134,24 @@
     <div class="container">
       <div class="advantages__wrapper">
         <div>
-          <h2 class="main-titLe">наше предложение</h2>
+          <h2 class="main-title">наше предложение</h2>
           <h3 class="main-subtile">Лучшие программы для тебя</h3>
           <p class="description">Его корни уходят в&nbsp;один фрагмент классической латыни 45&nbsp;года н.э.,
             то&nbsp;есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа.</p>
           <ul class="list-none advantages__list">
             @for (offer of offers; track offer.id) {
-              <li class="advantages__item">
-                <img
-                [src]="'/images/' + offer.img + '.svg'" class="advantanges__icon"
-                width="50"
-                height="50"
-                [alt]="offer.title">
-               <div>
-                  <h3 class="advantages__title">{{ offer.title }}</h3>
-                  <p class="advantages__description">{{ offer.description }}</p>
-               </div>
-              </li>
+            <li class="advantages__item">
+              <img [src]="'/images/' + offer.img + '.svg'" class="advantanges__icon" width="50" height="50" [alt]="offer.title">
+              <div>
+                <h3 class="advantages__title">{{ offer.title }}</h3>
+                <p class="advantages__description">{{ offer.description }}</p>
+              </div>
+            </li>
             }
           </ul>
           <button
             class="button"
-            type="button"
-            id="program-cost-button"
+            type="button" id="program-cost-button"
             (click)="showMessage(messageEnum.INFO, 'Программа отправлена на почту')">
             Стоимость программ
           </button>
@@ -172,32 +166,29 @@
     </div>
   </section>
 
-<section class="popular-tours">
-  <div class="container">
-    <h2 class="main-titLe">по версии отдыхающих</h2>
-    <h3 class="main-subtile">Популярные направления</h3>
-    <ul class="list-none popular-tours__list">
-      @for (destination of destinations; track destination.id) {
+  <section class="popular-tours">
+    <div class="container">
+      <h2 class="main-title">по версии отдыхающих</h2>
+      <h3 class="main-subtile">Популярные направления</h3>
+      <ul class="list-none popular-tours__list">
+        @for (destination of destinations; track destination.id) {
         <li class="popular-tours__item">
           <img [src]="'/images/' + destination.img + '.png'" [alt]="destination.title" width="380" height="500">
           <div class="popular-tours__wrapper">
             <div>
               <h3 class="tour-title">{{ destination.title }}</h3>
               <p class="tour-description">{{ destination.description }}</p>
+            </div>
+            <div class="tour-price">{{ destination.price }} &dollar;</div>
           </div>
-          <div class="tour-price">{{ destination.price }} &dollar;</div>
-        </div>
-        <div class="rating-wrapper">
-          <span class="tour-rating-icon"></span>
-          <span class="tour-rating">{{ destination.rating }}</span>
-        </div>
-       </li>
-      }
-    </ul>
-      <button
-        class="button button--center"
-        type="submit"
-        id="rating-button"
+          <div class="rating-wrapper">
+            <span class="tour-rating-icon"></span>
+            <span class="tour-rating">{{ destination.rating }}</span>
+          </div>
+        </li>
+        }
+      </ul>
+      <button class="button button--center" type="submit" id="rating-button"
         (click)="showMessage(messageEnum.SUCCESS, 'Рейтинг получен')">
         Рейтинг направлений
       </button>
@@ -206,17 +197,12 @@
 
   <section class="travel-blog">
     <div class="container">
-      <h2 class="main-titLe">делимся впечатлениями</h2>
+      <h2 class="main-title">делимся впечатлениями</h2>
       <h3 class="main-subtile ">Блог о путешествиях</h3>
       <ul class="list-none travel-blog__list">
         @for (article of articles; track article.id) {
-          <li class="travel-blog__item">
-            <img
-              class="travel-blog__img"
-              [src]="'/images/' + article.img + '.png'"
-              [alt]="article.title"
-              width="230"
-              height="280">
+        <li class="travel-blog__item">
+          <img class="travel-blog__img" [src]="'/images/' + article.img + '.png'" [alt]="article.title" width="230" height="280">
           <div class="travel-blog__wrapper">
             <div>
               <a href="#" class="travel-blog__link" id="link-article">{{ article.title }}</a>
@@ -232,14 +218,118 @@
       </ul>
       <button
         class="button button--center"
-        type="submit"
-        id="show-articles-button"
+        type="submit" id="show-articles-button"
         (click)="showMessage(messageEnum.ERROR, 'Ошибка, материалов нет')">
         Другие материалы
       </button>
     </div>
   </section>
+
+  <section class="photo-report">
+    <div class="container">
+      <h2 class="main-title">фото-отчет</h2>
+      <h3 class="main-subtile ">Делимся впечатлениями</h3>
+      <ul class="list-none photo-report__list">
+        @for (photo of images; track photo.id) {
+        <li class="photo-report__item">
+          <img [src]="'/images/' + photo.image + '.png'" [alt]="photo.image">
+        </li>
+        }
+      </ul>
+      <button id="pinterest-button" class="button button--center" type="submit" (click)="showMessage(messageEnum.SUCCESS, 'Успех')">Наш pinterest</button>
+    </div>
+  </section>
 </main>
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="promo">
+      <div class="promo__wrapper">
+        <h2 class="promo__title">актуально</h2>
+        <h3 class="promo__subtitle ">Получайте полезные рассылки о путешествиях</h3>
+      </div>
+      <form class="form-email" id="form-email">
+        <div class="form-email__container">
+          <div class="form-email__wrapper">
+            <label for="email" class="form-email__title">Введите e-mail адрес</label>
+            <input class="form-email__input" type="email" id="email" name="email" placeholder="name@domain.com"
+              required>
+          </div>
+          <button type="submit" class="button email-button" id="subscribe-button">Подписаться на новости</button>
+        </div>
+        <p class="personal-data">подписываясь на новости, вы автоматически соглашаетесь с условиями обработки
+          персональных данных и правилами рекламных рассылок</p>
+      </form>
+    </div>
+    <div class="page-footer__wrapper">
+      <div class="contacts">
+        <h2 class="contacts__title">Компания «РумТибет»</h2>
+        <p class="contacts__description">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть
+          более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney.</p>
+        <div class="contacts__tel-email">
+          <a class="contacts__email" href="mailto:info@domain.com" id="link-email">info@domain.com</a>
+          <a class="contacts__tel" href="tel:+71234567890" id="link-tel">+7 (123) 456-78-90</a>
+        </div>
+        <ul class="list-none social-contacts">
+          <li class="social-contacts__item">
+            <a href="https://telegram.org/desktop">
+              <img src="/images/icon-telegram.svg" width="27" height="27">
+              <span class="visually-hidden">Телеграмм</span>
+            </a>
+          </li>
+          <li class="social-contacts__item">
+            <a href="https://vk.com/">
+              <img src="/images/icon-vk.svg" width="27" height="27">
+              <span class="visually-hidden">ВК</span>
+            </a>
+          </li>
+          <li class="social-contacts__item">
+            <a href="https://ru.pinterest.com/ideas/">
+              <img src="/images/icon-pinterest.svg" width="27" height="27">
+              <span class="visually-hidden">Пинтерест</span>
+            </a>
+          </li>
+          <li class="social-contacts__item">
+            <a href="https://teams.live.com/free">
+              <img src="/images/icon-skype.svg" width="27" height="27">
+              <span class="visually-hidden">Скайп</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sevrvices-information-container">
+        <div class="services">
+          <h3 class="sevrvices-information-title">Наши услуги</h3>
+          <ul class="list-none list">
+            <li class="list-item">Прогулки в горы летом</li>
+            <li class="list-item">Зимние походы в горы</li>
+            <li class="list-item">Посещение храмов в горах</li>
+            <li class="list-item">Экстремальные виды туризма</li>
+            <li class="list-item">Походы в джунглях Амазонии</li>
+            <li class="list-item">Поездка в Африку</li>
+          </ul>
+        </div>
+        <div class="information">
+          <h3 class="sevrvices-information-title">Важно для путешествий</h3>
+          <ul class="list-none list">
+            <li class="list-item">Как собрать в долгий поход?</li>
+            <li class="list-item">Жизненно важные предметы для похода</li>
+            <li class="list-item">Медицинская страховка, гарантии безопасности</li>
+            <li class="list-item">Если вы врач - загляните сюда</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright">
+    <div class="container copyright__container">
+      <span class="copyright__author">ИП Константинопольский К.К., 2023</span>
+      <a class="copyright__personal-data" id="personal-data" href="#">Политика обработки персональных данных</a>
+    </div>
+  </div>
+</footer>
 }
 
 <ng-template #message let-message>
@@ -253,6 +343,6 @@
 </ng-template>
 <div class="message-container">
   @for (notice of messageService.getMessage(); track notice) {
-    <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: notice }"></ng-container>
+  <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: notice }"></ng-container>
   }
 </div>

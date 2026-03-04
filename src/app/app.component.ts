@@ -12,6 +12,7 @@ import { MessageService } from '../message.service';
 import { Message } from '../enums/Message';
 import { LocalStorageService } from '../local-storage.service';
 import { IMessage } from '../interfaces/IMessage';
+import { IReport } from '../interfaces/IReport';
 @Component({
   selector: 'app-root',
   imports: [FormsModule, NgTemplateOutlet],
@@ -157,6 +158,34 @@ export class AppComponent {
       publication: '01/04/2023',
       img: 'india'
     }
+  ];
+
+  images: IReport[] = [
+    {
+      id: 1,
+      image: 'photographer'
+    },
+    {
+      id: 2,
+      image: 'map'
+    },
+    {
+      id: 3,
+      image: 'dubai'
+    },
+    {
+      id: 4,
+      image: 'sea'
+    },
+    {
+      id: 5,
+      image: 'canyon'
+    },
+    {
+      id: 6,
+      image: 'notepad'
+    }
+
   ];
 
   constructor() {
