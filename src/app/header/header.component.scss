@@ -1,0 +1,99 @@
+.header {
+  color: var(--secondary-color);
+  background-color: #18121E80;
+  box-shadow: 0px 2px 4px 0px #00000040;
+  position: relative;
+  z-index: 10;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-name {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.list-none {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation {
+  display: flex;
+  gap: 46px;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  &__item {
+    padding: 9px 0;
+  }
+
+  &__link {
+    color: var(--secondary-color);
+    font-weight: 600;
+    line-height: 25px;
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+
+    &--active {
+      text-decoration: underline;
+      color: var(--green-background);
+    }
+  }
+}
+
+.functional {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.time-date-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.count__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.number {
+  margin: 0;
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.current-time {
+  font-size: 20px;
+  margin: 13px 0 0 0;
+}

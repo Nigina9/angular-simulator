@@ -1,0 +1,53 @@
+<header class="header">
+  <div class="container">
+    <div class="header-wrapper">
+      <div class="logo-wrapper">
+        <img src="/images/logo.svg" alt="Логотип сайта" width="137" height="28">
+        <span class="company-name">{{ companyName }}</span>
+      </div>
+      <nav class="navigation">
+        <ul class="list-none navigation__list">
+          @for (item of navList; track item.id) {
+            <li class="navigation__item">
+              <a
+                routerLinkActive="navigation__link--active"
+                [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+                [routerLink]="item.path"
+                class="navigation__link"
+                href="#"
+                id="link-nav">
+                {{ item.navItem }}
+              </a>
+            </li>
+          }
+        </ul>
+        <button
+          class="button button--white"
+          type="button" id="consultation-button"
+          (click)="messageService.showInfo('Ожидайте звонок от менеджера')">
+          Консультация
+        </button>
+      </nav>
+    </div>
+    
+    <div class="functional">
+      <div>
+        @if (currentWidget === 'timeAndDate') {
+        <div class="time-date-wrapper">
+          <p class="current-time">{{ currentTimeAndDate }}</p>
+          <button class="button button--white" (click)="switchWidget('counter')" id="date-toggle-button">Показать счётчик</button>
+        </div>
+        } @else {
+        <div class="count">
+          <div class="count__wrapper">
+            <button (click)="increaseCounter()" class="button button--white" id="increase-button">+</button>
+            <p class="number">{{ counter }}</p>
+            <button (click)="reduceCounter()" class="button button--white" [disabled]="counter === 0" id="reduce-button">-</button>
+          </div>
+          <button class="button button--white" (click)="switchWidget('timeAndDate')" id="count-toggle-button">Показать дату и время</button>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</header>
