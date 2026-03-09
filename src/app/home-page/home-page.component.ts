@@ -8,7 +8,6 @@ import { IArticle } from '../../interfaces/IArticle';
 import { IReport } from '../../interfaces/IReport';
 import { MessageService } from '../../message.service';
 import { inject } from '@angular/core';
-import { LocalStorageService } from '../../local-storage.service';
 
 @Component({
   selector: 'app-home-page',
@@ -19,7 +18,6 @@ import { LocalStorageService } from '../../local-storage.service';
 export class HomePageComponent {
 
   messageService: MessageService = inject(MessageService);
-  localStorageService: LocalStorageService = inject(LocalStorageService);
   selectedLocation: string = '';
   selectedDate: string = '';
   selectedParticipants: string = '';
@@ -176,25 +174,5 @@ export class HomePageComponent {
       image: 'notepad'
     }
   ];
-
-  constructor() {
-    this.saveDateToLocalStorage();
-    this.saveSessions();
-  }
-
-  saveDateToLocalStorage(): void {
-    this.localStorageService.saveValue('date-last-entry', new Date());
-  }
-
-  saveSessions(): void {
-    const visits: string | null = this.localStorageService.getValue('visit-counter');
-    let visitCount: number;
-    if (visits === null) {
-      visitCount = 1;
-    } else {
-      visitCount = Number(visits) + 1;
-    }
-    this.localStorageService.saveValue('visit-counter', visitCount.toString());
-  }
 
 }

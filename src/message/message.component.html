@@ -14,7 +14,7 @@
 </ng-template>
 
 <div class="message-container">
-  @for (notice of messageService.getMessage(); track notice) {
-    <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: notice }"></ng-container>
+  @for (newMessage of messageService.getMessage(); track newMessage) {
+    <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: newMessage }"></ng-container>
   }
 </div>
