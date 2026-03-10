@@ -6,7 +6,7 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  padding: 12px 24px;
+  padding: 12px 36px;
   border-radius: 4px;
   color: #fdfdfd;
   transition: all 0.3s ease;
@@ -25,5 +25,10 @@
 
   &--center {
     margin: 0 auto;
+  }
+
+  &--white {
+    background-color: #FDFDFD;
+    color: var(--green-background);
   }
 }

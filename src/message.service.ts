@@ -11,10 +11,26 @@ export class MessageService {
     return this.messages;
   }
 
-  addMessage(type: Message, text: string): void {
+  private addMessage(type: Message, text: string): void {
     const newMessage: IMessage = { type, text }
     this.messages = [newMessage, ...this.messages];
     setTimeout(() => this.closeMessage(newMessage), 5000);
+  }
+
+  showWarn(text: string): void {
+    this.addMessage(Message.WARN, text);
+  }
+
+  showError(text: string): void {
+    this.addMessage(Message.ERROR, text);
+  }
+
+  showSuccess(text: string): void {
+    this.addMessage(Message.SUCCESS, text);
+  }
+
+  showInfo(text: string): void {
+    this.addMessage(Message.INFO, text);
   }
 
   closeMessage(message: IMessage): void {

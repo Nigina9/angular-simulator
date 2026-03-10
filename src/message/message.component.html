@@ -1,0 +1,20 @@
+<ng-template #message let-message>
+  <div class="template-message">
+    <div class="template-message__container">
+      <p class="template-message__title">{{ message.type }}</p>
+      <p class="template-message__subtitle">{{ message.text }}</p>
+      <button
+        class="close-button-message"
+        id="close-button"
+        type="submit"
+        (click)="messageService.closeMessage(message)">
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<div class="message-container">
+  @for (newMessage of messageService.getMessage(); track newMessage) {
+    <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: newMessage }"></ng-container>
+  }
+</div>
