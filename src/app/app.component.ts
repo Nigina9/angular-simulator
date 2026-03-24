@@ -52,5 +52,5 @@ export class AppComponent {
     }
     this.localStorageService.saveValue('visit-counter', visitCount.toString());
   }
-  
+
 }
