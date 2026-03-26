@@ -3,7 +3,9 @@ import { IMessage } from '../interfaces/IMessage';
 import { Message } from '../enums/Message';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class MessageService {
 
   private messageSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]);
@@ -13,7 +15,7 @@ export class MessageService {
     const newMessage: IMessage = { type, text }
     const currentMessage: IMessage[] = this.messageSubject.getValue()
     const messages: IMessage[] = [newMessage, ...currentMessage];
-    this.messageSubject.next(messages)
+    this.messageSubject.next(messages);
     setTimeout(() => this.closeMessage(newMessage), 5000);
 }
 
