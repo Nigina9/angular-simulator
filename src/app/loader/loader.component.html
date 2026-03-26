@@ -1,1 +1,8 @@
-<p>loader works!</p>
+@let loader = loaderService.loader$| async;
+@if (loader) {
+  <div class="preloader">
+    <div class="preloader__loading-block">
+      <div class="loader"></div>
+    </div>
+  </div>
+}
