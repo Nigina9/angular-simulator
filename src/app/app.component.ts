@@ -8,10 +8,11 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterOutlet } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, FooterComponent, HeaderComponent, RouterOutlet, MessageComponent],
+  imports: [FormsModule, FooterComponent, HeaderComponent, RouterOutlet, MessageComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [MessageService, LocalStorageService]

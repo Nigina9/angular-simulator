@@ -19,20 +19,19 @@ export class UserService {
     this.userSubject.next(users);
   }
 
-  getUsers(): Observable<IUser[]> {
-   return this.users$;
+  getUsers(): IUser[] {
+    return this.userSubject.getValue();
   }
 
-  loadUsers() {
+  loadUsers(): void {
     this.loaderService.showLoader();
     this.userApi.getUsers()
       .pipe(
-        delay(3000),
-        catchError((error) => {
+        catchError((error): Observable<IUser[]> => {
           this.messageService.showError('Нет пользователей для отображения');
           return of([]);
         }),
-        finalize(() =>this.loaderService.hideLoader()),
+        finalize((): void => this.loaderService.hideLoader()),
         tap(users => this.setUsers(users))
       ).subscribe();
   }

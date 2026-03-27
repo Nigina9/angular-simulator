@@ -69,7 +69,7 @@
     }
   }
 
-  &__list {
+  &__section {
     display: grid;
     gap: 9px;
     margin-bottom: 24px;
@@ -99,7 +99,7 @@
   margin-bottom: 26px;
 }
 
-.item {
+.user-card__wrapper {
   display: flex;
   justify-content: space-between;
 }
@@ -145,4 +145,3 @@
 .text {
   margin: 0;
 }
-
