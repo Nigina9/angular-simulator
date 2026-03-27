@@ -15,7 +15,7 @@ import { LoaderComponent } from './loader/loader.component';
   imports: [FormsModule, FooterComponent, HeaderComponent, RouterOutlet, MessageComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [MessageService, LocalStorageService]
+  providers: []
 })
 export class AppComponent {
 

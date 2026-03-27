@@ -9,12 +9,12 @@ export class LoaderService {
   private loaderSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   loader$: Observable<boolean> = this.loaderSubject.asObservable();
 
-  showLoader() {
+  showLoader(): void {
     this.loaderSubject.next(true);
   }
 
-  hideLoader() {
+  hideLoader(): void {
     this.loaderSubject.next(false);
   }
-  
+
 }

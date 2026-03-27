@@ -8,11 +8,11 @@ import { IUser } from '../interfaces/IUser';
 })
 export class UserApiService {
 
- http: HttpClient = inject(HttpClient);
- apiUrl: string = 'https://jsonplaceholder.typicode.com/users';
+  http: HttpClient = inject(HttpClient);
+  apiUrl: string = 'https://jsonplaceholder.typicode.com/users';
 
- getUsers(): Observable<IUser[]> {
-  return this.http.get<IUser[]>(this.apiUrl);
- }
+  getUsers(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(this.apiUrl);
+  }
 
 }
