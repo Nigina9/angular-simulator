@@ -9,11 +9,12 @@ import { MessageService } from './message.service';
   providedIn: 'root',
 })
 export class UserService {
+
+  loaderService: LoaderService = inject(LoaderService);
+  messageService: MessageService = inject(MessageService);
+  userApi:UserApiService = inject(UserApiService);
   private userSubject: BehaviorSubject<IUser[]>= new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.userSubject.asObservable();
-  loaderService: LoaderService = inject(LoaderService);
-  userApi:UserApiService = inject(UserApiService);
-  messageService: MessageService = inject(MessageService);
 
   setUsers(users: IUser[]) {
     this.userSubject.next(users);

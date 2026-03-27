@@ -1,10 +1,9 @@
-@let users = userService.users$| async;
 <section class="section-user-page">
   <div class="container user-page">
     <h1 class="user-page__title">Страница пользоватей</h1>
 
     <ul class="list-none user-card">
-      @for (user of users; track user.id) {
+      @for (user of userService.users$ | async; track user.id) {
         <li class="user-card__item">
           <h2 class="user-card__title">{{ user.name }}</h2>
           <p class="user-card__username color-yellow">{{ user.username }}</p>

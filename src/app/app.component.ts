@@ -20,23 +20,15 @@ import { LoaderComponent } from './loader/loader.component';
 export class AppComponent {
 
   localStorageService: LocalStorageService = inject(LocalStorageService);
-  isLoading: boolean = true;
 
   constructor() {
     this.isPrimaryColor(Color.RED);
-    this.finishLoading();
     this.saveDateToLocalStorage();
     this.saveSessions();
   }
 
   isPrimaryColor(color: Color): boolean {
     return [Color.RED, Color.GREEN, Color.BLUE].includes(color);
-  }
-
-  finishLoading(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
   }
 
   saveDateToLocalStorage(): void {
