@@ -12,11 +12,12 @@ export class UserService {
 
   loaderService: LoaderService = inject(LoaderService);
   messageService: MessageService = inject(MessageService);
-  userApi:UserApiService = inject(UserApiService);
+
+  userApi: UserApiService = inject(UserApiService);
   private userSubject: BehaviorSubject<IUser[]>= new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.userSubject.asObservable();
 
-  setUsers(users: IUser[]) {
+  setUsers(users: IUser[]): void {
     this.userSubject.next(users);
   }
 
@@ -32,7 +33,7 @@ export class UserService {
           this.messageService.showError('Нет пользователей для отображения');
           return of([]);
         }),
-        finalize((): void => this.loaderService.hideLoader()),
+        finalize(() => this.loaderService.hideLoader()),
         tap(users => this.setUsers(users))
       ).subscribe();
   }
