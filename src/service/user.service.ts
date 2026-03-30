@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, finalize, Observable, of, tap, delay } from 'rxjs';
+import { BehaviorSubject, catchError, finalize, Observable, of } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 import { LoaderService } from './loader.service';
 import { UserApiService } from './user-api.service';
@@ -13,7 +13,7 @@ export class UserService {
   loaderService: LoaderService = inject(LoaderService);
   messageService: MessageService = inject(MessageService);
   userApi: UserApiService = inject(UserApiService);
-  
+
   private userSubject: BehaviorSubject<IUser[]>= new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.userSubject.asObservable();
 
@@ -25,17 +25,16 @@ export class UserService {
     return this.userSubject.getValue();
   }
 
-  loadUsers(): void {
+  loadUsers(): Observable<IUser[]> {
     this.loaderService.showLoader();
-    this.userApi.getUsers()
+    return this.userApi.getUsers()
       .pipe(
-        catchError((error): Observable<IUser[]> => {
+        catchError((error) => {
           this.messageService.showError('Нет пользователей для отображения');
           return of([]);
         }),
         finalize(() => this.loaderService.hideLoader()),
-        tap(users => this.setUsers(users))
-      ).subscribe();
+      )
   }
 
 }
