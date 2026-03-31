@@ -29,7 +29,7 @@ export class UserService {
     this.loaderService.showLoader();
     return this.userApi.getUsers()
       .pipe(
-        catchError((error) => {
+        catchError(() => {
           this.messageService.showError('Нет пользователей для отображения');
           return of([]);
         }),
