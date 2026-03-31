@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { INavigation } from '../../interfaces/INavigation';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
-import { MessageService } from '../../message.service';
+import { MessageService } from '../../service/message.service';
 import { inject } from '@angular/core';
 
 

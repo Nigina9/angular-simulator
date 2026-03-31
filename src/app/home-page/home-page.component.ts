@@ -6,7 +6,7 @@ import { IDestination } from '../../interfaces/IDestination';
 import { IOffer } from '../../interfaces/IOffer';
 import { IArticle } from '../../interfaces/IArticle';
 import { IReport } from '../../interfaces/IReport';
-import { MessageService } from '../../message.service';
+import { MessageService } from '../../service/message.service';
 import { inject } from '@angular/core';
 
 @Component({
