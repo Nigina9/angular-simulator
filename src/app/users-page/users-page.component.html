@@ -1,6 +1,6 @@
 <section class="section-user-page">
   <div class="container user-page">
-    <h1 class="user-page__title">Страница пользоватей</h1>
+    <h1 class="user-page__title">Список пользоватей</h1>
 
     <ul class="list-none user-card">
       @for (user of userService.users$ | async; track user.id) {
