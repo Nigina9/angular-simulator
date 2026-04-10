@@ -38,7 +38,7 @@ export class CreateUserComponent {
   })
 
   onSubmit(): void {
-    if(this.registrationForm.valid) {
+    if (this.registrationForm.valid) {
       if (!this.registrationForm.value.website) {
         this.registrationForm.patchValue({
           website: this.unknownValue

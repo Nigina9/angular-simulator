@@ -17,7 +17,7 @@ export class UserService {
   private userSubject: BehaviorSubject<IUser[]>= new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.userSubject.asObservable();
 
-  saveUsersToStorage (users: IUser[]) {
+  saveUsersToStorage(users: IUser[]) {
     localStorage.setItem('users', JSON.stringify(users));
   }
 
@@ -62,7 +62,7 @@ export class UserService {
     this.saveUsersToStorage(this.userSubject.getValue());
   }
 
-  addNewUser(user: IUser) {
+  addNewUser(user: IUser): void {
     const currentValues: IUser[] = this.userSubject.getValue();
     this.userSubject.next([...currentValues, user,]);
     this.saveUsersToStorage(this.userSubject.getValue());

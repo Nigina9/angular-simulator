@@ -16,7 +16,7 @@ export class UsersPageComponent implements OnInit {
 
   userService: UserService = inject(UserService);
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.userService.loadUsers()
       .pipe(
         tap((users: IUser[]) => this.userService.setUsers(users)),

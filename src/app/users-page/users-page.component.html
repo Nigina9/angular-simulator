@@ -2,14 +2,19 @@
   <div class="container user-page">
     <app-create-user (newUser)="onCreateUser($event)"></app-create-user>
     <h1 class="user-page__title">Список пользоватей</h1>
-    <button class="button mb26" (click)="refreshUsers()">Обновить данные</button>
+    <button
+      class="button mb26"
+      (click)="refreshUsers()"
+      id="update-data">
+      Обновить данные
+    </button>
     <ul class="list-none user-card">
       @for (user of userService.users$ | async; track user.id) {
         <app-user-card [user]="user" (deleteUser)="onDeleteUser($event)"></app-user-card>
       } @empty {
-        <div class="message-not-users">
-          <p class="text">Нет пользователей для отображения</p>
-        </div>
+          <div class="message-not-users">
+            <p class="text">Нет пользователей для отображения</p>
+          </div>
       }
     </ul>
 
