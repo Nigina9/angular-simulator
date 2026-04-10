@@ -10,7 +10,7 @@ export interface IUser {
     zipcode: string;
     geo: {
       lat: string;
-       lng: string;
+      lng: string;
     }
   }
   phone: string;

@@ -1,0 +1,51 @@
+.registration-user {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.registration-form {
+  background-color: #fff;
+  border-top: 4px solid #d4a373;
+  box-shadow: 0 10px 30px 0 rgba(8, 8, 8, 0.06);
+  border-radius: 8px;
+  display: grid;
+  gap: 15px;
+  padding: 30px;
+  box-sizing: border-box;
+
+  &__title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 115%;
+    color: #1d3939;
+    margin: 0;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+  }
+}
+
+.grid-group {
+  display: grid;
+  gap: 15px;
+}
+
+.input-field {
+  cursor: pointer;
+  padding: 8px;
+  margin: 0;
+  border: 0;
+  background-color: var(--grey-background);
+  border-radius: 6px;
+}
+
+.geo-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
