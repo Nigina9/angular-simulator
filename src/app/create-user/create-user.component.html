@@ -1,90 +1,90 @@
 <section class="registration-user">
 
-    <form [formGroup]="registrationForm" class="registration-form">
-      <h2 class="registration-form__title">Регистрация пользователя</h2>
+  <form [formGroup]="registrationForm" class="registration-form">
+    <h2 class="registration-form__title">Регистрация пользователя</h2>
+
+    <div class="registration-form__wrapper">
+      <label for="name">Имя</label>
+      <input class="input-field" type="text" formControlName="name" id="name" placeholder="Введите имя">
+    </div>
+
+    <div class="registration-form__wrapper">
+      <label for="username">Логин</label>
+      <input class="input-field" type="text" formControlName="username" id="username" placeholder="Введите логин">
+    </div>
+
+    <div class="registration-form__wrapper">
+      <label for="email">Эл. почта</label>
+      <input class="input-field" type="text" formControlName="email" id="email" placeholder="Введите email">
+    </div>
+
+    <div class="registration-form__wrapper">
+      <label for="phone">Телефон</label>
+      <input class="input-field" type="text" formControlName="phone" id="phone" placeholder="Введите телефон">
+    </div>
+
+    <div class="registration-form__wrapper">
+      <label for="website">Веб-сайт</label>
+      <input class="input-field" type="text" formControlName="website" id="website" placeholder="Введите сайт">
+    </div>
+
+    <div formGroupName="address" class="grid-group">
+      <div class="registration-form__wrapper">
+        <label for="city">Город</label>
+        <input class="input-field" type="text" formControlName="city" id="city" placeholder="Введите город">
+      </div>
 
       <div class="registration-form__wrapper">
-        <label for="name">Имя</label>
-        <input class="input-field" type="text" formControlName="name" id="name" placeholder="Введите имя">
+        <label for="street">Улица</label>
+        <input class="input-field" type="text" formControlName="street" id="street" placeholder="Введите улицу">
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="username">Логин</label>
-        <input class="input-field" type="text" formControlName="username" id="username" placeholder="Введите логин">
+        <label for="suite">Офис</label>
+        <input class="input-field" type="text" formControlName="suite" id="suite" placeholder="Введите офис">
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="email">Эл. почта</label>
-        <input class="input-field" type="text" formControlName="email" id="email" placeholder="Введите email">
+        <label for="zipcode">Индекс</label>
+        <input class="input-field" type="text" formControlName="zipcode" id="zipcode" placeholder="Введите индекс">
+      </div>
+
+      <div formGroupName="geo" class="registration-form__wrapper">
+        <span>Координаты</span>
+        <div class="geo-wrapper">
+          <label for="lat" class="visually-hidden">Широта</label>
+          <input class="input-field" id="lat" formControlName="lat" type="text" placeholder="Введите широтy">
+          <label for="lng" class="visually-hidden">Долгота</label>
+          <input class="input-field" id="lng" formControlName="lng" type="text" placeholder="Введите долготу">
+        </div>
+      </div>
+    </div>
+
+    <div formGroupName="company" class="grid-group">
+      <div class="registration-form__wrapper">
+        <label for="company-name">Компания</label>
+        <input class="input-field" type="text" formControlName="name" id="company-name"
+          placeholder="Укажите компанию">
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="phone">Телефон</label>
-        <input class="input-field" type="text" formControlName="phone" id="phone" placeholder="Введите телефон">
+        <label for="catch-phrase">Ваша миссия</label>
+        <input class="input-field" type="text" formControlName="catchPhrase" id="catch-phrase"
+          placeholder="Расскажите о миссии">
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="website">Веб-сайт</label>
-        <input class="input-field" type="text" formControlName="website" id="website" placeholder="Введите сайт">
+        <label for="bs">Специализация</label>
+        <input class="input-field" type="text" formControlName="bs" id="bs" placeholder="Введите специализацию">
       </div>
-
-      <div formGroupName="address" class="grid-group">
-        <div class="registration-form__wrapper">
-          <label for="city">Город</label>
-          <input class="input-field" type="text" formControlName="city" id="city" placeholder="Введите город">
-        </div>
-
-        <div class="registration-form__wrapper">
-          <label for="street">Улица</label>
-          <input class="input-field" type="text" formControlName="street" id="street" placeholder="Введите улицу">
-        </div>
-
-        <div class="registration-form__wrapper">
-          <label for="suite">Офис</label>
-          <input class="input-field" type="text" formControlName="suite" id="suite" placeholder="Введите офис">
-        </div>
-
-        <div class="registration-form__wrapper">
-          <label for="zipcode">Индекс</label>
-          <input class="input-field" type="text" formControlName="zipcode" id="zipcode" placeholder="Введите индекс">
-        </div>
-
-        <div formGroupName="geo" class="registration-form__wrapper">
-          <span>Координаты</span>
-          <div class="geo-wrapper">
-            <label for="lat" class="visually-hidden">Широта</label>
-            <input class="input-field" id="lat" formControlName="lat" type="text" placeholder="Введите широтy">
-            <label for="lng" class="visually-hidden">Долгота</label>
-            <input class="input-field" id="lng" formControlName="lng" type="text" placeholder="Введите долготу">
-          </div>
-        </div>
-      </div>
-
-      <div formGroupName="company" class="grid-group">
-        <div class="registration-form__wrapper">
-          <label for="company-name">Компания</label>
-          <input class="input-field" type="text" formControlName="name" id="company-name"
-            placeholder="Укажите компанию">
-        </div>
-
-        <div class="registration-form__wrapper">
-          <label for="catch-phrase">Ваша миссия</label>
-          <input class="input-field" type="text" formControlName="catchPhrase" id="catch-phrase"
-            placeholder="Расскажите о миссии">
-        </div>
-
-        <div class="registration-form__wrapper">
-          <label for="bs">Специализация</label>
-          <input class="input-field" type="text" formControlName="bs" id="bs" placeholder="Введите специализацию">
-        </div>
-      </div>
-      <button
-        class="button"
-        type="submit"
-        (click)="onSubmit()"
-        [disabled]="registrationForm.invalid">
-        Зарегистрировать пользователя
-      </button>
-    </form>
+    </div>
+    <button
+      class="button"
+      type="submit"
+      (click)="onSubmit()"
+      [disabled]="registrationForm.invalid">
+      Зарегистрировать пользователя
+    </button>
+  </form>
 
 </section>
