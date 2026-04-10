@@ -3,10 +3,15 @@
     <app-create-user (newUser)="onCreateUser($event)"></app-create-user>
     <h1 class="user-page__title">Список пользоватей</h1>
     <button
-      class="button mb26"
+      class="button-update"
       (click)="refreshUsers()"
       id="update-data">
-      Обновить данные
+      <img
+        src="/images/icon-update.svg"
+        width="80"
+        height="80"
+        alt="Кнопка обновления пользоватей"
+       >
     </button>
     <ul class="list-none user-card">
       @for (user of userService.users$ | async; track user.id) {

@@ -25,3 +25,23 @@
   row-gap: 70px;
   column-gap: 50px;
 }
+
+.button-update {
+  position: fixed;
+  left: 60px;
+  bottom: 60px;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+  appearance: none;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+}
