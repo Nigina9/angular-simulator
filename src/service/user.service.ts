@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, finalize, Observable, of } from 'rxjs';
+import { BehaviorSubject, catchError, finalize, Observable, of, map, filter, combineLatest } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 import { LoaderService } from './loader.service';
 import { UserApiService } from './user-api.service';
@@ -14,8 +14,13 @@ export class UserService {
   messageService: MessageService = inject(MessageService);
   userApi: UserApiService = inject(UserApiService);
 
-  private userSubject: BehaviorSubject<IUser[]>= new BehaviorSubject<IUser[]>([]);
+  private userSubject: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.userSubject.asObservable();
+  private filterSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>('');
+  filter$: Observable<string | null> = this.filterSubject.asObservable();
+  filteredUsers$: Observable<IUser[]> = combineLatest([this.users$, this.filter$]).pipe(
+     map(([users, query]) => users.filter(user => user.name.toLowerCase().includes(query ?? ''))),
+  )
 
   saveUsersToStorage(users: IUser[]) {
     localStorage.setItem('users', JSON.stringify(users));
@@ -71,6 +76,10 @@ export class UserService {
   refreshUsers(): Observable<IUser[]> {
     this.clearStorage();
     return this.loadUsers();
+  }
+
+  setFilter(query: string | null): void {
+    this.filterSubject.next(query);
   }
 
 }

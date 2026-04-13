@@ -2,6 +2,7 @@
   <div class="container user-page">
     <app-create-user (newUser)="onCreateUser($event)"></app-create-user>
     <h1 class="user-page__title">Список пользоватей</h1>
+    <app-users-filter (filterString)="onFilter($event)"></app-users-filter>
     <button
       class="button-update"
       (click)="refreshUsers()"
@@ -14,7 +15,7 @@
        >
     </button>
     <ul class="list-none user-card">
-      @for (user of userService.users$ | async; track user.id) {
+      @for (user of userService.filteredUsers$ | async; track user.id) {
         <app-user-card [user]="user" (deleteUser)="onDeleteUser($event)"></app-user-card>
       } @empty {
           <div class="message-not-users">
