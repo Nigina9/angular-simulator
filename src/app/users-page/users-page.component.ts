@@ -24,23 +24,20 @@ export class UsersPageComponent implements OnInit {
       ).subscribe();
   }
 
-  onDeleteUser(user: IUser): void {
-    this.userService.deleteUser(user);
+  onDeleteUser(user: number): void {
+    this.userService.onDeleteUser(user);
   }
 
   onCreateUser(user: IUser): void {
     this.userService.addNewUser(user);
   }
 
-  refreshUsers(): void {
-    this.userService.refreshUsers()
-      .pipe(
-        tap((users: IUser[]) => this.userService.setUsers(users)),
-      ).subscribe();
-  }
-
   onFilter(query: string | null): void {
     this.userService.setFilter(query);
+  }
+
+  refreshUsers() {
+    this.userService.refreshUsers().subscribe();
   }
 
 }

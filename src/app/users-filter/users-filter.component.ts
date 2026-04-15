@@ -9,16 +9,15 @@ import { tap } from 'rxjs';
   templateUrl: './users-filter.component.html',
   styleUrl: './users-filter.component.scss',
 })
-export class UsersFilterComponent implements OnInit{
+export class UsersFilterComponent implements OnInit {
 
-  @Output() filterString: EventEmitter<string | null> = new EventEmitter<string | null>();
+  @Output() onFilterUsers: EventEmitter<string | null> = new EventEmitter<string | null>();
   usersFilterField: FormControl<string | null> = new FormControl<string | null>('');
 
   ngOnInit(): void {
-    this.usersFilterField.valueChanges
-      .pipe(
-        tap(value => this.filterString.emit(value))
-      ).subscribe();
+    this.usersFilterField.valueChanges.pipe(
+      tap((value: string | null) => this.onFilterUsers.emit(value))
+    ).subscribe();
   }
 
 }
