@@ -10,7 +10,7 @@ import { IUser } from '../../interfaces/IUser';
 })
 export class CreateUserComponent {
 
-  @Output() onCreateUser: EventEmitter<IUser> = new EventEmitter<IUser>();
+  @Output() createUser: EventEmitter<IUser> = new EventEmitter<IUser>();
   private fb: FormBuilder = inject(FormBuilder);
 
   registrationForm: FormGroup = this.fb.group({
@@ -40,7 +40,7 @@ export class CreateUserComponent {
   onSubmit(): void {
     if (this.registrationForm.valid) {
       this.registrationForm.patchValue({ id: Date.now() });
-      this.onCreateUser.emit(this.registrationForm.value);
+      this.createUser.emit(this.registrationForm.value);
     }
   }
 

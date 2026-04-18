@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { AsyncPipe } from '@angular/common';
 import { IUser } from '../../interfaces/IUser';
-import { tap } from 'rxjs';
+import { tap, BehaviorSubject, map, filter, Observable, combineLatest} from 'rxjs';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { CreateUserComponent } from "../create-user/create-user.component";
 import { UsersFilterComponent } from '../users-filter/users-filter.component';
@@ -16,6 +16,19 @@ import { UsersFilterComponent } from '../users-filter/users-filter.component';
 export class UsersPageComponent implements OnInit {
 
   userService: UserService = inject(UserService);
+
+  private filterSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>('');
+
+  filteredUsers$: Observable<IUser[]> = combineLatest([
+    this.userService.users$,
+    this.filterSubject.asObservable()
+  ]).pipe(
+      map(([users, query]: [IUser[], string | null]) =>
+        users.filter((user: IUser) =>
+          user.name.toLowerCase().includes((query ?? '').toLowerCase())
+        )
+      )
+  );
 
   ngOnInit(): void {
     this.userService.loadUsers()
@@ -33,7 +46,11 @@ export class UsersPageComponent implements OnInit {
   }
 
   onFilter(query: string | null): void {
-    this.userService.setFilter(query);
+    this.setFilter(query);
+  }
+
+  setFilter(query: string | null): void {
+    this.filterSubject.next(query);
   }
 
   refreshUsers() {
