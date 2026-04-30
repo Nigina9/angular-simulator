@@ -8,15 +8,15 @@
     font-weight: 800;
     font-size: 20px;
     line-height: 115%;
-    color: #1d3939;
+    color: var(--primary-color);
   }
 
   &__input {
-  cursor: pointer;
-  padding: 8px;
-  margin: 0;
-  border: 0;
-  background-color: var(--grey-background);
-  border-radius: 6px;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0;
+    border: 0;
+    background-color: var(--grey-background);
+    border-radius: 6px;
   }
 }

@@ -28,6 +28,16 @@
           (click)="messageService.showInfo('Ожидайте звонок от менеджера')">
           Консультация
         </button>
+        <div class="container-toggle-theme">
+          <fa-icon [icon]="(themeService.isDark$ | async) ? faMoon : faSun"/>
+          <p-toggleswitch [ngModel]="(themeService.isDark$ | async)" (onChange)="themeService.toggleDarkMode()"/>
+          <p-selectbutton 
+            [options]="themeService.themes" 
+            [ngModel]="(themeService.theme$ | async)" 
+            optionLabel="name" 
+            (onChange)="themeService.changeTreme($event.value)"
+          />
+        </div>
       </nav>
     </div>
 

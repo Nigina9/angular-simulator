@@ -89,13 +89,10 @@
           <ul class="list-none advantages__list">
             @for (offer of offers; track offer.id) {
               <li class="advantages__item">
-                <img
-                  [src]="'/images/' + offer.img + '.svg'"
+                <fa-icon
+                  [icon]="offer.img"
                   class="advantanges__icon"
-                  width="50"
-                  height="50"
-                  [alt]="offer.title"
-                >
+                />
                 <div>
                   <h3 class="advantages__title">{{ offer.title }}</h3>
                   <p class="advantages__description">{{ offer.description }}</p>
