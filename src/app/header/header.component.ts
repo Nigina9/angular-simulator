@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { MessageService } from '../../service/message.service';
 import { inject } from '@angular/core';
-import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { ToggleSwitchChangeEvent, ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSun, faMoon, IconDefinition } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +19,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  
+
   themeService: ThemeService = inject(ThemeService);
   messageService: MessageService = inject(MessageService);
   companyName: string = 'румтибет';
@@ -28,7 +28,7 @@ export class HeaderComponent {
   counter: number = 0;
   faSun: IconDefinition = faSun;
   faMoon: IconDefinition = faMoon;
-  
+
   navList: INavigation[] = [
     {
       id: 1,
@@ -62,6 +62,10 @@ export class HeaderComponent {
 
   switchWidget(widget: 'counter' | 'timeAndDate'): void {
     this.currentWidget = widget;
+  }
+
+  toggleDarkMode(event: ToggleSwitchChangeEvent): void {
+    this.themeService.toggleDarkMode(event.checked);
   }
 
 }
