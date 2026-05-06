@@ -11,7 +11,7 @@
 .template-message {
   width: 350px;
   box-sizing: border-box;
-  color: var(--secondary-color);
+  color: white;
   background-color: rgba(15, 23, 42, 0.85);
   border: 1px solid #FFFFFF;
   border-radius: 10px;
@@ -22,6 +22,7 @@
   }
 
   &__title {
+    color: white;
     margin: 0;
     font-weight: 716;
     font-size: 16px;
@@ -43,6 +44,7 @@
   }
 
   &__subtitle {
+    color: white;
     margin: 0;
     font-weight: 400;
     font-size: 14px;

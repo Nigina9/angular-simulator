@@ -5,6 +5,7 @@
 * {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 18px;
+  color: var(--primary-color);
 }
 
 .container {
@@ -20,6 +21,15 @@
   --grey-background: #f3f5f4;
   --green-background: #1a3e3e;
   --yellow-color: #f2be22;
+  --header-bg: #18121E80;
+}
+
+.dark-theme {
+  --white-background: #1a1038;
+  --grey-background: #4d4763;
+  --primary-color: white;
+  --green-background: #3f1764;
+  --header-bg: #705686;
 }
 
 .visually-hidden {

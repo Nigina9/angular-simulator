@@ -8,10 +8,12 @@ import { IArticle } from '../../interfaces/IArticle';
 import { IReport } from '../../interfaces/IReport';
 import { MessageService } from '../../service/message.service';
 import { inject } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule],
+  imports: [FormsModule, FontAwesomeModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
@@ -22,6 +24,9 @@ export class HomePageComponent {
   selectedDate: string = '';
   selectedParticipants: string = '';
   liveText!: string;
+  faPersonHiking: IconDefinition = faPersonHiking;
+  faBuildingShield: IconDefinition = faBuildingShield;
+  faTags: IconDefinition = faTags;
 
   locations: ILocation[] = [
     {
@@ -101,19 +106,19 @@ export class HomePageComponent {
       id: 1,
       title: 'Опытный гид',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: 'icon-hike',
+      img: faPersonHiking,
     },
     {
       id: 2,
       title: 'Безопасный поход',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: 'icon-safety',
+      img: faBuildingShield,
     },
     {
       id: 3,
       title: 'Лояльные цены',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: 'icon-price',
+      img: faTags,
     }
   ];
 
