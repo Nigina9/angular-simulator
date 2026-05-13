@@ -1,7 +1,7 @@
 import { Preset } from '@primeuix/themes/types';
-import { ThemesName } from '../enums/Theme';
+import { Theme } from '../enums/Theme';
 
 export interface ITheme {
-  name: ThemesName;
+  name: Theme;
   preset: Preset;
 }
