@@ -1,10 +1,12 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IUser } from '../../interfaces/IUser';
+import { BoldTextDirective } from '../../directives/bold-text.directive';
+import { AnimatedGradientDirective } from '../../directives/animated-gradient.directive';
 
 @Component({
   selector: 'app-create-user',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, BoldTextDirective, AnimatedGradientDirective],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.scss',
 })

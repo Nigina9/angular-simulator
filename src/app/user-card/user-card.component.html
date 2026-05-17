@@ -1,6 +1,6 @@
 <li class="user-card__item">
   <h2 class="user-card__title">{{ user.name }}</h2>
-  <p class="user-card__username color-yellow">{{ user.username }}</p>
+  <p class="user-card__username color-yellow">{{ user.username | uppercase }}</p>
 
   <h3 class="user-card__subtitle">Контакты</h3>
   <div class="user-card__section">
@@ -10,7 +10,7 @@
     </div>
     <div class="user-card__wrapper">
       <span class="user-card__label">Телефон:</span>
-      <span class="user-card__value">{{ user.phone }}</span>
+      <span class="user-card__value">{{ user.phone | formatNumber: formatMode.MASKED }}</span>
     </div>
     <div class="user-card__wrapper">
       <span class="user-card__label">Веб-сайт:</span>
@@ -62,9 +62,11 @@
   </div>
   <button
     (click)="onDelete()"
+    appBoldText
     class="button"
     type="button"
-    id="delete-card-button">
+    id="delete-card-button"
+  >
     Удалить карточку
   </button>
 </li>
