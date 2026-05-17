@@ -13,7 +13,13 @@
     <h3>{{ (filteredUsers$ | async)?.length ?? 0 | plural:'пользователь':'пользователя':'пользователей' }}</h3>
     <ul class="list-none user-card">
       @for (user of filteredUsers$ | async; track user.id) {
-        <app-user-card [user]="user" (deleteUser)="onDeleteUser($event)" appAnimatedGradient [gradientConfiguration]="{ delay: 500, colors: ['#d4a373', '#f140a0', '#d4a373'], thickness: 5 }"></app-user-card>
+        <app-user-card
+          [user]="user"
+          (deleteUser)="onDeleteUser($event)"
+          appAnimatedGradient
+          [gradientConfiguration]="{ delay: 500, colors: ['#d4a373', '#f140a0', '#d4a373'], thickness: 5 }"
+        >
+        </app-user-card>
       } @empty {
           <div class="message-not-users">
             <p class="text">Нет пользователей для отображения</p>
