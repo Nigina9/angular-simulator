@@ -1,4 +1,4 @@
-export enum Format {
+export enum PhoneFormat {
   COMPACT = 'compact',
   INTERNATIONAL = 'international',
   NATIONAL = 'national',

@@ -10,7 +10,7 @@
     </div>
     <div class="user-card__wrapper">
       <span class="user-card__label">Телефон:</span>
-      <span class="user-card__value">{{ user.phone | formatNumber: formatMode.MASKED }}</span>
+      <span class="user-card__value">{{ user.phone | phoneFormat: phoneFormat.MASKED }}</span>
     </div>
     <div class="user-card__wrapper">
       <span class="user-card__label">Веб-сайт:</span>

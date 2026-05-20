@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2, HostListener } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, HostListener, inject } from '@angular/core';
 import { IGradientConfiguration } from '../interfaces/IGradientConfiguration';
 
 @Directive({
@@ -8,9 +8,9 @@ export class AnimatedGradientDirective {
 
   @Input() gradientConfiguration: IGradientConfiguration = {};
 
+  private el = inject(ElementRef);
+  private render = inject(Renderer2);
   private timerId!: number;
-
-  constructor(private el: ElementRef, private render: Renderer2) {}
 
    @HostListener('mouseenter')
    onMouseEnter(): void {
