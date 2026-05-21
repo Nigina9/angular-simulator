@@ -8,8 +8,8 @@ export class AnimatedGradientDirective {
 
   @Input() gradientConfiguration: IGradientConfiguration = {};
 
-  private el = inject(ElementRef);
-  private render = inject(Renderer2);
+  private el: ElementRef = inject(ElementRef);
+  private render: Renderer2 = inject(Renderer2);
   private timerId!: number;
 
    @HostListener('mouseenter')

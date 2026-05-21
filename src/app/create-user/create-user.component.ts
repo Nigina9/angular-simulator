@@ -15,7 +15,11 @@ export class CreateUserComponent {
 
   @Output() createUser: EventEmitter<IUser> = new EventEmitter<IUser>();
   private fb: FormBuilder = inject(FormBuilder);
-  gradientConfig: IGradientConfiguration = { delay: 500, colors: ['#d4a373', '#1a3e3e'], thickness: 3 };
+  gradientConfig: IGradientConfiguration = {
+    delay: 500,
+    colors: ['#d4a373', '#1a3e3e'],
+    thickness: 3
+  };
 
   registrationForm: FormGroup = this.fb.group({
     id: [Date.now()],
