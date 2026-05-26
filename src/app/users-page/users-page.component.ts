@@ -6,10 +6,14 @@ import { tap, BehaviorSubject, map, filter, Observable, combineLatest} from 'rxj
 import { UserCardComponent } from '../user-card/user-card.component';
 import { CreateUserComponent } from "../create-user/create-user.component";
 import { UsersFilterComponent } from '../users-filter/users-filter.component';
+import { PluralPipe } from '../../pipes/plural.pipe';
+import { BoldTextDirective } from '../../directives/bold-text.directive';
+import { AnimatedGradientDirective } from '../../directives/animated-gradient.directive';
+
 
 @Component({
   selector: 'app-users-page',
-  imports: [AsyncPipe, UserCardComponent, CreateUserComponent, UsersFilterComponent],
+  imports: [AsyncPipe, UserCardComponent, CreateUserComponent, UsersFilterComponent, PluralPipe, BoldTextDirective, AnimatedGradientDirective],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })

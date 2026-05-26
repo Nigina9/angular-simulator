@@ -1,61 +1,154 @@
 <section class="registration-user">
 
-  <form [formGroup]="registrationForm" class="registration-form">
+  <form
+    [formGroup]="registrationForm"
+    class="registration-form"
+    appAnimatedGradient
+    [gradientConfiguration]="gradientConfig"
+  >
     <h2 class="registration-form__title">Регистрация пользователя</h2>
 
     <div class="registration-form__wrapper">
       <label for="name" class="input-label">Имя</label>
-      <input class="input-field" type="text" formControlName="name" id="name" placeholder="Введите имя">
+      <input
+        class="input-field"
+        type="text"
+        formControlName="name"
+        id="name"
+        placeholder="Введите имя"
+        appAnimatedGradient
+        [gradientConfiguration]="gradientConfig"
+      >
     </div>
 
     <div class="registration-form__wrapper">
       <label for="username" class="input-label">Логин</label>
-      <input class="input-field" type="text" formControlName="username" id="username" placeholder="Введите логин">
+      <input
+        class="input-field"
+        type="text"
+        formControlName="username"
+        id="username"
+        placeholder="Введите логин"
+        appAnimatedGradient
+        [gradientConfiguration]="gradientConfig"
+      >
     </div>
 
     <div class="registration-form__wrapper">
       <label for="email" class="input-label">Эл. почта</label>
-      <input class="input-field" type="text" formControlName="email" id="email" placeholder="Введите email">
+      <input
+        class="input-field"
+        type="text"
+        formControlName="email"
+        id="email"
+        placeholder="Введите email"
+        appAnimatedGradient
+        [gradientConfiguration]="gradientConfig"
+      >
     </div>
 
     <div class="registration-form__wrapper">
       <label for="phone" class="input-label">Телефон</label>
-      <input class="input-field" type="text" formControlName="phone" id="phone" placeholder="Введите телефон">
+      <input
+        class="input-field"
+        type="text"
+        formControlName="phone"
+        id="phone"
+        placeholder="Введите телефон"
+        appAnimatedGradient
+        [gradientConfiguration]="gradientConfig"
+      >
     </div>
 
     <div class="registration-form__wrapper">
       <label for="website" class="input-label">Веб-сайт</label>
-      <input class="input-field" type="text" formControlName="website" id="website" placeholder="Введите сайт">
+      <input
+        class="input-field"
+        type="text"
+        formControlName="website"
+        id="website"
+        placeholder="Введите сайт"
+        appAnimatedGradient
+        [gradientConfiguration]="gradientConfig"
+      >
     </div>
 
     <div formGroupName="address" class="grid-group">
       <div class="registration-form__wrapper">
         <label for="city" class="input-label">Город</label>
-        <input class="input-field" type="text" formControlName="city" id="city" placeholder="Введите город">
+        <input
+          class="input-field"
+          type="text"
+          formControlName="city"
+          id="city"
+          placeholder="Введите город"
+          appAnimatedGradient
+          [gradientConfiguration]="gradientConfig"
+        >
       </div>
 
       <div class="registration-form__wrapper">
         <label for="street" class="input-label">Улица</label>
-        <input class="input-field" type="text" formControlName="street" id="street" placeholder="Введите улицу">
+        <input
+          class="input-field"
+          type="text"
+          formControlName="street"
+          id="street"
+          placeholder="Введите улицу"
+          appAnimatedGradient
+          [gradientConfiguration]="gradientConfig"
+        >
       </div>
 
       <div class="registration-form__wrapper">
         <label for="suite" class="input-label">Офис</label>
-        <input class="input-field" type="text" formControlName="suite" id="suite" placeholder="Введите офис">
+        <input
+          class="input-field"
+          type="text"
+          formControlName="suite"
+          id="suite"
+          placeholder="Введите офис"
+          appAnimatedGradient
+          [gradientConfiguration]="gradientConfig"
+        >
       </div>
 
       <div class="registration-form__wrapper">
         <label for="zipcode" class="input-label">Индекс</label>
-        <input class="input-field" type="text" formControlName="zipcode" id="zipcode" placeholder="Введите индекс">
+        <input
+          class="input-field"
+          type="text"
+          formControlName="zipcode"
+          id="zipcode"
+          placeholder="Введите индекс"
+          appAnimatedGradient
+          [gradientConfiguration]="gradientConfig"
+        >
       </div>
 
       <div formGroupName="geo" class="registration-form__wrapper">
         <span class="input-label">Координаты</span>
         <div class="geo-wrapper">
           <label for="lat" class="visually-hidden">Широта</label>
-          <input class="input-field" id="lat" formControlName="lat" type="text" placeholder="Введите широтy">
+          <input
+            class="input-field"
+            id="lat"
+            formControlName="lat"
+            type="text"
+            placeholder="Введите широтy"
+            appAnimatedGradient
+            [gradientConfiguration]="gradientConfig"
+          >
           <label for="lng" class="visually-hidden">Долгота</label>
-          <input class="input-field" id="lng" formControlName="lng" type="text" placeholder="Введите долготу">
+          <input
+            class="input-field"
+            id="lng"
+            formControlName="lng"
+            type="text"
+            placeholder="Введите долготу"
+            appAnimatedGradient
+            [gradientConfiguration]="gradientConfig"
+          >
         </div>
       </div>
     </div>
@@ -63,28 +156,51 @@
     <div formGroupName="company" class="grid-group">
       <div class="registration-form__wrapper">
         <label for="company-name" class="input-label">Компания</label>
-        <input class="input-field" type="text" formControlName="name" id="company-name"
-          placeholder="Укажите компанию">
+        <input
+          class="input-field"
+          type="text"
+          formControlName="name"
+          id="company-name"
+          placeholder="Укажите компанию"
+          appAnimatedGradient
+          [gradientConfiguration]="gradientConfig"
+        >
       </div>
 
       <div class="registration-form__wrapper">
         <label for="catch-phrase" class="input-label">Ваша миссия</label>
-        <input class="input-field" type="text" formControlName="catchPhrase" id="catch-phrase"
-          placeholder="Расскажите о миссии">
+        <input
+          class="input-field"
+          type="text"
+          formControlName="catchPhrase"
+          id="catch-phrase"
+          placeholder="Расскажите о миссии"
+          appAnimatedGradient
+          [gradientConfiguration]="gradientConfig"
+        >
       </div>
 
       <div class="registration-form__wrapper">
         <label for="bs" class="input-label">Специализация</label>
-        <input class="input-field" type="text" formControlName="bs" id="bs" placeholder="Введите специализацию">
+        <input
+          class="input-field"
+          type="text"
+          formControlName="bs"
+          id="bs"
+          placeholder="Введите специализацию"
+          appAnimatedGradient
+          [gradientConfiguration]="gradientConfig"
+        >
       </div>
     </div>
     <button
+      appBoldText
       class="button"
       type="submit"
       (click)="onSubmit()"
       [disabled]="registrationForm.invalid"
       id="registation-button"
-      >
+    >
       Зарегистрировать пользователя
     </button>
   </form>

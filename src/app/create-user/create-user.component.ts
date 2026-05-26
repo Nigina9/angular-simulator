@@ -1,10 +1,13 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IUser } from '../../interfaces/IUser';
+import { BoldTextDirective } from '../../directives/bold-text.directive';
+import { AnimatedGradientDirective } from '../../directives/animated-gradient.directive';
+import { IGradientConfiguration } from '../../interfaces/IGradientConfiguration';
 
 @Component({
   selector: 'app-create-user',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, BoldTextDirective, AnimatedGradientDirective],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.scss',
 })
@@ -12,6 +15,11 @@ export class CreateUserComponent {
 
   @Output() createUser: EventEmitter<IUser> = new EventEmitter<IUser>();
   private fb: FormBuilder = inject(FormBuilder);
+  gradientConfig: IGradientConfiguration = {
+    delay: 500,
+    colors: ['#d4a373', '#1a3e3e'],
+    thickness: 3
+  };
 
   registrationForm: FormGroup = this.fb.group({
     id: [Date.now()],
