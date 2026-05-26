@@ -6,6 +6,7 @@ import Nora from '@primeuix/themes/nora';
 import Lara from '@primeuix/themes/lara';
 import { routes } from './app.routes';
 import { Theme } from '../enums/Theme';
+import { provideHttpClient } from '@angular/common/http';
 
 type ThemePresetType = typeof Aura | typeof Lara | typeof Nora;
 
@@ -25,6 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideZoneChangeDetection(),
+    provideHttpClient(),
     providePrimeNG({
       theme: {
         preset: initThemePreset(),
