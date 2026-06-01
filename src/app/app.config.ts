@@ -6,7 +6,9 @@ import Nora from '@primeuix/themes/nora';
 import Lara from '@primeuix/themes/lara';
 import { routes } from './app.routes';
 import { Theme } from '../enums/Theme';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loggingInterceptor } from '../interceptor/logging.interceptor';
+import { errorInterceptor } from '../interceptor/error.interceptor';
 
 type ThemePresetType = typeof Aura | typeof Lara | typeof Nora;
 
@@ -26,7 +28,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideZoneChangeDetection(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([loggingInterceptor, errorInterceptor])),
     providePrimeNG({
       theme: {
         preset: initThemePreset(),
