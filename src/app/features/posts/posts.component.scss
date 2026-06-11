@@ -1,0 +1,19 @@
+.user-posts {
+  padding: 100px 0;
+}
+
+.table-row {
+  cursor: pointer;
+}
+
+.text {
+  font-weight: bold;
+  color: black;
+}
+
+::ng-deep p-skeleton {
+  display: block;
+  background: #829385;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}

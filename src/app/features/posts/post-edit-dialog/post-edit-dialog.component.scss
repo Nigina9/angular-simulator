@@ -1,0 +1,26 @@
+.edit-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  gap: 20px;
+
+  &__title {
+    font-size: 25px;
+    margin: 0;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 50px 500px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__wrapper-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+  }
+}

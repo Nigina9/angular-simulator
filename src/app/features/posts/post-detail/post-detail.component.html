@@ -1,0 +1,43 @@
+<div class="container post-detail">
+  <h2>Детальный просмотр поста</h2>
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title">ID:</span>
+    <span>{{ post.id }}</span>
+  </div>
+
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title">Title:</span>
+    <span>{{ post.title }}</span>
+  </div>
+
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title"> Body:</span>
+    <span>{{ post.body }}</span>
+  </div>
+
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title"> Tags:</span>
+    <span>{{ post.tags }}</span>
+  </div>
+
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title">Likes</span>
+    <span>{{ post.reactions.likes }}</span>
+  </div>
+
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title">Dislikes:</span>
+    <span>{{ post.reactions.dislikes }}</span>
+  </div>
+
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title">Views:</span>
+    <span>{{ post.views }}</span>
+  </div>
+  
+  <div class="post-detail__wrapper">
+    <span class="post-detail__title">UserdID:</span>
+    <span>{{ post.userId }}</span>
+  </div>
+
+</div>

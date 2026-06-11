@@ -1,6 +1,7 @@
 @use './fonts';
 @use './normalize';
 @use './button';
+@import 'primeicons/primeicons.css';
 
 * {
   font-family: 'Nunito Sans', sans-serif;
@@ -52,3 +53,16 @@
 .mb26 {
   margin-bottom: 26px;
 }
+
+
+.input-field {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 8px;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  background-color: var(--grey-background);
+  border-radius: 6px;
+}
+
