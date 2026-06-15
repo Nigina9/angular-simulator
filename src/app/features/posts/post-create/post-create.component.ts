@@ -30,7 +30,7 @@ export class PostCreateComponent {
   })
 
   onSavePost(): void {
-    if(this.createForm.valid) {
+    if (this.createForm.valid) {
       this.createForm.patchValue({ id: Date.now() });
       this.postService.createPost(this.createForm.value).pipe(
         tap(() => {
