@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-post-create',
@@ -13,7 +14,7 @@ export class PostCreateComponent {
 
   private fb: FormBuilder = inject(FormBuilder);
   private router: Router = inject(Router);
-  postService: PostService = inject(PostService);
+  private postService: PostService = inject(PostService);
 
   createForm: FormGroup = this.fb.group({
     id: [Date.now()],
@@ -31,9 +32,11 @@ export class PostCreateComponent {
   onSavePost(): void {
     if(this.createForm.valid) {
       this.createForm.patchValue({ id: Date.now() });
-      this.postService.createPost(this.createForm.value).subscribe(() => {
-        this.router.navigate(['/posts']);
-      })
+      this.postService.createPost(this.createForm.value).pipe(
+        tap(() => {
+          this.router.navigate(['/posts']);
+        })
+      ).subscribe();
     }
   }
 

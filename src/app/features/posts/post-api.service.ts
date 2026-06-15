@@ -16,20 +16,20 @@ export class PostApiService {
     return this.http.get<IPostsApiResponse>(`${ this.apiUrl }?limit=${ limit }&skip=${ skip }`);
   }
 
-  getPostById(id: number) {
+  getPostById(id: number): Observable<IPost> {
     return this.http.get<IPost>(`${ this.apiUrl }/${ id }`);
   }
 
-  updatePost(id: number, data: Partial<IPost>) {
-    return this.http.put<IPost>(`${this.apiUrl}/${id}`, data);
+  updatePost(id: number, data: Partial<IPost>): Observable<IPost> {
+    return this.http.put<IPost>(`${ this.apiUrl }/${ id }`, data);
   }
 
-  deletePost(id: number) {
+  deletePost(id: number): Observable<IPost> {
     return this.http.delete<IPost>(`${ this.apiUrl }/${ id }`);
   }
 
-  createPost(data: Partial<IPost>) {
-    return this.http.post<IPost>(`${this.apiUrl}/add`, data);
+  createPost(data: IPost): Observable<IPost> {
+    return this.http.post<IPost>(`${ this.apiUrl }/add`, data);
   }
 
 }

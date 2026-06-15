@@ -3,35 +3,35 @@
   <form class="create-form" [formGroup]="createForm" id="create-post">
     <div class="create-form__item">
       <label class="name-label">Title:</label>
-      <input type="text" formControlName="title" placeholder="заголовок" class="input-field" id="input">
+      <input type="text" formControlName="title" placeholder="заголовок" class="input-field" id="title-input">
     </div>
 
     <div class="create-form__item">
       <label class="name-label">Body</label>
-      <input type="text" formControlName="body" placeholder="текст" class="input-field" id="input">
+      <input type="text" formControlName="body" placeholder="текст" class="input-field" id="body-input">
     </div>
 
     <div class="create-form__item">
       <label class="name-label">Tags:</label>
-      <input type="text" formControlName="tags" placeholder="добавьте теги" class="input-field" id="input">
+      <input type="text" formControlName="tags" placeholder="добавьте теги" class="input-field" id="tags">
     </div>
 
     <div class="create-form__item" formGroupName="reactions">
       <label class="name-label">Reactions:</label>
       <div class="input-container">
-        <input type="number"  min="0" formControlName="likes" placeholder="количество лайков" class="input-field" id="input">
-        <input type="number"  min="0" formControlName="dislikes" placeholder="количество дизлайков" class="input-field" id="input">
+        <input type="number" min="0" formControlName="likes" placeholder="количество лайков" class="input-field" id="likes">
+        <input type="number" min="0" formControlName="dislikes" placeholder="количество дизлайков" class="input-field" id="dislikes">
       </div>
     </div>
 
     <div class="create-form__item">
       <label class="name-label">Views:</label>
-      <input type="number"  min="0" formControlName="views" placeholder="количество просмотров" class="input-field" id="input">
+      <input type="number" min="0" formControlName="views" placeholder="количество просмотров" class="input-field" id="views">
     </div>
 
     <div class="create-form__item">
       <label class="name-label">User ID:</label>
-      <input type="number"  min="0" formControlName="userId" placeholder="номер ID пользователя" class="input-field" id="input">
+      <input type="number"  min="0" formControlName="userId" placeholder="номер ID пользователя" class="input-field" id="user-id">
     </div>
 
     <button type="submit" class="button" (click)="onSavePost()" id="save-post">Отправить</button>

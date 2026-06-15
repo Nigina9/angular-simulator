@@ -22,7 +22,7 @@ export class PostsComponent implements OnInit {
   private router: Router = inject(Router);
   private dialogService: DialogService = inject(DialogService);
   private ref: DynamicDialogRef | undefined | null = undefined;
-  postService: PostService = inject(PostService);
+  private postService: PostService = inject(PostService);
 
   posts: IPost[] = [];
   skeletonRows = Array.from({ length: 10 });

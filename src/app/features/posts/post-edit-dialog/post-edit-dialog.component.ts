@@ -15,12 +15,10 @@ export class PostEditDialogComponent implements OnInit {
 
   private config: DynamicDialogConfig = inject(DynamicDialogConfig);
   private fb: FormBuilder = inject(FormBuilder);
-  messageService: MessageService = inject(MessageService);
+  private messageService: MessageService = inject(MessageService);
+  private ref: DynamicDialogRef = inject(DynamicDialogRef);
 
   post: IPost = this.config.data.post;
-
-  ref: DynamicDialogRef = inject(DynamicDialogRef);
-
   editForm: FormGroup = this.fb.group({
     title: ['', [Validators.minLength(5)]],
     tags: ['', [Validators.minLength(5)]],

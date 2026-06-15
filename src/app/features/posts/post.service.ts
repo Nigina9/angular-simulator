@@ -11,9 +11,9 @@ import { IPostsApiResponse } from './IPostsApiResponse';
 })
 export class PostService {
 
-  postApi: PostApiService = inject(PostApiService);
-  messageService: MessageService = inject(MessageService);
-  loader: LoaderService = inject(LoaderService);
+  private postApi: PostApiService = inject(PostApiService);
+  private messageService: MessageService = inject(MessageService);
+  private loader: LoaderService = inject(LoaderService);
 
   private postSubject: BehaviorSubject<IPost[]> = new BehaviorSubject<IPost[]>([]);
   post$: Observable <IPost[]> = this.postSubject.asObservable();
@@ -21,7 +21,7 @@ export class PostService {
   private totalSubject: BehaviorSubject <number> = new BehaviorSubject<number>(0);
   total$: Observable <number> = this.totalSubject.asObservable();
 
-  loadPosts(limit: number, skip: number) {
+  loadPosts(limit: number, skip: number): void {
     this.loader.showLoader();
     this.postApi.getPosts(limit, skip).pipe(
       tap((response: IPostsApiResponse) => {
@@ -36,7 +36,7 @@ export class PostService {
     ).subscribe();
   }
 
-  updatePost(id: number, data:Partial<IPost>) {
+  updatePost(id: number, data:Partial<IPost>): void {
     this.postApi.updatePost(id, data).pipe(
       tap(() => {
         this.messageService.showSuccess('Пост обновлен');
@@ -62,7 +62,7 @@ export class PostService {
     ).subscribe();
   }
 
-  createPost(data: Partial<IPost>) {
+  createPost(data: IPost): Observable<IPost | null> {
     return this.postApi.createPost(data).pipe(
       tap(() => {
         this.messageService.showSuccess('Пост добавлен');
