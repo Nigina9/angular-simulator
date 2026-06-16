@@ -71,7 +71,7 @@ export class PostsComponent implements OnInit {
   }
 
   openEditDialog(): void {
-    const postToEdit = this.selectedPost;
+    const postToEdit: IPost | null = this.selectedPost;
     this.ref = this.dialogService.open(PostEditDialogComponent, { data: { post: postToEdit }});
     this.ref!.onClose.subscribe((formData: Partial<IPost>) => {
       if(formData && postToEdit) {
