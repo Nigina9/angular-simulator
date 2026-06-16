@@ -9,10 +9,11 @@ import { PostEditDialogComponent } from './post-edit-dialog/post-edit-dialog.com
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PostService } from './post.service';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-posts',
-  imports: [TableModule, SkeletonModule, ContextMenuModule, RouterLink, RouterModule, RouterOutlet],
+  imports: [TableModule, SkeletonModule, ContextMenuModule, RouterLink, RouterModule, RouterOutlet, AsyncPipe],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss',
   providers: [DialogService]
@@ -22,17 +23,17 @@ export class PostsComponent implements OnInit {
   private router: Router = inject(Router);
   private dialogService: DialogService = inject(DialogService);
   private ref: DynamicDialogRef | undefined | null = undefined;
-  private postService: PostService = inject(PostService);
+  postService: PostService = inject(PostService);
 
   posts: IPost[] = [];
-  skeletonRows = Array.from({ length: 10 });
-  loading: boolean = true;
+  skeletonRows: unknown[] = Array.from({ length: 10 });
+  isLoading: boolean = true;
   rows: number = 10;
   first: number = 0;
   totalRecords: number = 0;
   selectedPost: IPost | null = null;
 
-  items: MenuItem[] = [
+  contextMenuPosts: MenuItem[] = [
     {
       label: 'Посмотреть пост',
       icon: 'pi pi-fw pi-search',
@@ -50,24 +51,12 @@ export class PostsComponent implements OnInit {
     }
   ];
 
-  ngOnInit() {
-    this.subscribeToData();
+  ngOnInit(): void {
     this.loadPosts();
   }
 
-  loadPosts() {
-    this.loading = true;
+  loadPosts(): void {
     this.postService.loadPosts(this.rows, this.first);
-  }
-
-  subscribeToData() {
-    this.postService.post$.subscribe((posts: IPost[]) => {
-      this.posts = posts;
-      this.loading = false;
-    });
-    this.postService.total$.subscribe((total: number) => {
-      this.totalRecords = total;
-    });
   }
 
   onTableDLClick(post: IPost | null): void {
@@ -81,7 +70,7 @@ export class PostsComponent implements OnInit {
     this.postService.loadPosts(this.rows, this.first);
   }
 
-  openEditDialog() {
+  openEditDialog(): void {
     const postToEdit = this.selectedPost;
     this.ref = this.dialogService.open(PostEditDialogComponent,{ data: { post:  postToEdit }});
     this.ref!.onClose.subscribe(formData => {
@@ -91,7 +80,7 @@ export class PostsComponent implements OnInit {
     });
   }
 
-  deletePost(id: number) {
+  deletePost(id: number): void {
     this.postService.onDeletePost(id);
   }
 

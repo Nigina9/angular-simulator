@@ -9,12 +9,10 @@ export const routes: Routes = [
   {
     path: 'posts',
     loadComponent: () => import('./features/posts/posts.component').then(c => c.PostsComponent),
-    children: [
-      {
-        path: 'create',
-        loadComponent: () => import('./features/posts/post-create/post-create.component').then(c => c.PostCreateComponent)
-      }
-    ]
+  },
+  {
+    path: 'posts/create',
+    loadComponent: () => import('./features/posts/post-create/post-create.component').then(c => c.PostCreateComponent)
   },
   {
     path: 'posts/:id',

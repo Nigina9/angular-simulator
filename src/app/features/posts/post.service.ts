@@ -21,15 +21,21 @@ export class PostService {
   private totalSubject: BehaviorSubject <number> = new BehaviorSubject<number>(0);
   total$: Observable <number> = this.totalSubject.asObservable();
 
+  private loadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isLoading$: Observable<boolean> = this.loadingSubject.asObservable();
+
   loadPosts(limit: number, skip: number): void {
     this.loader.showLoader();
+    this.loadingSubject.next(true);
     this.postApi.getPosts(limit, skip).pipe(
       tap((response: IPostsApiResponse) => {
         this.loader.hideLoader();
+        this.loadingSubject.next(false);
         this.postSubject.next(response.posts);
         this.totalSubject.next(response.total);
       }),
       catchError(() => {
+        this.loadingSubject.next(false);
         this.messageService.showError('Ошибка');
         return of({ posts: [] });
       })

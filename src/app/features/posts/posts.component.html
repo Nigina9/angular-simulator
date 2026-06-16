@@ -2,19 +2,19 @@
   <h2>Посты пользователей</h2>
   <a routerLink="/posts/create" id="link-create" class="button">Создать новый пост</a>
   <div class="card">
-    @if (loading) {
+    @if (postService.isLoading$ | async) {
       @for (row of skeletonRows; track $index) {
         <p-skeleton height="2rem"></p-skeleton>
       }
     } @else {
-      <p-contextmenu #menu [model]="items"/>
+      <p-contextmenu #menu [model]="contextMenuPosts"/>
       <p-table
-        [value]="posts"
+        [value]="(postService.post$ | async) ?? []"
+        [totalRecords]="(postService.total$ | async) ?? 0"
         [paginator]="true"
         [lazy]="true"
         [rows]="rows"
         [first]="first"
-        [totalRecords]="totalRecords"
         [rowsPerPageOptions]="[10,20,50]"
         (onPage)="onPageChange($event)"
         [contextMenu]="menu"
