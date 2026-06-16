@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { TableModule } from 'primeng/table';
+import { TableModule, TableLazyLoadEvent } from 'primeng/table';
 import { SkeletonModule } from 'primeng/skeleton';
 import { IPost } from './IPost';
 import { ContextMenuModule } from 'primeng/contextmenu';
@@ -64,16 +64,16 @@ export class PostsComponent implements OnInit {
     this.router.navigate(['/posts', post.id]);
  }
 
-  onPageChange(event: any): void {
-    this.first = event.first;
-    this.rows = event.rows;
+  onPageChange(event: TableLazyLoadEvent): void {
+    this.first = event.first ?? 0;
+    this.rows = event.rows ?? 10;
     this.postService.loadPosts(this.rows, this.first);
   }
 
   openEditDialog(): void {
     const postToEdit = this.selectedPost;
-    this.ref = this.dialogService.open(PostEditDialogComponent,{ data: { post:  postToEdit }});
-    this.ref!.onClose.subscribe(formData => {
+    this.ref = this.dialogService.open(PostEditDialogComponent, { data: { post: postToEdit }});
+    this.ref!.onClose.subscribe((formData: Partial<IPost>) => {
       if(formData && postToEdit) {
         this.postService.updatePost(postToEdit.id, formData)
       }
