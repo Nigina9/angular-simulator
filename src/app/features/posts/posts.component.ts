@@ -10,7 +10,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PostService } from './post.service';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
-
+import { tap } from 'rxjs';
 @Component({
   selector: 'app-posts',
   imports: [TableModule, SkeletonModule, ContextMenuModule, RouterLink, RouterModule, RouterOutlet, AsyncPipe],
@@ -33,11 +33,11 @@ export class PostsComponent implements OnInit {
   totalRecords: number = 0;
   selectedPost: IPost | null = null;
 
-  contextMenuPosts: MenuItem[] = [
+  postsContextMenu: MenuItem[] = [
     {
       label: 'Посмотреть пост',
       icon: 'pi pi-fw pi-search',
-      command: () => this.onTableDLClick(this.selectedPost)
+      command: () => this.navigateToPost(this.selectedPost)
     },
     {
       label: 'Редактировать пост',
@@ -59,7 +59,7 @@ export class PostsComponent implements OnInit {
     this.postService.loadPosts(this.rows, this.first);
   }
 
-  onTableDLClick(post: IPost | null): void {
+  navigateToPost(post: IPost | null): void {
     if (!post) return;
     this.router.navigate(['/posts', post.id]);
  }
@@ -73,11 +73,13 @@ export class PostsComponent implements OnInit {
   openEditDialog(): void {
     const postToEdit: IPost | null = this.selectedPost;
     this.ref = this.dialogService.open(PostEditDialogComponent, { data: { post: postToEdit }});
-    this.ref!.onClose.subscribe((formData: Partial<IPost>) => {
-      if(formData && postToEdit) {
-        this.postService.updatePost(postToEdit.id, formData)
-      }
-    });
+    this.ref!.onClose.pipe(
+      tap((formData: Partial<IPost>) => {
+        if (formData && postToEdit) {
+          this.postService.updatePost(postToEdit.id, formData);
+        }
+      })
+    ).subscribe();
   }
 
   deletePost(id: number): void {

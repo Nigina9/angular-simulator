@@ -17,7 +17,6 @@ export class PostCreateComponent {
   private postService: PostService = inject(PostService);
 
   createForm: FormGroup = this.fb.group({
-    id: [Date.now()],
     title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
     body: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     tags: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
@@ -31,7 +30,6 @@ export class PostCreateComponent {
 
   onSavePost(): void {
     if (this.createForm.valid) {
-      this.createForm.patchValue({ id: Date.now() });
       this.postService.createPost(this.createForm.value).pipe(
         tap(() => {
           this.router.navigate(['/posts']);

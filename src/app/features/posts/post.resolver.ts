@@ -6,7 +6,6 @@ import { IPost } from './IPost';
 export const postResolver: ResolveFn<IPost> = (route: ActivatedRouteSnapshot) => {
 
   const postApiService: PostApiService = inject(PostApiService);
-
   return postApiService.getPostById(Number(route.params['id']));
 
 };

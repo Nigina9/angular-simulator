@@ -7,7 +7,7 @@
         <p-skeleton height="2rem"></p-skeleton>
       }
     } @else {
-      <p-contextmenu #menu [model]="contextMenuPosts"/>
+      <p-contextmenu #menu [model]="postsContextMenu"/>
       <p-table
         [value]="(postService.post$ | async) ?? []"
         [totalRecords]="(postService.total$ | async) ?? 0"
@@ -28,7 +28,7 @@
           </tr>
         </ng-template>
         <ng-template #body let-post>
-          <tr (dblclick)="onTableDLClick(post)" class="table-row" [pContextMenuRow]="post" >
+          <tr (dblclick)="navigateToPost(post)" class="table-row" [pContextMenuRow]="post" >
             <td>{{ post.title }}</td>
             <td>{{ post.tags }}</td>
             <td>{{ post.views }}</td>

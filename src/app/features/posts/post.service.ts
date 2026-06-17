@@ -13,23 +13,23 @@ export class PostService {
 
   private postApi: PostApiService = inject(PostApiService);
   private messageService: MessageService = inject(MessageService);
-  private loader: LoaderService = inject(LoaderService);
 
   private postSubject: BehaviorSubject<IPost[]> = new BehaviorSubject<IPost[]>([]);
-  post$: Observable <IPost[]> = this.postSubject.asObservable();
+  post$: Observable<IPost[]> = this.postSubject.asObservable();
 
   private totalSubject: BehaviorSubject <number> = new BehaviorSubject<number>(0);
-  total$: Observable <number> = this.totalSubject.asObservable();
+  total$: Observable<number> = this.totalSubject.asObservable();
 
   private isLoadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
 
+  private currentLimit: number = 10;
+  private currentSkip: number = 0;
+
   loadPosts(limit: number, skip: number): void {
-    this.loader.showLoader();
     this.isLoadingSubject.next(true);
     this.postApi.getPosts(limit, skip).pipe(
       tap((response: IPostsApiResponse) => {
-        this.loader.hideLoader();
         this.isLoadingSubject.next(false);
         this.postSubject.next(response.posts);
         this.totalSubject.next(response.total);
@@ -46,6 +46,7 @@ export class PostService {
     this.postApi.updatePost(id, data).pipe(
       tap(() => {
         this.messageService.showSuccess('Пост обновлен');
+        this.loadPosts(this.currentLimit, this.currentSkip);
       }),
       catchError(() => {
         this.messageService.showError('Ошибка обновления');
