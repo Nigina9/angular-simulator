@@ -1,0 +1,16 @@
+.post-detail {
+  padding: 200px 0;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 50px 1000px;
+    gap: 50px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d2caca;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

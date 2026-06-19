@@ -39,6 +39,11 @@ export class HeaderComponent {
       id: 2,
       navItem: 'Пользователи',
       path: '/users-page'
+    },
+    {
+      id: 3,
+      navItem: 'Поcты',
+      path: '/posts'
     }
   ];
 

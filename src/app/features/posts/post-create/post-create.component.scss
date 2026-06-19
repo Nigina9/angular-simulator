@@ -1,0 +1,31 @@
+.create-page {
+  padding: 0 0 100px 0;
+}
+
+.create-form-title {
+  text-align: center;
+  font-size: 30px;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.input-container {
+  display: flex;
+  gap: 50px;
+}
+
+.name-label {
+  font-size: 20px;
+}
