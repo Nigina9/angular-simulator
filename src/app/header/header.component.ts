@@ -7,10 +7,11 @@ import { inject } from '@angular/core';
 import { ToggleSwitchChangeEvent, ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSun, faMoon, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, IconDefinition, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ThemeService } from '../../service/theme.service';
 import { AsyncPipe } from '@angular/common';
+import { AuthService } from '../features/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -22,12 +23,15 @@ export class HeaderComponent {
 
   themeService: ThemeService = inject(ThemeService);
   messageService: MessageService = inject(MessageService);
+  authservice: AuthService = inject(AuthService);
+
   companyName: string = 'румтибет';
   currentWidget!: 'counter' | 'timeAndDate';
   currentTimeAndDate: string = new Date().toString();
   counter: number = 0;
   faSun: IconDefinition = faSun;
   faMoon: IconDefinition = faMoon;
+  faRightFromBracket: IconDefinition = faRightFromBracket;
 
   navList: INavigation[] = [
     {
@@ -71,6 +75,10 @@ export class HeaderComponent {
 
   toggleDarkMode(event: ToggleSwitchChangeEvent): void {
     this.themeService.toggleDarkMode(event.checked);
+  }
+
+  logout(): void {
+    this.authservice.logout();
   }
 
 }

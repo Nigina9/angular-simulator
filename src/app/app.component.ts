@@ -1,30 +1,29 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Color } from '../enums/Color';
 import './collection';
 import { FormsModule } from '@angular/forms';
-import { MessageService } from '../service/message.service';
 import { LocalStorageService } from '../service/local-storage.service';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
 import { RouterOutlet } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
 import { LoaderComponent } from './loader/loader.component';
-
+import { AuthService } from './features/auth/auth.service';
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, FooterComponent, HeaderComponent, RouterOutlet, MessageComponent, LoaderComponent],
+  imports: [FormsModule, MessageComponent, LoaderComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: []
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   localStorageService: LocalStorageService = inject(LocalStorageService);
+  authService: AuthService = inject(AuthService);
 
-  constructor() {
+  ngOnInit(): void {
     this.isPrimaryColor(Color.RED);
     this.saveDateToLocalStorage();
     this.saveSessions();
+    this.authService.initAuth().subscribe();
   }
 
   isPrimaryColor(color: Color): boolean {

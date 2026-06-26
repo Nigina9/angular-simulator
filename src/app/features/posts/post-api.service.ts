@@ -10,7 +10,7 @@ import { IPost } from './IPost';
 export class PostApiService {
 
   http: HttpClient = inject(HttpClient);
-  apiUrl: string = 'https://dummyjson.com/posts';
+  private apiUrl: string = 'https://dummyjson.com/posts';
 
   getPosts(limit: number, skip: number): Observable<IPostsApiResponse> {
     return this.http.get<IPostsApiResponse>(`${ this.apiUrl }?limit=${ limit }&skip=${ skip }`);

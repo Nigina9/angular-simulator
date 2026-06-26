@@ -9,6 +9,7 @@ import { Theme } from '../enums/Theme';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loggingInterceptor } from '../interceptor/logging.interceptor';
 import { errorInterceptor } from '../interceptor/error.interceptor';
+import { authInterceptor } from './features/auth/auth.interceptor';
 
 type ThemePresetType = typeof Aura | typeof Lara | typeof Nora;
 
@@ -28,7 +29,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideZoneChangeDetection(),
-    provideHttpClient(withInterceptors([loggingInterceptor, errorInterceptor])),
+    provideHttpClient(withInterceptors([loggingInterceptor, errorInterceptor, authInterceptor])),
     providePrimeNG({
       theme: {
         preset: initThemePreset(),
