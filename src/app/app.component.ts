@@ -6,7 +6,6 @@ import { LocalStorageService } from '../service/local-storage.service';
 import { RouterOutlet } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
 import { LoaderComponent } from './loader/loader.component';
-import { AuthService } from './features/auth/auth.service';
 @Component({
   selector: 'app-root',
   imports: [FormsModule, MessageComponent, LoaderComponent, RouterOutlet],
@@ -17,13 +16,11 @@ import { AuthService } from './features/auth/auth.service';
 export class AppComponent implements OnInit {
 
   localStorageService: LocalStorageService = inject(LocalStorageService);
-  authService: AuthService = inject(AuthService);
 
   ngOnInit(): void {
     this.isPrimaryColor(Color.RED);
     this.saveDateToLocalStorage();
     this.saveSessions();
-    this.authService.initAuth().subscribe();
   }
 
   isPrimaryColor(color: Color): boolean {

@@ -1,4 +1,4 @@
-export interface IAuth {
+export interface IAuthUser {
   id: number;
   username: string;
   email: string;
@@ -6,6 +6,4 @@ export interface IAuth {
   lastName: string;
   gender: string;
   image: string;
-  accessToken: string;
-  refreshToken: string;
 }

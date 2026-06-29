@@ -10,6 +10,9 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loggingInterceptor } from '../interceptor/logging.interceptor';
 import { errorInterceptor } from '../interceptor/error.interceptor';
 import { authInterceptor } from './features/auth/auth.interceptor';
+import { AuthService } from './features/auth/auth.service';
+import { provideAppInitializer, inject } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 
 type ThemePresetType = typeof Aura | typeof Lara | typeof Nora;
 
@@ -23,6 +26,7 @@ const initThemePreset = (): ThemePresetType => {
     default: return Aura;
   }
 }
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -38,5 +42,9 @@ export const appConfig: ApplicationConfig = {
         }
       }
     }),
+    provideAppInitializer(() => {
+      const authService: AuthService = inject(AuthService);
+      return firstValueFrom(authService.initAuth());
+  })
   ]
 };
