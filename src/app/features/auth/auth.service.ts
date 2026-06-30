@@ -70,6 +70,7 @@ export class AuthService {
       })
     )
   }
+  
   getCurrentUser(): IAuthUser | null {
     return this.authorizedUserSubject.getValue();
   }

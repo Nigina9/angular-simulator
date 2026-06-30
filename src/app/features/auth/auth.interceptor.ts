@@ -22,7 +22,7 @@ export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, ne
       }
       return authService.refreshToken().pipe(
         switchMap((tokens: IToken) => {
-          const newRequest: HttpRequest<unknown>  = addToken(req, tokens.accessToken);
+          const newRequest: HttpRequest<unknown> = addToken(req, tokens.accessToken);
           return next(newRequest);
         }),
         catchError((refreshError: HttpErrorResponse) => {
