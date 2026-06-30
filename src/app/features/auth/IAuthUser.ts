@@ -1,3 +1,4 @@
+import { AuthRole } from "./AuthRole";
 export interface IAuthUser {
   id: number;
   username: string;
@@ -6,4 +7,5 @@ export interface IAuthUser {
   lastName: string;
   gender: string;
   image: string;
+  role: AuthRole;
 }
