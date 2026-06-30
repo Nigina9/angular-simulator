@@ -1,5 +1,5 @@
 .button {
-  display: block;
+  display: inline-block;
   background-color: var(--green-background);
   color: var(--secondary-color);
   appearance: none;
@@ -35,4 +35,5 @@
   &--grey {
     background-color: #878585 ;
   }
+
 }

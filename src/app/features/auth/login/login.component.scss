@@ -1,0 +1,49 @@
+.page-login {
+  background-color: var(--green-background);
+  display: block;
+  min-height: 100vh;
+  background-image: url('/images/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  background-color: rgba(240, 238, 238, 0.6);
+  border-radius: 10px;
+  padding: 70px;
+  border: 1px solid var(--green-background);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__title {
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__wrapper-input {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__login-btn {
+    display: block;
+  }
+}
+
+.form-label {
+  font-size: 20px;
+  font-weight: 600;
+}
