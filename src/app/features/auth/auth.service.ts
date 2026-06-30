@@ -72,7 +72,6 @@ export class AuthService {
   }
 
   getCurrentUser(): IAuthUser | null {
-    console.log(this.authorizedUserSubject.getValue());
     return this.authorizedUserSubject.getValue();
   }
 

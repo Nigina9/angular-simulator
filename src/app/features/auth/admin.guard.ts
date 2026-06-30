@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { AuthRole } from './AuthRole';
 
-
 export const adminGuard: CanActivateFn = () => {
 
   const authService: AuthService = inject(AuthService);
@@ -16,3 +15,4 @@ export const adminGuard: CanActivateFn = () => {
   }
   return router.createUrlTree(['']);
 };
+
