@@ -2,15 +2,15 @@ import { CanActivateFn } from '@angular/router';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import { AuthRole } from './AuthRole';
+import { UserRole } from './UserRole';
 
 export const adminGuard: CanActivateFn = () => {
 
   const authService: AuthService = inject(AuthService);
   const router: Router = inject(Router);
-  const isAdminUser: boolean = authService.getCurrentUser()?.role === AuthRole.ADMIN;
+  const isAdmin: boolean = authService.getCurrentUser()?.role === UserRole.ADMIN;
 
-  if (isAdminUser) {
+  if (isAdmin) {
     return true;
   }
   return router.createUrlTree(['']);

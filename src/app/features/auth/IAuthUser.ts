@@ -1,4 +1,4 @@
-import { AuthRole } from "./AuthRole";
+import { UserRole } from "./UserRole";
 export interface IAuthUser {
   id: number;
   username: string;
@@ -7,5 +7,5 @@ export interface IAuthUser {
   lastName: string;
   gender: string;
   image: string;
-  role: AuthRole;
+  role: UserRole;
 }
