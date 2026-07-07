@@ -13,12 +13,10 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './message.component.scss',
 })
 export class MessageComponent {
-
   messageService: MessageService = inject(MessageService);
   messageEnum: typeof Message = Message;
 
   closeMessage(message: IMessage): void {
     this.messageService.closeMessage(message);
   }
-
 }

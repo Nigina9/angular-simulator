@@ -9,7 +9,12 @@ import { IReport } from '../../interfaces/IReport';
 import { MessageService } from '../../service/message.service';
 import { inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPersonHiking,
+  faBuildingShield,
+  faTags,
+  IconDefinition,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-page',
@@ -18,7 +23,6 @@ import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@forta
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
-
   messageService: MessageService = inject(MessageService);
   selectedLocation: string = '';
   selectedDate: string = '';
@@ -32,46 +36,46 @@ export class HomePageComponent {
     {
       id: 1,
       value: 'Altai',
-      location: 'Алтай'
+      location: 'Алтай',
     },
     {
       id: 2,
-        value: 'Dagestan',
-        location: 'Дагестан'
+      value: 'Dagestan',
+      location: 'Дагестан',
     },
     {
-        id: 3,
-        value: 'Baikal',
-        location: 'Байкал'
+      id: 3,
+      value: 'Baikal',
+      location: 'Байкал',
     },
     {
-        id: 4,
-        value: 'Kaliningrad',
-        location: 'Калининград'
-    }
+      id: 4,
+      value: 'Kaliningrad',
+      location: 'Калининград',
+    },
   ];
 
   participants: IParticipant[] = [
     {
       id: 1,
       quantity: 4,
-      value: 'four'
+      value: 'four',
     },
     {
       id: 2,
       quantity: 6,
-      value: 'six'
+      value: 'six',
     },
     {
       id: 3,
       quantity: 8,
-      value: 'eight'
+      value: 'eight',
     },
     {
       id: 4,
       quantity: 10,
-      value: 'ten'
-      },
+      value: 'ten',
+    },
   ];
 
   destinations: IDestination[] = [
@@ -98,86 +102,90 @@ export class HomePageComponent {
       price: 230,
       rating: '5.0',
       img: 'stretching',
-    }
+    },
   ];
 
   offers: IOffer[] = [
     {
       id: 1,
       title: 'Опытный гид',
-      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       img: faPersonHiking,
     },
     {
       id: 2,
       title: 'Безопасный поход',
-      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       img: faBuildingShield,
     },
     {
       id: 3,
       title: 'Лояльные цены',
-      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       img: faTags,
-    }
+    },
   ];
 
   articles: IArticle[] = [
     {
       id: 1,
       title: 'Красивая Италия, какая она в реальности?',
-      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      decription:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       publication: '01/04/2023',
-      img: 'italy'
+      img: 'italy',
     },
     {
       id: 2,
       title: 'Долой сомнения! Весь мир открыт для вас!',
-      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      decription:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
       publication: '01/04/2023',
-      img: 'plane'
+      img: 'plane',
     },
     {
       id: 3,
       title: 'Как подготовиться к путешествию в одиночку?',
       decription: 'Для современного мира базовый вектор развития предполагает.',
       publication: '01/04/2023',
-      img: 'woman'
+      img: 'woman',
     },
     {
       id: 4,
       title: 'Индия ... летим?',
       decription: 'Для современного мира базовый.',
       publication: '01/04/2023',
-      img: 'india'
-    }
+      img: 'india',
+    },
   ];
 
   images: IReport[] = [
     {
       id: 1,
-      image: 'photographer'
+      image: 'photographer',
     },
     {
       id: 2,
-      image: 'map'
+      image: 'map',
     },
     {
       id: 3,
-      image: 'dubai'
+      image: 'dubai',
     },
     {
       id: 4,
-      image: 'sea'
+      image: 'sea',
     },
     {
       id: 5,
-      image: 'canyon'
+      image: 'canyon',
     },
     {
       id: 6,
-      image: 'notepad'
-    }
+      image: 'notepad',
+    },
   ];
-
 }

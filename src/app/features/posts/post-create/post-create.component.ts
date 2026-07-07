@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
@@ -11,7 +11,6 @@ import { tap } from 'rxjs';
   styleUrl: './post-create.component.scss',
 })
 export class PostCreateComponent {
-
   private fb: FormBuilder = inject(FormBuilder);
   private router: Router = inject(Router);
   private postService: PostService = inject(PostService);
@@ -26,16 +25,18 @@ export class PostCreateComponent {
     }),
     views: ['', [Validators.required, Validators.min(0)]],
     userId: ['', [Validators.required, Validators.min(0)]],
-  })
+  });
 
   onSavePost(): void {
     if (this.createForm.valid) {
-      this.postService.createPost(this.createForm.value).pipe(
-        tap(() => {
-          this.router.navigate(['/posts']);
-        })
-      ).subscribe();
+      this.postService
+        .createPost(this.createForm.value)
+        .pipe(
+          tap(() => {
+            this.router.navigate(['/posts']);
+          }),
+        )
+        .subscribe();
     }
   }
-
 }

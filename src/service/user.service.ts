@@ -1,5 +1,14 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, finalize, Observable, of, map, filter, combineLatest } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  finalize,
+  Observable,
+  of,
+  map,
+  filter,
+  combineLatest,
+} from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 import { LoaderService } from './loader.service';
 import { UserApiService } from './user-api.service';
@@ -9,7 +18,6 @@ import { MessageService } from './message.service';
   providedIn: 'root',
 })
 export class UserService {
-
   loaderService: LoaderService = inject(LoaderService);
   messageService: MessageService = inject(MessageService);
   userApi: UserApiService = inject(UserApiService);
@@ -37,19 +45,20 @@ export class UserService {
       return of(usersFromStorage);
     } else {
       this.loaderService.showLoader();
-      return this.userApi.getUsers()
-        .pipe(
-          catchError(() => {
-            this.messageService.showError('Нет пользователей для отображения');
-            return of([]);
-          }),
-          finalize(() => this.loaderService.hideLoader()),
-        )
+      return this.userApi.getUsers().pipe(
+        catchError(() => {
+          this.messageService.showError('Нет пользователей для отображения');
+          return of([]);
+        }),
+        finalize(() => this.loaderService.hideLoader()),
+      );
     }
   }
 
   onDeleteUser(id: number): void {
-    const currentUsers: IUser[] = this.userSubject.getValue().filter((user: IUser) => user.id !== id);
+    const currentUsers: IUser[] = this.userSubject
+      .getValue()
+      .filter((user: IUser) => user.id !== id);
     this.userSubject.next(currentUsers);
     this.setUsers(this.userSubject.getValue());
   }
@@ -63,5 +72,4 @@ export class UserService {
   refreshUsers(): Observable<IUser[]> {
     return this.loadUsers();
   }
-
 }

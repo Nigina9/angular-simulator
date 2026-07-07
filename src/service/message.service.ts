@@ -7,7 +7,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MessageService {
-
   private messageSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]);
   messages$: Observable<IMessage[]> = this.messageSubject.asObservable();
 
@@ -40,5 +39,4 @@ export class MessageService {
     const updatedMessages: IMessage[] = currentMessages.filter((m: IMessage) => m !== message);
     this.messageSubject.next(updatedMessages);
   }
-
 }

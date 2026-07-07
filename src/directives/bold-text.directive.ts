@@ -4,7 +4,6 @@ import { Directive, HostListener, HostBinding } from '@angular/core';
   selector: '[appBoldText]',
 })
 export class BoldTextDirective {
-
   @HostBinding('style.fontWeight') fontWeight: string = 'normal';
 
   @HostListener('mouseenter')

@@ -12,33 +12,36 @@ import { Theme } from '../enums/Theme';
   providedIn: 'root',
 })
 export class ThemeService {
-
   localStorage: LocalStorageService = inject(LocalStorageService);
 
-  private isDarkSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.initModeFromStorage());
+  private isDarkSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    this.initModeFromStorage(),
+  );
   isDarkMode$: Observable<boolean> = this.isDarkSubject.asObservable().pipe(
     tap((isDarkMode: boolean) => {
       const element: HTMLHtmlElement = document.querySelector('html')!;
       isDarkMode ? element.classList.add('dark-theme') : element.classList.remove('dark-theme');
-    })
+    }),
   );
 
-    themes: ITheme[] = [
+  themes: ITheme[] = [
     {
       name: Theme.AURA,
-      preset: Aura
+      preset: Aura,
     },
     {
       name: Theme.LARA,
-      preset: Lara
+      preset: Lara,
     },
     {
       name: Theme.NORA,
-      preset: Nora
-    }
+      preset: Nora,
+    },
   ];
 
-  private themeSubject: BehaviorSubject<ITheme> = new BehaviorSubject<ITheme>(this.initThemeFromStorage());
+  private themeSubject: BehaviorSubject<ITheme> = new BehaviorSubject<ITheme>(
+    this.initThemeFromStorage(),
+  );
   theme$: Observable<ITheme> = this.themeSubject.asObservable();
 
   private initModeFromStorage(): boolean {
@@ -52,7 +55,9 @@ export class ThemeService {
 
   private initThemeFromStorage(): ITheme {
     const savedThemeName: string | null = this.localStorage.getValue('theme');
-    const foundTheme: ITheme | undefined = this.themes.find(theme => theme.name === savedThemeName);
+    const foundTheme: ITheme | undefined = this.themes.find(
+      (theme) => theme.name === savedThemeName,
+    );
     return foundTheme ?? this.themes[0];
   }
 
@@ -61,5 +66,4 @@ export class ThemeService {
     usePreset(theme.preset);
     this.localStorage.saveValue('theme', theme.name);
   }
-
 }

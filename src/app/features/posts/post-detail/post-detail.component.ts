@@ -9,8 +9,6 @@ import { IPost } from '../IPost';
   styleUrl: './post-detail.component.scss',
 })
 export class PostDetailComponent {
-
   private route: ActivatedRoute = inject(ActivatedRoute);
   post: IPost = this.route.snapshot.data['post'];
-
 }

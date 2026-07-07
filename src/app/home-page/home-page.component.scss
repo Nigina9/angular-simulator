@@ -10,7 +10,7 @@
 
   &__wrapper {
     position: absolute;
-    background-image: url("/images/hero-bg.png");
+    background-image: url('/images/hero-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -79,7 +79,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     padding: 14px 100px 14px 16px;
-    background-image: url("/images/icon-arr-down.svg");
+    background-image: url('/images/icon-arr-down.svg');
   }
 
   &--participants {
@@ -87,11 +87,11 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     padding: 14px 125px 14px 16px;
-    background-image: url("/images/icon-arr-down.svg");
+    background-image: url('/images/icon-arr-down.svg');
   }
 
   &--date {
-    background-image: url("/images/icon-date.svg");
+    background-image: url('/images/icon-date.svg');
     background-size: 18px 18px;
     background-repeat: no-repeat;
     background-position: right 12px center;
@@ -124,12 +124,12 @@
 }
 
 .field__option {
-  color: #1A3E3E;
+  color: #1a3e3e;
 }
 
 .button-form {
   background-color: var(--secondary-color);
-  color: #1A3E3E;
+  color: #1a3e3e;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
@@ -250,7 +250,7 @@
 }
 
 .field-live-input {
-  background-image: url("/images/icon-arr-right.svg");
+  background-image: url('/images/icon-arr-right.svg');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 16px 16px;
@@ -337,7 +337,6 @@
   line-height: 18px;
 }
 
-
 .tour-rating {
   display: inline-block;
   position: relative;
@@ -403,7 +402,7 @@
     text-decoration: none;
 
     &:hover {
-      color: #1A3E3E;
+      color: #1a3e3e;
       text-decoration: underline;
     }
   }
@@ -421,7 +420,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  color: #F2BE22;
+  color: #f2be22;
 }
 
 .link-to-article {
@@ -464,6 +463,6 @@
   .fa-tags {
     width: 50px;
     height: 50px;
-    color: #F2BE22;
+    color: #f2be22;
   }
 }

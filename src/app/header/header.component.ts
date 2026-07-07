@@ -7,7 +7,12 @@ import { inject } from '@angular/core';
 import { ToggleSwitchChangeEvent, ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSun, faMoon, IconDefinition, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSun,
+  faMoon,
+  IconDefinition,
+  faRightFromBracket,
+} from '@fortawesome/free-solid-svg-icons';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ThemeService } from '../../service/theme.service';
 import { AsyncPipe } from '@angular/common';
@@ -15,12 +20,19 @@ import { AuthService } from '../features/auth/auth.service';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, ToggleSwitchModule, FormsModule, FontAwesomeModule, SelectButtonModule, AsyncPipe],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    ToggleSwitchModule,
+    FormsModule,
+    FontAwesomeModule,
+    SelectButtonModule,
+    AsyncPipe,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-
   themeService: ThemeService = inject(ThemeService);
   messageService: MessageService = inject(MessageService);
   authservice: AuthService = inject(AuthService);
@@ -37,18 +49,18 @@ export class HeaderComponent {
     {
       id: 1,
       navItem: 'Главная',
-      path: '/'
+      path: '/',
     },
     {
       id: 2,
       navItem: 'Пользователи',
-      path: '/users-page'
+      path: '/users-page',
     },
     {
       id: 3,
       navItem: 'Поcты',
-      path: '/posts'
-    }
+      path: '/posts',
+    },
   ];
 
   constructor() {
@@ -80,5 +92,4 @@ export class HeaderComponent {
   logout(): void {
     this.authservice.logout();
   }
-
 }

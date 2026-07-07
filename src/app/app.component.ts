@@ -11,10 +11,9 @@ import { LoaderComponent } from './loader/loader.component';
   imports: [FormsModule, MessageComponent, LoaderComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: []
+  providers: [],
 })
 export class AppComponent implements OnInit {
-
   localStorageService: LocalStorageService = inject(LocalStorageService);
 
   ngOnInit(): void {
@@ -41,5 +40,4 @@ export class AppComponent implements OnInit {
     }
     this.localStorageService.saveValue('visit-counter', visitCount.toString());
   }
-
 }

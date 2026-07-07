@@ -11,29 +11,29 @@ import { IAuthResponse } from './IAuthResponse';
   providedIn: 'root',
 })
 export class AuthService {
-
   private localStorage: LocalStorageService = inject(LocalStorageService);
 
   private router: Router = inject(Router);
   private http: HttpClient = inject(HttpClient);
 
-  private authorizedUserSubject: BehaviorSubject<IAuthUser | null> = new BehaviorSubject<IAuthUser | null>(null);
+  private authorizedUserSubject: BehaviorSubject<IAuthUser | null> =
+    new BehaviorSubject<IAuthUser | null>(null);
   authorizedUser$: Observable<IAuthUser | null> = this.authorizedUserSubject.asObservable();
 
   private apiUrl: string = 'https://dummyjson.com/auth';
 
   login(username: string, password: string): Observable<IAuthResponse | null> {
-    return this.http.post<IAuthResponse>(`${ this.apiUrl }/login`, { username, password }).pipe(
+    return this.http.post<IAuthResponse>(`${this.apiUrl}/login`, { username, password }).pipe(
       tap((response: IAuthResponse) => {
         this.localStorage.saveValue('tokens', {
           accessToken: response.accessToken,
-          refreshToken: response.refreshToken
+          refreshToken: response.refreshToken,
         });
         this.authorizedUserSubject.next(response);
       }),
       catchError(() => {
         return of(null);
-      })
+      }),
     );
   }
 
@@ -49,26 +49,26 @@ export class AuthService {
 
   refreshToken(): Observable<IToken> {
     const token: string | null = this.localStorage.getValue<string>('tokens');
-    return this.http.post<IToken>(`${ this.apiUrl }/refresh`, { refreshToken: token }).pipe(
+    return this.http.post<IToken>(`${this.apiUrl}/refresh`, { refreshToken: token }).pipe(
       tap((response: IToken) => {
         this.localStorage.saveValue('tokens', {
           accessToken: response.accessToken,
-          refreshToken: response.refreshToken
+          refreshToken: response.refreshToken,
         });
-      })
-    )
+      }),
+    );
   }
 
-  getUser(): Observable<IAuthUser| null> {
-    return this.http.get<IAuthUser>(`${ this.apiUrl }/me`).pipe(
+  getUser(): Observable<IAuthUser | null> {
+    return this.http.get<IAuthUser>(`${this.apiUrl}/me`).pipe(
       tap((user: IAuthUser) => {
         this.authorizedUserSubject.next(user);
       }),
       catchError(() => {
         this.logout();
         return of(null);
-      })
-    )
+      }),
+    );
   }
 
   getCurrentUser(): IAuthUser | null {
@@ -82,5 +82,4 @@ export class AuthService {
     }
     return this.getUser();
   }
-
 }

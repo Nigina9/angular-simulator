@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LocalStorageService {
-
   saveValue<T>(key: string, value: T): void {
     localStorage.setItem(key, JSON.stringify(value));
   }
@@ -21,5 +20,4 @@ export class LocalStorageService {
   clearAll(): void {
     localStorage.clear();
   }
-
 }

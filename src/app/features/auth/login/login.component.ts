@@ -12,8 +12,7 @@ import { MessageService } from '../../../../service/message.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-
-  private authService: AuthService= inject(AuthService);
+  private authService: AuthService = inject(AuthService);
   private messageService: MessageService = inject(MessageService);
 
   private fb: FormBuilder = inject(FormBuilder);
@@ -22,23 +21,23 @@ export class LoginComponent {
   loginForm: FormGroup = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
-  })
+  });
 
   onLogin(): void {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value.username, this.loginForm.value.password).pipe(
-        tap(() => {
-          this.router.navigate(['']);
-          this.messageService.showSuccess("Вы авторизованы");
-        }),
-        catchError(() => {
-          this.messageService.showError('Ошибка доступа');
-          return of(null);
-        })
-      ).subscribe();
+      this.authService
+        .login(this.loginForm.value.username, this.loginForm.value.password)
+        .pipe(
+          tap(() => {
+            this.router.navigate(['']);
+            this.messageService.showSuccess('Вы авторизованы');
+          }),
+          catchError(() => {
+            this.messageService.showError('Ошибка доступа');
+            return of(null);
+          }),
+        )
+        .subscribe();
     }
   }
-
 }
-
-

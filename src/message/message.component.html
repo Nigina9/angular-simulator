@@ -7,14 +7,17 @@
         class="close-button-message"
         id="close-button"
         type="submit"
-        (click)="messageService.closeMessage(message)">
-      </button>
+        (click)="messageService.closeMessage(message)"
+      ></button>
     </div>
   </div>
 </ng-template>
 
 <div class="message-container">
   @for (newMessage of messageService.messages$ | async; track newMessage) {
-    <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: newMessage }"></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="message"
+      [ngTemplateOutletContext]="{ $implicit: newMessage }"
+    ></ng-container>
   }
 </div>
