@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable, tap, of, catchError } from 'rxjs';
 import { IPost } from './IPost';
 import { PostApiService } from './post-api.service';
 import { MessageService } from '../../../service/message.service';
-import { LoaderService } from '../../../service/loader.service';
 import { IPostsApiResponse } from './IPostsApiResponse';
 
 @Injectable({

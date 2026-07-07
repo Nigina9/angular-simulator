@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { AsyncPipe } from '@angular/common';
 import { IUser } from '../../interfaces/IUser';
-import { tap, BehaviorSubject, map, filter, Observable, combineLatest } from 'rxjs';
+import { tap, BehaviorSubject, map, Observable, combineLatest } from 'rxjs';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { CreateUserComponent } from '../create-user/create-user.component';
 import { UsersFilterComponent } from '../users-filter/users-filter.component';

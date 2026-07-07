@@ -21,14 +21,12 @@ module.exports = defineConfig([
           allow: ['warn', 'error'],
         },
       ],
-
       'padded-blocks': [
         'error',
         {
           classes: 'always',
         },
       ],
-
       quotes: [
         'warn',
         'single',
@@ -37,22 +35,9 @@ module.exports = defineConfig([
           allowTemplateLiterals: true,
         },
       ],
-
-      'object-curly-spacing': [
-        'warn',
-        'always',
-      ],
-
-      'template-curly-spacing': [
-        'warn',
-        'always',
-      ],
-
-      semi: [
-        'warn',
-        'always',
-      ],
-
+      'object-curly-spacing': ['warn', 'always'],
+      'template-curly-spacing': ['warn', 'always'],
+      semi: ['warn', 'always'],
       'lines-between-class-members': [
         'error',
         'always',
@@ -60,23 +45,19 @@ module.exports = defineConfig([
           exceptAfterSingleLine: true,
         },
       ],
-
       '@typescript-eslint/explicit-member-accessibility': [
         'error',
         {
           accessibility: 'no-public',
         },
       ],
-
       '@typescript-eslint/naming-convention': [
         'error',
-
         {
           selector: 'enumMember',
           format: ['UPPER_CASE'],
           leadingUnderscore: 'forbid',
         },
-
         {
           selector: 'interface',
           format: ['PascalCase'],
@@ -85,7 +66,6 @@ module.exports = defineConfig([
             match: true,
           },
         },
-
         {
           selector: 'default',
           format: null,
@@ -96,11 +76,7 @@ module.exports = defineConfig([
 
   {
     files: ['**/*.html'],
-    extends: [
-      angular.configs.templateRecommended,
-      angular.configs.templateAccessibility,
-    ],
-
+    extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
     rules: {
       '@angular-eslint/template/banana-in-box': 'error',
       '@angular-eslint/template/eqeqeq': 'warn',

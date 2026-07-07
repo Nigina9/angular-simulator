@@ -17,6 +17,7 @@ export class ThemeService {
   private isDarkSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     this.initModeFromStorage(),
   );
+
   isDarkMode$: Observable<boolean> = this.isDarkSubject.asObservable().pipe(
     tap((isDarkMode: boolean) => {
       const element: HTMLHtmlElement = document.querySelector('html')!;
@@ -42,6 +43,7 @@ export class ThemeService {
   private themeSubject: BehaviorSubject<ITheme> = new BehaviorSubject<ITheme>(
     this.initThemeFromStorage(),
   );
+
   theme$: Observable<ITheme> = this.themeSubject.asObservable();
 
   private initModeFromStorage(): boolean {

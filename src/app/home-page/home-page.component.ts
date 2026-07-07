@@ -9,12 +9,7 @@ import { IReport } from '../../interfaces/IReport';
 import { MessageService } from '../../service/message.service';
 import { inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faPersonHiking,
-  faBuildingShield,
-  faTags,
-  IconDefinition,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-page',

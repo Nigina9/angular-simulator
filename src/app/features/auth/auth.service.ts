@@ -18,6 +18,7 @@ export class AuthService {
 
   private authorizedUserSubject: BehaviorSubject<IAuthUser | null> =
     new BehaviorSubject<IAuthUser | null>(null);
+
   authorizedUser$: Observable<IAuthUser | null> = this.authorizedUserSubject.asObservable();
 
   private apiUrl: string = 'https://dummyjson.com/auth';

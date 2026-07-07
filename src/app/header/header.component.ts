@@ -7,12 +7,7 @@ import { inject } from '@angular/core';
 import { ToggleSwitchChangeEvent, ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faSun,
-  faMoon,
-  IconDefinition,
-  faRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, IconDefinition, faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ThemeService } from '../../service/theme.service';
 import { AsyncPipe } from '@angular/common';

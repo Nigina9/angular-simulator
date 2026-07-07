@@ -18,11 +18,11 @@ export const loggingInterceptor: HttpInterceptorFn = (
   return next(req).pipe(
     tap((response: HttpEvent<unknown>) => {
       if (response instanceof HttpResponse) {
-        console.log(`Request success: ${logMessage} - ${response.status} - ${getRequestTime()}ms`);
+        console.warn(`Request success: ${logMessage} - ${response.status} - ${getRequestTime()}ms`);
       }
     }),
     catchError((error: HttpErrorResponse) => {
-      console.log(`Request failed: ${logMessage} - ${error.status} - ${getRequestTime()}ms`);
+      console.error(`Request failed: ${logMessage} - ${error.status} - ${getRequestTime()}ms`);
       return throwError(() => error);
     }),
   );
