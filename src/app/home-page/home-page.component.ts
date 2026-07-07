@@ -15,9 +15,10 @@ import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@forta
   selector: 'app-home-page',
   imports: [FormsModule, FontAwesomeModule],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss',
+  styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
+
   messageService: MessageService = inject(MessageService);
   selectedLocation: string = '';
   selectedDate: string = '';
@@ -31,46 +32,46 @@ export class HomePageComponent {
     {
       id: 1,
       value: 'Altai',
-      location: 'Алтай',
+      location: 'Алтай'
     },
     {
       id: 2,
       value: 'Dagestan',
-      location: 'Дагестан',
+      location: 'Дагестан'
     },
     {
       id: 3,
       value: 'Baikal',
-      location: 'Байкал',
+      location: 'Байкал'
     },
     {
       id: 4,
       value: 'Kaliningrad',
-      location: 'Калининград',
-    },
+      location: 'Калининград'
+    }
   ];
 
   participants: IParticipant[] = [
     {
       id: 1,
       quantity: 4,
-      value: 'four',
+      value: 'four'
     },
     {
       id: 2,
       quantity: 6,
-      value: 'six',
+      value: 'six'
     },
     {
       id: 3,
       quantity: 8,
-      value: 'eight',
+      value: 'eight'
     },
     {
       id: 4,
       quantity: 10,
-      value: 'ten',
-    },
+      value: 'ten'
+    }
   ];
 
   destinations: IDestination[] = [
@@ -80,7 +81,7 @@ export class HomePageComponent {
       description: 'романтическое приключение',
       price: 480,
       rating: '4.9',
-      img: 'lake',
+      img: 'lake'
     },
     {
       id: 2,
@@ -88,7 +89,7 @@ export class HomePageComponent {
       description: 'в компании друзей',
       price: 500,
       rating: '4.5',
-      img: 'night-mountains',
+      img: 'night-mountains'
     },
     {
       id: 3,
@@ -96,8 +97,8 @@ export class HomePageComponent {
       description: 'для тех, кто забоится о себе',
       price: 230,
       rating: '5.0',
-      img: 'stretching',
-    },
+      img: 'stretching'
+    }
   ];
 
   offers: IOffer[] = [
@@ -106,22 +107,22 @@ export class HomePageComponent {
       title: 'Опытный гид',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: faPersonHiking,
+      img: faPersonHiking
     },
     {
       id: 2,
       title: 'Безопасный поход',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: faBuildingShield,
+      img: faBuildingShield
     },
     {
       id: 3,
       title: 'Лояльные цены',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: faTags,
-    },
+      img: faTags
+    }
   ];
 
   articles: IArticle[] = [
@@ -131,7 +132,7 @@ export class HomePageComponent {
       decription:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       publication: '01/04/2023',
-      img: 'italy',
+      img: 'italy'
     },
     {
       id: 2,
@@ -139,48 +140,49 @@ export class HomePageComponent {
       decription:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
       publication: '01/04/2023',
-      img: 'plane',
+      img: 'plane'
     },
     {
       id: 3,
       title: 'Как подготовиться к путешествию в одиночку?',
       decription: 'Для современного мира базовый вектор развития предполагает.',
       publication: '01/04/2023',
-      img: 'woman',
+      img: 'woman'
     },
     {
       id: 4,
       title: 'Индия ... летим?',
       decription: 'Для современного мира базовый.',
       publication: '01/04/2023',
-      img: 'india',
-    },
+      img: 'india'
+    }
   ];
 
   images: IReport[] = [
     {
       id: 1,
-      image: 'photographer',
+      image: 'photographer'
     },
     {
       id: 2,
-      image: 'map',
+      image: 'map'
     },
     {
       id: 3,
-      image: 'dubai',
+      image: 'dubai'
     },
     {
       id: 4,
-      image: 'sea',
+      image: 'sea'
     },
     {
       id: 5,
-      image: 'canyon',
+      image: 'canyon'
     },
     {
       id: 6,
-      image: 'notepad',
-    },
+      image: 'notepad'
+    }
   ];
+
 }

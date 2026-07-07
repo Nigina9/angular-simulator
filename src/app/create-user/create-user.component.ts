@@ -9,15 +9,16 @@ import { IGradientConfiguration } from '../../interfaces/IGradientConfiguration'
   selector: 'app-create-user',
   imports: [FormsModule, ReactiveFormsModule, BoldTextDirective, AnimatedGradientDirective],
   templateUrl: './create-user.component.html',
-  styleUrl: './create-user.component.scss',
+  styleUrl: './create-user.component.scss'
 })
 export class CreateUserComponent {
+
   @Output() createUser: EventEmitter<IUser> = new EventEmitter<IUser>();
   private fb: FormBuilder = inject(FormBuilder);
   gradientConfig: IGradientConfiguration = {
     delay: 500,
     colors: ['#d4a373', '#1a3e3e'],
-    thickness: 3,
+    thickness: 3
   };
 
   registrationForm: FormGroup = this.fb.group({
@@ -34,14 +35,14 @@ export class CreateUserComponent {
       zipcode: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       geo: this.fb.group({
         lat: ['', [Validators.required]],
-        lng: ['', [Validators.required]],
-      }),
+        lng: ['', [Validators.required]]
+      })
     }),
     company: this.fb.group({
       name: ['', [Validators.required, Validators.maxLength(50)]],
       catchPhrase: ['', Validators.maxLength(200)],
-      bs: ['', Validators.maxLength(100)],
-    }),
+      bs: ['', Validators.maxLength(100)]
+    })
   });
 
   onSubmit(): void {
@@ -50,4 +51,5 @@ export class CreateUserComponent {
       this.createUser.emit(this.registrationForm.value);
     }
   }
+
 }

@@ -4,6 +4,7 @@
       <p class="template-message__title">{{ message.type }}</p>
       <p class="template-message__subtitle">{{ message.text }}</p>
       <button
+        aria-label="Close message"
         class="close-button-message"
         id="close-button"
         type="submit"
@@ -15,9 +16,6 @@
 
 <div class="message-container">
   @for (newMessage of messageService.messages$ | async; track newMessage) {
-    <ng-container
-      [ngTemplateOutlet]="message"
-      [ngTemplateOutletContext]="{ $implicit: newMessage }"
-    ></ng-container>
+    <ng-container [ngTemplateOutlet]="message" [ngTemplateOutletContext]="{ $implicit: newMessage }"></ng-container>
   }
 </div>

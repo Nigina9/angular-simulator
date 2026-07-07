@@ -9,9 +9,10 @@ import { BoldTextDirective } from '../../directives/bold-text.directive';
   selector: 'app-user-card',
   imports: [UpperCasePipe, PhoneFormatPipe, BoldTextDirective],
   templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.scss',
+  styleUrl: './user-card.component.scss'
 })
 export class UserCardComponent {
+
   @Input({ required: true }) user!: IUser;
   @Output() deleteUser: EventEmitter<number> = new EventEmitter<number>();
 
@@ -20,4 +21,5 @@ export class UserCardComponent {
   onDelete(): void {
     this.deleteUser.emit(this.user.id);
   }
+
 }

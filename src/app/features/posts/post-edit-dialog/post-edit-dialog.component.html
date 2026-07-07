@@ -15,13 +15,7 @@
 
     <div class="edit-form__item">
       <label class="input-label" for="edit-tags">Tags:</label>
-      <input
-        type="text"
-        formControlName="tags"
-        placeholder="редактируйте теги"
-        class="input-field"
-        id="edit-tags"
-      />
+      <input type="text" formControlName="tags" placeholder="редактируйте теги" class="input-field" id="edit-tags" />
     </div>
 
     <div class="edit-form__item">
@@ -36,12 +30,8 @@
     </div>
 
     <div class="edit-form__wrapper-buttons">
-      <button type="button" class="button button--grey" (click)="onClose()" id="close-button">
-        Отмена
-      </button>
-      <button type="submit" class="button" id="save-button" (click)="onSave()">
-        Сохранить изменения
-      </button>
+      <button type="button" class="button button--grey" (click)="onClose()" id="close-button">Отмена</button>
+      <button type="submit" class="button" id="save-button" (click)="onSave()">Сохранить изменения</button>
     </div>
   </form>
 </div>

@@ -1,17 +1,9 @@
-import {
-  HttpInterceptorFn,
-  HttpErrorResponse,
-  HttpRequest,
-  HttpHandlerFn,
-} from '@angular/common/http';
+import { HttpInterceptorFn, HttpErrorResponse, HttpRequest, HttpHandlerFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { MessageService } from '../service/message.service';
 import { catchError, throwError } from 'rxjs';
 
-export const errorInterceptor: HttpInterceptorFn = (
-  req: HttpRequest<unknown>,
-  next: HttpHandlerFn,
-) => {
+export const errorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const messageService: MessageService = inject(MessageService);
 
   return next(req).pipe(
@@ -20,6 +12,6 @@ export const errorInterceptor: HttpInterceptorFn = (
         messageService.showError('Ошибка соединения');
       }
       return throwError(() => error);
-    }),
+    })
   );
 };

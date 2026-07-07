@@ -48,7 +48,7 @@ const users: IUser[] = [
     surname: 'Zaripova',
     city: 'Moscow',
     age: 29,
-    address: 'street Pererva, 57',
+    address: 'street Pererva, 57'
   },
   {
     id: 7,
@@ -56,7 +56,7 @@ const users: IUser[] = [
     surname: 'Ivanova',
     city: 'Moscow',
     age: 31,
-    address: 'street Tenlyi stan, 13',
+    address: 'street Tenlyi stan, 13'
   },
   {
     id: 2,
@@ -64,15 +64,15 @@ const users: IUser[] = [
     surname: 'Kaverina',
     city: 'Lyubertsy',
     age: 19,
-    address: 'Oktyabrsky prospekt 34',
+    address: 'Oktyabrsky prospekt 34'
   },
   {
     id: 5,
     name: 'Seva',
     surname: 'Rozhkov',
     city: 'Moscow',
-    age: 21,
-  },
+    age: 21
+  }
 ];
 
 const usersOverAgeTwentyFive: IUser[] = users.filter((currentUser: IUser) => currentUser.age > 25);

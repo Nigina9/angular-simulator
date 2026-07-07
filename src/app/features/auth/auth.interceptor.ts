@@ -5,10 +5,7 @@ import { catchError, switchMap, throwError } from 'rxjs';
 import { IToken } from './login/IToken';
 import { HttpErrorResponse } from '@angular/common/http';
 
-export const authInterceptor: HttpInterceptorFn = (
-  req: HttpRequest<unknown>,
-  next: HttpHandlerFn,
-) => {
+export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const authService: AuthService = inject(AuthService);
   const currentToken: string | null = authService.getToken();
 
@@ -31,16 +28,16 @@ export const authInterceptor: HttpInterceptorFn = (
         catchError((refreshError: HttpErrorResponse) => {
           authService.logout();
           return throwError(() => refreshError);
-        }),
+        })
       );
-    }),
+    })
   );
 };
 
 function addToken(req: HttpRequest<unknown>, token: string) {
   return req.clone({
     setHeaders: {
-      Authorization: `Bearer ${token}`,
-    },
+      Authorization: `Bearer ${ token }`
+    }
   });
 }

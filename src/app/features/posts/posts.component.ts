@@ -13,20 +13,13 @@ import { AsyncPipe } from '@angular/common';
 import { tap } from 'rxjs';
 @Component({
   selector: 'app-posts',
-  imports: [
-    TableModule,
-    SkeletonModule,
-    ContextMenuModule,
-    RouterLink,
-    RouterModule,
-    RouterOutlet,
-    AsyncPipe,
-  ],
+  imports: [TableModule, SkeletonModule, ContextMenuModule, RouterLink, RouterModule, RouterOutlet, AsyncPipe],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss',
-  providers: [DialogService],
+  providers: [DialogService]
 })
 export class PostsComponent implements OnInit {
+
   private router: Router = inject(Router);
   private dialogService: DialogService = inject(DialogService);
   private ref: DynamicDialogRef | undefined | null = undefined;
@@ -44,18 +37,18 @@ export class PostsComponent implements OnInit {
     {
       label: 'Посмотреть пост',
       icon: 'pi pi-fw pi-search',
-      command: () => this.navigateToPost(this.selectedPost),
+      command: () => this.navigateToPost(this.selectedPost)
     },
     {
       label: 'Редактировать пост',
       icon: 'pi pi-fw pi-wrench',
-      command: () => this.openEditDialog(),
+      command: () => this.openEditDialog()
     },
     {
       label: 'Удалить пост',
       icon: 'pi pi-fw pi-eye',
-      command: () => this.deletePost(this.selectedPost!.id),
-    },
+      command: () => this.deletePost(this.selectedPost!.id)
+    }
   ];
 
   ngOnInit(): void {
@@ -85,11 +78,12 @@ export class PostsComponent implements OnInit {
         if (formData && postToEdit) {
           this.postService.updatePost(postToEdit.id, formData);
         }
-      }),
+      })
     ).subscribe();
   }
 
   deletePost(id: number): void {
     this.postService.onDeletePost(id);
   }
+
 }

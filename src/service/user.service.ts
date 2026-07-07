@@ -6,9 +6,10 @@ import { UserApiService } from './user-api.service';
 import { MessageService } from './message.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UserService {
+
   loaderService: LoaderService = inject(LoaderService);
   messageService: MessageService = inject(MessageService);
   userApi: UserApiService = inject(UserApiService);
@@ -41,15 +42,13 @@ export class UserService {
           this.messageService.showError('Нет пользователей для отображения');
           return of([]);
         }),
-        finalize(() => this.loaderService.hideLoader()),
+        finalize(() => this.loaderService.hideLoader())
       );
     }
   }
 
   onDeleteUser(id: number): void {
-    const currentUsers: IUser[] = this.userSubject
-      .getValue()
-      .filter((user: IUser) => user.id !== id);
+    const currentUsers: IUser[] = this.userSubject.getValue().filter((user: IUser) => user.id !== id);
     this.userSubject.next(currentUsers);
     this.setUsers(this.userSubject.getValue());
   }
@@ -63,4 +62,5 @@ export class UserService {
   refreshUsers(): Observable<IUser[]> {
     return this.loadUsers();
   }
+
 }

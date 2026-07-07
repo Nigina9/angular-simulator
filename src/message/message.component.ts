@@ -10,13 +10,15 @@ import { AsyncPipe } from '@angular/common';
   selector: 'app-message',
   imports: [NgTemplateOutlet, AsyncPipe],
   templateUrl: './message.component.html',
-  styleUrl: './message.component.scss',
+  styleUrl: './message.component.scss'
 })
 export class MessageComponent {
+
   messageService: MessageService = inject(MessageService);
   messageEnum: typeof Message = Message;
 
   closeMessage(message: IMessage): void {
     this.messageService.closeMessage(message);
   }
+
 }

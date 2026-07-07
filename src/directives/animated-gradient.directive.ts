@@ -2,9 +2,10 @@ import { Directive, ElementRef, Input, Renderer2, HostListener, inject } from '@
 import { IGradientConfiguration } from '../interfaces/IGradientConfiguration';
 
 @Directive({
-  selector: '[appAnimatedGradient]',
+  selector: '[appAnimatedGradient]'
 })
 export class AnimatedGradientDirective {
+
   @Input() gradientConfiguration: IGradientConfiguration = {};
 
   private el: ElementRef = inject(ElementRef);
@@ -15,13 +16,9 @@ export class AnimatedGradientDirective {
   onMouseEnter(): void {
     this.timerId = setTimeout(() => {
       this.render.setStyle(this.el.nativeElement, 'transition', 'border 0.3s ease');
-      this.render.setStyle(
-        this.el.nativeElement,
-        'border',
-        `${this.gradientConfiguration.thickness || 2}px solid`,
-      );
+      this.render.setStyle(this.el.nativeElement, 'border', `${ this.gradientConfiguration.thickness || 2 }px solid`);
       const colors: string = this.gradientConfiguration.colors?.join(', ') || 'pink, purple';
-      this.render.setStyle(this.el.nativeElement, 'border-image', `linear-gradient(${colors}) 1`);
+      this.render.setStyle(this.el.nativeElement, 'border-image', `linear-gradient(${ colors }) 1`);
     }, this.gradientConfiguration.delay || 1000);
   }
 
@@ -31,4 +28,5 @@ export class AnimatedGradientDirective {
     this.render.removeStyle(this.el.nativeElement, 'border');
     this.render.removeStyle(this.el.nativeElement, 'border-image');
   }
+
 }

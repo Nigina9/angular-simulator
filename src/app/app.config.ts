@@ -1,8 +1,4 @@
-import {
-  ApplicationConfig,
-  provideBrowserGlobalErrorListeners,
-  provideZoneChangeDetection,
-} from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
@@ -44,13 +40,13 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: initThemePreset(),
         options: {
-          darkModeSelector: '.dark-mode',
-        },
-      },
+          darkModeSelector: '.dark-mode'
+        }
+      }
     }),
     provideAppInitializer(() => {
       const authService: AuthService = inject(AuthService);
       return firstValueFrom(authService.initAuth());
-    }),
-  ],
+    })
+  ]
 };

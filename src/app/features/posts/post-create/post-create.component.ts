@@ -8,9 +8,10 @@ import { tap } from 'rxjs';
   selector: 'app-post-create',
   imports: [ReactiveFormsModule],
   templateUrl: './post-create.component.html',
-  styleUrl: './post-create.component.scss',
+  styleUrl: './post-create.component.scss'
 })
 export class PostCreateComponent {
+
   private fb: FormBuilder = inject(FormBuilder);
   private router: Router = inject(Router);
   private postService: PostService = inject(PostService);
@@ -21,10 +22,10 @@ export class PostCreateComponent {
     tags: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     reactions: this.fb.group({
       likes: ['', [Validators.required, Validators.min(0)]],
-      dislikes: ['', [Validators.required, Validators.min(0)]],
+      dislikes: ['', [Validators.required, Validators.min(0)]]
     }),
     views: ['', [Validators.required, Validators.min(0)]],
-    userId: ['', [Validators.required, Validators.min(0)]],
+    userId: ['', [Validators.required, Validators.min(0)]]
   });
 
   onSavePost(): void {
@@ -34,9 +35,10 @@ export class PostCreateComponent {
         .pipe(
           tap(() => {
             this.router.navigate(['/posts']);
-          }),
+          })
         )
         .subscribe();
     }
   }
+
 }

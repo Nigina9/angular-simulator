@@ -3,7 +3,8 @@
 const eslint = require('@eslint/js');
 const { defineConfig } = require('eslint/config');
 const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
+const angular = require('angular-eslint');;
+const prettierConfig = require('eslint-config-prettier');
 
 module.exports = defineConfig([
   {
@@ -12,6 +13,7 @@ module.exports = defineConfig([
       eslint.configs.recommended,
       tseslint.configs.recommended,
       angular.configs.tsRecommended,
+      prettierConfig,
     ],
     processor: angular.processInlineTemplates,
     rules: {
@@ -76,7 +78,11 @@ module.exports = defineConfig([
 
   {
     files: ['**/*.html'],
-    extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
+    extends: [
+      angular.configs.templateRecommended,
+      angular.configs.templateAccessibility,
+      prettierConfig,
+    ],
     rules: {
       '@angular-eslint/template/banana-in-box': 'error',
       '@angular-eslint/template/eqeqeq': 'warn',

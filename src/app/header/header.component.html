@@ -32,10 +32,7 @@
         </button>
         <div class="container-toggle-theme">
           <fa-icon [icon]="(themeService.isDarkMode$ | async) ? faMoon : faSun" />
-          <p-toggleswitch
-            [ngModel]="themeService.isDarkMode$ | async"
-            (onChange)="toggleDarkMode($event)"
-          />
+          <p-toggleswitch [ngModel]="themeService.isDarkMode$ | async" (onChange)="toggleDarkMode($event)" />
           <p-selectbutton
             [options]="themeService.themes"
             [ngModel]="themeService.theme$ | async"
@@ -51,20 +48,14 @@
         @if (currentWidget === 'timeAndDate') {
           <div class="time-date-wrapper">
             <p class="current-time">{{ currentTimeAndDate }}</p>
-            <button
-              class="button button--white"
-              (click)="switchWidget('counter')"
-              id="date-toggle-button"
-            >
+            <button class="button button--white" (click)="switchWidget('counter')" id="date-toggle-button">
               Показать счётчик
             </button>
           </div>
         } @else {
           <div class="count">
             <div class="count__wrapper">
-              <button (click)="increaseCounter()" class="button button--white" id="increase-button">
-                +
-              </button>
+              <button (click)="increaseCounter()" class="button button--white" id="increase-button">+</button>
               <p class="number">{{ counter }}</p>
               <button
                 (click)="reduceCounter()"
@@ -75,11 +66,7 @@
                 -
               </button>
             </div>
-            <button
-              class="button button--white"
-              (click)="switchWidget('timeAndDate')"
-              id="count-toggle-button"
-            >
+            <button class="button button--white" (click)="switchWidget('timeAndDate')" id="count-toggle-button">
               Показать дату и время
             </button>
           </div>

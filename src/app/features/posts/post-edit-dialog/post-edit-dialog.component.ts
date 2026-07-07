@@ -9,9 +9,10 @@ import { MessageService } from '../../../../service/message.service';
   selector: 'app-post-edit-dialog',
   imports: [DialogModule, DynamicDialogModule, FormsModule, ReactiveFormsModule],
   templateUrl: './post-edit-dialog.component.html',
-  styleUrl: './post-edit-dialog.component.scss',
+  styleUrl: './post-edit-dialog.component.scss'
 })
 export class PostEditDialogComponent implements OnInit {
+
   private config: DynamicDialogConfig = inject(DynamicDialogConfig);
   private fb: FormBuilder = inject(FormBuilder);
   private messageService: MessageService = inject(MessageService);
@@ -21,14 +22,14 @@ export class PostEditDialogComponent implements OnInit {
   editForm: FormGroup = this.fb.group({
     title: ['', [Validators.minLength(5)]],
     tags: ['', [Validators.minLength(5)]],
-    views: ['', [Validators.required]],
+    views: ['', [Validators.required]]
   });
 
   ngOnInit(): void {
     this.editForm.patchValue({
       title: this.post.title,
       tags: this.post.tags,
-      views: this.post.views,
+      views: this.post.views
     });
   }
 
@@ -40,4 +41,5 @@ export class PostEditDialogComponent implements OnInit {
   onSave(): void {
     this.ref.close(this.editForm.value);
   }
+
 }

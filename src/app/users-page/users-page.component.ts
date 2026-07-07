@@ -19,23 +19,24 @@ import { AnimatedGradientDirective } from '../../directives/animated-gradient.di
     UsersFilterComponent,
     PluralPipe,
     BoldTextDirective,
-    AnimatedGradientDirective,
+    AnimatedGradientDirective
   ],
   templateUrl: './users-page.component.html',
-  styleUrl: './users-page.component.scss',
+  styleUrl: './users-page.component.scss'
 })
 export class UsersPageComponent implements OnInit {
+
   userService: UserService = inject(UserService);
 
   private filterSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>('');
 
   filteredUsers$: Observable<IUser[]> = combineLatest([
     this.userService.users$,
-    this.filterSubject.asObservable(),
+    this.filterSubject.asObservable()
   ]).pipe(
     map(([users, query]: [IUser[], string | null]) =>
-      users.filter((user: IUser) => user.name.toLowerCase().includes((query ?? '').toLowerCase())),
-    ),
+      users.filter((user: IUser) => user.name.toLowerCase().includes((query ?? '').toLowerCase()))
+    )
   );
 
   ngOnInit(): void {
@@ -64,4 +65,5 @@ export class UsersPageComponent implements OnInit {
   refreshUsers() {
     this.userService.refreshUsers().subscribe();
   }
+
 }

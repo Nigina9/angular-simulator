@@ -3,35 +3,17 @@
   <form class="create-form" [formGroup]="createForm" id="create-post">
     <div class="create-form__item">
       <label class="name-label" for="title-input">Title:</label>
-      <input
-        type="text"
-        formControlName="title"
-        placeholder="заголовок"
-        class="input-field"
-        id="title-input"
-      />
+      <input type="text" formControlName="title" placeholder="заголовок" class="input-field" id="title-input" />
     </div>
 
     <div class="create-form__item">
       <label class="name-label" for="body-input">Body</label>
-      <input
-        type="text"
-        formControlName="body"
-        placeholder="текст"
-        class="input-field"
-        id="body-input"
-      />
+      <input type="text" formControlName="body" placeholder="текст" class="input-field" id="body-input" />
     </div>
 
     <div class="create-form__item">
       <label class="name-label" for="tags">Tags:</label>
-      <input
-        type="text"
-        formControlName="tags"
-        placeholder="добавьте теги"
-        class="input-field"
-        id="tags"
-      />
+      <input type="text" formControlName="tags" placeholder="добавьте теги" class="input-field" id="tags" />
     </div>
 
     <div class="create-form__item" formGroupName="reactions">

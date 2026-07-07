@@ -6,9 +6,10 @@ import { MessageService } from '../../../service/message.service';
 import { IPostsApiResponse } from './IPostsApiResponse';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PostService {
+
   private postApi: PostApiService = inject(PostApiService);
   private messageService: MessageService = inject(MessageService);
 
@@ -38,7 +39,7 @@ export class PostService {
           this.isLoadingSubject.next(false);
           this.messageService.showError('Ошибка');
           return of({ posts: [] });
-        }),
+        })
       )
       .subscribe();
   }
@@ -54,7 +55,7 @@ export class PostService {
         catchError(() => {
           this.messageService.showError('Ошибка обновления');
           return of(null);
-        }),
+        })
       )
       .subscribe();
   }
@@ -64,16 +65,14 @@ export class PostService {
       .deletePost(id)
       .pipe(
         tap(() => {
-          const currentPosts: IPost[] = this.postSubject
-            .getValue()
-            .filter((post: IPost) => post.id !== id);
+          const currentPosts: IPost[] = this.postSubject.getValue().filter((post: IPost) => post.id !== id);
           this.postSubject.next(currentPosts);
           this.messageService.showSuccess('Пост успешно удален');
         }),
         catchError(() => {
           this.messageService.showError('Ошибка удаления');
           return of(null);
-        }),
+        })
       )
       .subscribe();
   }
@@ -86,7 +85,8 @@ export class PostService {
       catchError(() => {
         this.messageService.showError('Ошибка создания');
         return of(null);
-      }),
+      })
     );
   }
+
 }

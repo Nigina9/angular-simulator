@@ -6,9 +6,11 @@ import { IPost } from '../IPost';
   selector: 'app-post-detail',
   imports: [],
   templateUrl: './post-detail.component.html',
-  styleUrl: './post-detail.component.scss',
+  styleUrl: './post-detail.component.scss'
 })
 export class PostDetailComponent {
+
   private route: ActivatedRoute = inject(ActivatedRoute);
   post: IPost = this.route.snapshot.data['post'];
+
 }

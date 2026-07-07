@@ -9,9 +9,10 @@ import { MessageService } from '../../../../service/message.service';
   selector: 'app-login',
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
   private authService: AuthService = inject(AuthService);
   private messageService: MessageService = inject(MessageService);
 
@@ -20,7 +21,7 @@ export class LoginComponent {
 
   loginForm: FormGroup = this.fb.group({
     username: ['', [Validators.required]],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required]]
   });
 
   onLogin(): void {
@@ -35,9 +36,10 @@ export class LoginComponent {
           catchError(() => {
             this.messageService.showError('Ошибка доступа');
             return of(null);
-          }),
+          })
         )
         .subscribe();
     }
   }
+
 }
