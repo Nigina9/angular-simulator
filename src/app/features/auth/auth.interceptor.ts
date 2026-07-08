@@ -15,7 +15,7 @@ export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, ne
 
   const cloneRequest: HttpRequest<unknown> = addToken(req, currentToken);
 
-   return next(cloneRequest).pipe(
+  return next(cloneRequest).pipe(
     catchError((error: HttpErrorResponse) => {
       if (error.status !== 401) {
         return throwError(() => error);
@@ -29,9 +29,9 @@ export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, ne
           authService.logout();
           return throwError(() => refreshError);
         })
-      )
+      );
     })
-   );
+  );
 };
 
 function addToken(req: HttpRequest<unknown>, token: string) {

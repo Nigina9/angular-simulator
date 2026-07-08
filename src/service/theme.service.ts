@@ -9,13 +9,14 @@ import { LocalStorageService } from './local-storage.service';
 import { Theme } from '../enums/Theme';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ThemeService {
 
   localStorage: LocalStorageService = inject(LocalStorageService);
 
   private isDarkSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.initModeFromStorage());
+
   isDarkMode$: Observable<boolean> = this.isDarkSubject.asObservable().pipe(
     tap((isDarkMode: boolean) => {
       const element: HTMLHtmlElement = document.querySelector('html')!;
@@ -23,7 +24,7 @@ export class ThemeService {
     })
   );
 
-    themes: ITheme[] = [
+  themes: ITheme[] = [
     {
       name: Theme.AURA,
       preset: Aura
@@ -39,6 +40,7 @@ export class ThemeService {
   ];
 
   private themeSubject: BehaviorSubject<ITheme> = new BehaviorSubject<ITheme>(this.initThemeFromStorage());
+
   theme$: Observable<ITheme> = this.themeSubject.asObservable();
 
   private initModeFromStorage(): boolean {
@@ -52,7 +54,7 @@ export class ThemeService {
 
   private initThemeFromStorage(): ITheme {
     const savedThemeName: string | null = this.localStorage.getValue('theme');
-    const foundTheme: ITheme | undefined = this.themes.find(theme => theme.name === savedThemeName);
+    const foundTheme: ITheme | undefined = this.themes.find((theme) => theme.name === savedThemeName);
     return foundTheme ?? this.themes[0];
   }
 

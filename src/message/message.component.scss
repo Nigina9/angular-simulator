@@ -13,7 +13,7 @@
   box-sizing: border-box;
   color: white;
   background-color: rgba(15, 23, 42, 0.85);
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   padding: 16px 16px 16px 70px;
 
@@ -30,10 +30,10 @@
     position: relative;
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
-      background-image: url("/images/icon-message.svg");
+      background-image: url('/images/icon-message.svg');
       background-repeat: no-repeat;
       background-size: 40px 40px;
       width: 40px;
@@ -60,7 +60,7 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  background-image: url("/images/icon-close.svg");
+  background-image: url('/images/icon-close.svg');
   background-repeat: no-repeat;
   width: 20px;
   height: 20px;

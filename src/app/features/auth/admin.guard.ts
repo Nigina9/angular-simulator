@@ -5,7 +5,6 @@ import { AuthService } from './auth.service';
 import { UserRole } from './UserRole';
 
 export const adminGuard: CanActivateFn = () => {
-
   const authService: AuthService = inject(AuthService);
   const router: Router = inject(Router);
   const isAdmin: boolean = authService.getCurrentUser()?.role === UserRole.ADMIN;
@@ -15,4 +14,3 @@ export const adminGuard: CanActivateFn = () => {
   }
   return router.createUrlTree(['']);
 };
-

@@ -4,11 +4,12 @@
       <p class="template-message__title">{{ message.type }}</p>
       <p class="template-message__subtitle">{{ message.text }}</p>
       <button
+        aria-label="Close message"
         class="close-button-message"
         id="close-button"
         type="submit"
-        (click)="messageService.closeMessage(message)">
-      </button>
+        (click)="messageService.closeMessage(message)"
+      ></button>
     </div>
   </div>
 </ng-template>

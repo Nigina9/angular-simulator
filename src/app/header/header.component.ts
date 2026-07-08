@@ -15,9 +15,17 @@ import { AuthService } from '../features/auth/auth.service';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, ToggleSwitchModule, FormsModule, FontAwesomeModule, SelectButtonModule, AsyncPipe],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    ToggleSwitchModule,
+    FormsModule,
+    FontAwesomeModule,
+    SelectButtonModule,
+    AsyncPipe
+  ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
 

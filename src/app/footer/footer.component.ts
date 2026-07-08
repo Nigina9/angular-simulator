@@ -6,7 +6,7 @@ import { faTelegram, IconDefinition, faVk, faPinterest, faSkype } from '@fortawe
   selector: 'app-footer',
   imports: [FontAwesomeModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
 
@@ -16,4 +16,3 @@ export class FooterComponent {
   faSkype: IconDefinition = faSkype;
 
 }
-

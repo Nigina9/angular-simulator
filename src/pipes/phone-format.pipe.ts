@@ -19,18 +19,23 @@ export class PhoneFormatPipe implements PipeTransform {
       case PhoneFormat.COMPACT:
         return '+' + cleanNumber.join('');
       case PhoneFormat.INTERNATIONAL: {
-        const groups: string[] = [countryCode, operatorCode, firstPart, secondPart, thirdPart].map((group: string[]) => group.join(''));
+        const groups: string[] = [countryCode, operatorCode, firstPart, secondPart, thirdPart].map((group: string[]) =>
+          group.join('')
+        );
         return '+' + groups.join(' ');
       }
       case PhoneFormat.NATIONAL: {
-        const groups: string[] = [operatorCode, firstPart, secondPart, thirdPart].map((group: string[]) => group.join(''));
+        const groups: string[] = [operatorCode, firstPart, secondPart, thirdPart].map((group: string[]) =>
+          group.join('')
+        );
         return groups.join(' ');
       }
       case PhoneFormat.MASKED: {
         const groups: string[] = [countryCode.join(''), operatorCode.join(''), '***', '**', thirdPart.join('')];
         return '+' + groups.join(' ');
       }
-      default: return phoneNumber;
+      default:
+        return phoneNumber;
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPost } from '../IPost';
 
@@ -6,7 +6,7 @@ import { IPost } from '../IPost';
   selector: 'app-post-detail',
   imports: [],
   templateUrl: './post-detail.component.html',
-  styleUrl: './post-detail.component.scss',
+  styleUrl: './post-detail.component.scss'
 })
 export class PostDetailComponent {
 

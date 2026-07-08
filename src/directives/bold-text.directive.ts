@@ -1,7 +1,7 @@
 import { Directive, HostListener, HostBinding } from '@angular/core';
 
 @Directive({
-  selector: '[appBoldText]',
+  selector: '[appBoldText]'
 })
 export class BoldTextDirective {
 
@@ -16,4 +16,5 @@ export class BoldTextDirective {
   onMouseLeave(): void {
     this.fontWeight = 'normal';
   }
+
 }

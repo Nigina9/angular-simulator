@@ -1,4 +1,5 @@
 export class Collection<T> {
+
   private items: T[] = [];
 
   constructor(items: T[]) {
@@ -18,12 +19,13 @@ export class Collection<T> {
   }
 
   deleteItem(index: number): void {
-     this.items = this.items.filter((item, i) => i !== index);
+    this.items = this.items.filter((item, i) => i !== index);
   }
 
   replaceItem(index: number, newItem: T): void {
     this.items[index] = newItem;
   }
+
 }
 
 const cosmeticProducts: string[] = ['mascara', 'lipstick', 'powder', 'shadows', 'eyeliner', 'foundation cream'];
@@ -36,7 +38,3 @@ const movieGenres: string[] = ['drama', 'comedy', 'fantasy', 'action movie', 'me
 const collectionMovie = new Collection<string>(movieGenres);
 collectionMovie.getAllItems();
 collectionMovie.replaceItem(2, 'horror');
-
-
-
-

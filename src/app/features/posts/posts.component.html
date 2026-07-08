@@ -7,7 +7,7 @@
         <p-skeleton height="2rem"></p-skeleton>
       }
     } @else {
-      <p-contextmenu #menu [model]="postsContextMenu"/>
+      <p-contextmenu #menu [model]="postsContextMenu" />
       <p-table
         [value]="(postService.post$ | async) ?? []"
         [totalRecords]="(postService.total$ | async) ?? 0"
@@ -15,7 +15,7 @@
         [lazy]="true"
         [rows]="rows"
         [first]="first"
-        [rowsPerPageOptions]="[10,20,50]"
+        [rowsPerPageOptions]="[10, 20, 50]"
         (onPage)="onPageChange($event)"
         [contextMenu]="menu"
         [(contextMenuSelection)]="selectedPost"
@@ -28,7 +28,7 @@
           </tr>
         </ng-template>
         <ng-template #body let-post>
-          <tr (dblclick)="navigateToPost(post)" class="table-row" [pContextMenuRow]="post" >
+          <tr (dblclick)="navigateToPost(post)" class="table-row" [pContextMenuRow]="post">
             <td>{{ post.title }}</td>
             <td>{{ post.tags }}</td>
             <td>{{ post.views }}</td>
@@ -40,5 +40,3 @@
 </div>
 
 <router-outlet></router-outlet>
-
-

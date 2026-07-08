@@ -62,7 +62,7 @@ export class PostsComponent implements OnInit {
   navigateToPost(post: IPost | null): void {
     if (!post) return;
     this.router.navigate(['/posts', post.id]);
- }
+  }
 
   onPageChange(event: TableLazyLoadEvent): void {
     this.first = event.first ?? 0;
@@ -72,7 +72,7 @@ export class PostsComponent implements OnInit {
 
   openEditDialog(): void {
     const postToEdit: IPost | null = this.selectedPost;
-    this.ref = this.dialogService.open(PostEditDialogComponent, { data: { post: postToEdit }});
+    this.ref = this.dialogService.open(PostEditDialogComponent, { data: { post: postToEdit } });
     this.ref!.onClose.pipe(
       tap((formData: Partial<IPost>) => {
         if (formData && postToEdit) {
@@ -87,4 +87,3 @@ export class PostsComponent implements OnInit {
   }
 
 }
-

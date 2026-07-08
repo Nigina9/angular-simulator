@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input, Renderer2, HostListener, inject } from '@
 import { IGradientConfiguration } from '../interfaces/IGradientConfiguration';
 
 @Directive({
-  selector: '[appAnimatedGradient]',
+  selector: '[appAnimatedGradient]'
 })
 export class AnimatedGradientDirective {
 
@@ -12,8 +12,8 @@ export class AnimatedGradientDirective {
   private render: Renderer2 = inject(Renderer2);
   private timerId!: number;
 
-   @HostListener('mouseenter')
-   onMouseEnter(): void {
+  @HostListener('mouseenter')
+  onMouseEnter(): void {
     this.timerId = setTimeout(() => {
       this.render.setStyle(this.el.nativeElement, 'transition', 'border 0.3s ease');
       this.render.setStyle(this.el.nativeElement, 'border', `${ this.gradientConfiguration.thickness || 2 }px solid`);

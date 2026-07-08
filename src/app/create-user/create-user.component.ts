@@ -9,7 +9,7 @@ import { IGradientConfiguration } from '../../interfaces/IGradientConfiguration'
   selector: 'app-create-user',
   imports: [FormsModule, ReactiveFormsModule, BoldTextDirective, AnimatedGradientDirective],
   templateUrl: './create-user.component.html',
-  styleUrl: './create-user.component.scss',
+  styleUrl: './create-user.component.scss'
 })
 export class CreateUserComponent {
 
@@ -43,7 +43,7 @@ export class CreateUserComponent {
       catchPhrase: ['', Validators.maxLength(200)],
       bs: ['', Validators.maxLength(100)]
     })
-  })
+  });
 
   onSubmit(): void {
     if (this.registrationForm.valid) {

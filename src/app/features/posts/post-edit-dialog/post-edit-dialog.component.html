@@ -3,24 +3,35 @@
     <h2 class="edit-form__title">Редактировать пост</h2>
 
     <div class="edit-form__item">
-      <label class="input-label">Title:</label>
-      <input type="text" formControlName="title" placeholder="редактируйте заголовок" class="input-field" id="edit-title">
+      <label class="input-label" for="edit-title">Title:</label>
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="редактируйте заголовок"
+        class="input-field"
+        id="edit-title"
+      />
     </div>
 
     <div class="edit-form__item">
-      <label class="input-label">Tags:</label>
-      <input type="text" formControlName="tags" placeholder="редактируйте теги" class="input-field" id="edit-tags">
+      <label class="input-label" for="edit-tags">Tags:</label>
+      <input type="text" formControlName="tags" placeholder="редактируйте теги" class="input-field" id="edit-tags" />
     </div>
 
     <div class="edit-form__item">
-      <label class="input-label">Views:</label>
-      <input type="text" formControlName="views" placeholder="редактируйте просмотры" class="input-field" id="edit-views">
+      <label class="input-label" for="edit-views">Views:</label>
+      <input
+        type="text"
+        formControlName="views"
+        placeholder="редактируйте просмотры"
+        class="input-field"
+        id="edit-views"
+      />
     </div>
 
     <div class="edit-form__wrapper-buttons">
       <button type="button" class="button button--grey" (click)="onClose()" id="close-button">Отмена</button>
       <button type="submit" class="button" id="save-button" (click)="onSave()">Сохранить изменения</button>
     </div>
-
   </form>
 </div>

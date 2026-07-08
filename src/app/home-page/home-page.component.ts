@@ -15,7 +15,7 @@ import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@forta
   selector: 'app-home-page',
   imports: [FormsModule, FontAwesomeModule],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss',
+  styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
 
@@ -36,18 +36,18 @@ export class HomePageComponent {
     },
     {
       id: 2,
-        value: 'Dagestan',
-        location: 'Дагестан'
+      value: 'Dagestan',
+      location: 'Дагестан'
     },
     {
-        id: 3,
-        value: 'Baikal',
-        location: 'Байкал'
+      id: 3,
+      value: 'Baikal',
+      location: 'Байкал'
     },
     {
-        id: 4,
-        value: 'Kaliningrad',
-        location: 'Калининград'
+      id: 4,
+      value: 'Kaliningrad',
+      location: 'Калининград'
     }
   ];
 
@@ -71,7 +71,7 @@ export class HomePageComponent {
       id: 4,
       quantity: 10,
       value: 'ten'
-      },
+    }
   ];
 
   destinations: IDestination[] = [
@@ -81,7 +81,7 @@ export class HomePageComponent {
       description: 'романтическое приключение',
       price: 480,
       rating: '4.9',
-      img: 'lake',
+      img: 'lake'
     },
     {
       id: 2,
@@ -89,7 +89,7 @@ export class HomePageComponent {
       description: 'в компании друзей',
       price: 500,
       rating: '4.5',
-      img: 'night-mountains',
+      img: 'night-mountains'
     },
     {
       id: 3,
@@ -97,7 +97,7 @@ export class HomePageComponent {
       description: 'для тех, кто забоится о себе',
       price: 230,
       rating: '5.0',
-      img: 'stretching',
+      img: 'stretching'
     }
   ];
 
@@ -105,20 +105,23 @@ export class HomePageComponent {
     {
       id: 1,
       title: 'Опытный гид',
-      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: faPersonHiking,
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      img: faPersonHiking
     },
     {
       id: 2,
       title: 'Безопасный поход',
-      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: faBuildingShield,
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      img: faBuildingShield
     },
     {
       id: 3,
       title: 'Лояльные цены',
-      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      img: faTags,
+      description:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      img: faTags
     }
   ];
 
@@ -126,14 +129,16 @@ export class HomePageComponent {
     {
       id: 1,
       title: 'Красивая Италия, какая она в реальности?',
-      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      decription:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
       publication: '01/04/2023',
       img: 'italy'
     },
     {
       id: 2,
       title: 'Долой сомнения! Весь мир открыт для вас!',
-      decription: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      decription:
+        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
       publication: '01/04/2023',
       img: 'plane'
     },

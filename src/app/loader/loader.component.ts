@@ -6,7 +6,7 @@ import { AsyncPipe } from '@angular/common';
   selector: 'app-loader',
   imports: [AsyncPipe],
   templateUrl: './loader.component.html',
-  styleUrl: './loader.component.scss',
+  styleUrl: './loader.component.scss'
 })
 export class LoaderComponent {
 

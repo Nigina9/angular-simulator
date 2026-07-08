@@ -1,12 +1,12 @@
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, finalize, Observable, of, map, filter, combineLatest } from 'rxjs';
+import { BehaviorSubject, catchError, finalize, Observable, of } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 import { LoaderService } from './loader.service';
 import { UserApiService } from './user-api.service';
 import { MessageService } from './message.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UserService {
 
@@ -32,19 +32,18 @@ export class UserService {
   }
 
   loadUsers(): Observable<IUser[]> {
-    let usersFromStorage: IUser[] | null = this.getUsersFromStorage();
+    const usersFromStorage: IUser[] | null = this.getUsersFromStorage();
     if (usersFromStorage) {
       return of(usersFromStorage);
     } else {
       this.loaderService.showLoader();
-      return this.userApi.getUsers()
-        .pipe(
-          catchError(() => {
-            this.messageService.showError('Нет пользователей для отображения');
-            return of([]);
-          }),
-          finalize(() => this.loaderService.hideLoader()),
-        )
+      return this.userApi.getUsers().pipe(
+        catchError(() => {
+          this.messageService.showError('Нет пользователей для отображения');
+          return of([]);
+        }),
+        finalize(() => this.loaderService.hideLoader())
+      );
     }
   }
 

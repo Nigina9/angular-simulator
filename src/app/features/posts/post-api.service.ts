@@ -1,11 +1,11 @@
-import { Injectable, inject} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IPostsApiResponse } from './IPostsApiResponse';
 import { IPost } from './IPost';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PostApiService {
 

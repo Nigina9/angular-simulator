@@ -8,7 +8,7 @@ import { IAuthUser } from './IAuthUser';
 import { IAuthResponse } from './IAuthResponse';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
 
@@ -18,6 +18,7 @@ export class AuthService {
   private http: HttpClient = inject(HttpClient);
 
   private authorizedUserSubject: BehaviorSubject<IAuthUser | null> = new BehaviorSubject<IAuthUser | null>(null);
+
   authorizedUser$: Observable<IAuthUser | null> = this.authorizedUserSubject.asObservable();
 
   private apiUrl: string = 'https://dummyjson.com/auth';
@@ -56,10 +57,10 @@ export class AuthService {
           refreshToken: response.refreshToken
         });
       })
-    )
+    );
   }
 
-  getUser(): Observable<IAuthUser| null> {
+  getUser(): Observable<IAuthUser | null> {
     return this.http.get<IAuthUser>(`${ this.apiUrl }/me`).pipe(
       tap((user: IAuthUser) => {
         this.authorizedUserSubject.next(user);
@@ -68,7 +69,7 @@ export class AuthService {
         this.logout();
         return of(null);
       })
-    )
+    );
   }
 
   getCurrentUser(): IAuthUser | null {
