@@ -30,16 +30,18 @@
         >
           Консультация
         </button>
-        <div class="container-toggle-theme">
-          <fa-icon [icon]="(themeService.isDarkMode$ | async) ? faMoon : faSun" />
-          <p-toggleswitch [ngModel]="themeService.isDarkMode$ | async" (onChange)="toggleDarkMode($event)" />
-          <p-selectbutton
-            [options]="themeService.themes"
-            [ngModel]="themeService.theme$ | async"
-            optionLabel="name"
-            (onChange)="themeService.changeTheme($event.value)"
-          />
-        </div>
+        @if (configuration.enableTheming) {
+          <div class="container-toggle-theme">
+            <fa-icon [icon]="(themeService.isDarkMode$ | async) ? faMoon : faSun" />
+            <p-toggleswitch [ngModel]="themeService.isDarkMode$ | async" (onChange)="toggleDarkMode($event)" />
+            <p-selectbutton
+              [options]="themeService.themes"
+              [ngModel]="themeService.theme$ | async"
+              optionLabel="name"
+              (onChange)="themeService.changeTheme($event.value)"
+            />
+          </div>
+        }
       </nav>
     </div>
 
