@@ -3,7 +3,7 @@
     <div class="header-wrapper">
       <div class="logo-wrapper">
         <img src="/images/logo.svg" alt="Логотип сайта" width="137" height="28" />
-        <span class="company-name">{{ companyName }}</span>
+        <span class="company-name">{{ configuration.companyName }}</span>
       </div>
       <nav class="navigation">
         <ul class="list-none navigation__list">
@@ -30,16 +30,18 @@
         >
           Консультация
         </button>
-        <div class="container-toggle-theme">
-          <fa-icon [icon]="(themeService.isDarkMode$ | async) ? faMoon : faSun" />
-          <p-toggleswitch [ngModel]="themeService.isDarkMode$ | async" (onChange)="toggleDarkMode($event)" />
-          <p-selectbutton
-            [options]="themeService.themes"
-            [ngModel]="themeService.theme$ | async"
-            optionLabel="name"
-            (onChange)="themeService.changeTheme($event.value)"
-          />
-        </div>
+        @if (configuration.enableTheming) {
+          <div class="container-toggle-theme">
+            <fa-icon [icon]="(themeService.isDarkMode$ | async) ? faMoon : faSun" />
+            <p-toggleswitch [ngModel]="themeService.isDarkMode$ | async" (onChange)="toggleDarkMode($event)" />
+            <p-selectbutton
+              [options]="themeService.themes"
+              [ngModel]="themeService.theme$ | async"
+              optionLabel="name"
+              (onChange)="themeService.changeTheme($event.value)"
+            />
+          </div>
+        }
       </nav>
     </div>
 
@@ -47,7 +49,7 @@
       <div>
         @if (currentWidget === 'timeAndDate') {
           <div class="time-date-wrapper">
-            <p class="current-time">{{ currentTimeAndDate }}</p>
+            <p class="current-time">{{ currentTimeAndDate | date }}</p>
             <button class="button button--white" (click)="switchWidget('counter')" id="date-toggle-button">
               Показать счётчик
             </button>
@@ -73,9 +75,12 @@
         }
       </div>
     </div>
-    <button class="button" (click)="logout()" id="logout-button">
-      <fa-icon [icon]="faRightFromBracket" class="white-icon" />
-      Выйти
-    </button>
+    <div class="logout-container">
+      <button class="button" (click)="logout()" id="logout-button">
+        <fa-icon [icon]="faRightFromBracket" class="white-icon" />
+        Выйти
+      </button>
+      <span class="last-entry">Последний вход: {{ lastEntry | date }}</span>
+    </div>
   </div>
 </header>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { INavigation } from '../../interfaces/INavigation';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
@@ -12,34 +12,32 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ThemeService } from '../../service/theme.service';
 import { AsyncPipe } from '@angular/common';
 import { AuthService } from '../features/auth/auth.service';
+import { DatePipe } from '@angular/common';
+import { LocalStorageService } from '../../service/local-storage.service';
+import { applicationConfiguration } from '../configuration.token';
+import { IApplicationConfiguration } from '../../interfaces/IApplicationConfiguration';
 
 @Component({
   selector: 'app-header',
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    ToggleSwitchModule,
-    FormsModule,
-    FontAwesomeModule,
-    SelectButtonModule,
-    AsyncPipe
-  ],
+  imports: [RouterLink, RouterLinkActive, ToggleSwitchModule, FormsModule, FontAwesomeModule, SelectButtonModule, AsyncPipe, DatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   themeService: ThemeService = inject(ThemeService);
   messageService: MessageService = inject(MessageService);
   authservice: AuthService = inject(AuthService);
+  localStorageService: LocalStorageService = inject(LocalStorageService);
+  configuration: IApplicationConfiguration = inject(applicationConfiguration);
 
-  companyName: string = 'румтибет';
   currentWidget!: 'counter' | 'timeAndDate';
-  currentTimeAndDate: string = new Date().toString();
+  currentTimeAndDate: Date = new Date();
   counter: number = 0;
   faSun: IconDefinition = faSun;
   faMoon: IconDefinition = faMoon;
   faRightFromBracket: IconDefinition = faRightFromBracket;
+  lastEntry: string | null = this.localStorageService.getValue<string>('date-last-entry');
 
   navList: INavigation[] = [
     {
@@ -59,13 +57,13 @@ export class HeaderComponent {
     }
   ];
 
-  constructor() {
+  ngOnInit(): void {
     this.showСurrentTimeAndDate();
   }
 
   showСurrentTimeAndDate(): void {
     setInterval(() => {
-      this.currentTimeAndDate = new Date().toLocaleString();
+      this.currentTimeAndDate = new Date();
     }, 1000);
   }
 

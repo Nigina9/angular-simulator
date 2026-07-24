@@ -13,6 +13,8 @@ import { authInterceptor } from './features/auth/auth.interceptor';
 import { AuthService } from './features/auth/auth.service';
 import { provideAppInitializer, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
+import { applicationConfiguration } from './configuration.token';
 
 type ThemePresetType = typeof Aura | typeof Lara | typeof Nora;
 
@@ -47,6 +49,22 @@ export const appConfig: ApplicationConfig = {
     provideAppInitializer(() => {
       const authService: AuthService = inject(AuthService);
       return firstValueFrom(authService.initAuth());
-    })
+    }),
+    {
+      provide: DATE_PIPE_DEFAULT_OPTIONS,
+      useValue: {
+        dateFormat: 'dd.MM.yyyy HH:mm'
+      }
+    },
+    {
+      provide: applicationConfiguration,
+      useValue: {
+        companyName: 'РУМТИБЕТ',
+        enableLogs: true,
+        enableNotifications: true,
+        enableTheming: true,
+        sessionTimeout: 1
+      }
+    }
   ]
 };

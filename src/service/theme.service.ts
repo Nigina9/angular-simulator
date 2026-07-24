@@ -7,6 +7,8 @@ import Nora from '@primeuix/themes/nora';
 import { ITheme } from '../interfaces/ITheme';
 import { LocalStorageService } from './local-storage.service';
 import { Theme } from '../enums/Theme';
+import { applicationConfiguration } from '../app/configuration.token';
+import { IApplicationConfiguration } from '../interfaces/IApplicationConfiguration';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,7 @@ import { Theme } from '../enums/Theme';
 export class ThemeService {
 
   localStorage: LocalStorageService = inject(LocalStorageService);
+  configuration: IApplicationConfiguration = inject(applicationConfiguration);
 
   private isDarkSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.initModeFromStorage());
 
@@ -44,24 +47,37 @@ export class ThemeService {
   theme$: Observable<ITheme> = this.themeSubject.asObservable();
 
   private initModeFromStorage(): boolean {
-    return this.localStorage.getValue('dark-mode') ?? false;
+    if (this.configuration.enableTheming) {
+      return this.localStorage.getValue('dark-mode') ?? false;
+    } else {
+      return false;
+    }
   }
 
   toggleDarkMode(isDarkMode: boolean): void {
-    this.isDarkSubject.next(isDarkMode);
-    this.localStorage.saveValue('dark-mode', this.isDarkSubject.value);
+    if (this.configuration.enableTheming) {
+      this.isDarkSubject.next(isDarkMode);
+      this.localStorage.saveValue('dark-mode', this.isDarkSubject.value);
+    }
+
   }
 
   private initThemeFromStorage(): ITheme {
-    const savedThemeName: string | null = this.localStorage.getValue('theme');
-    const foundTheme: ITheme | undefined = this.themes.find((theme) => theme.name === savedThemeName);
-    return foundTheme ?? this.themes[0];
+    if (this.configuration.enableTheming) {
+      const savedThemeName: string | null = this.localStorage.getValue('theme');
+      const foundTheme: ITheme | undefined = this.themes.find((theme) => theme.name === savedThemeName);
+      return foundTheme ?? this.themes[0];
+    } else {
+      return this.themes[0];
+    }
   }
 
   changeTheme(theme: ITheme): void {
-    this.themeSubject.next(theme);
-    usePreset(theme.preset);
-    this.localStorage.saveValue('theme', theme.name);
+    if (this.configuration.enableTheming) {
+      this.themeSubject.next(theme);
+      usePreset(theme.preset);
+      this.localStorage.saveValue('theme', theme.name);
+    }
   }
 
 }

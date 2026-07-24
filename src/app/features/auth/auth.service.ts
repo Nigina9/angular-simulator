@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { IToken } from './login/IToken';
 import { IAuthUser } from './IAuthUser';
 import { IAuthResponse } from './IAuthResponse';
+import { applicationConfiguration } from '../../configuration.token';
+import { IApplicationConfiguration } from '../../../interfaces/IApplicationConfiguration';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,7 @@ import { IAuthResponse } from './IAuthResponse';
 export class AuthService {
 
   private localStorage: LocalStorageService = inject(LocalStorageService);
+  private configuration: IApplicationConfiguration = inject(applicationConfiguration);
 
   private router: Router = inject(Router);
   private http: HttpClient = inject(HttpClient);
@@ -24,7 +28,11 @@ export class AuthService {
   private apiUrl: string = 'https://dummyjson.com/auth';
 
   login(username: string, password: string): Observable<IAuthResponse | null> {
-    return this.http.post<IAuthResponse>(`${ this.apiUrl }/login`, { username, password }).pipe(
+    return this.http.post<IAuthResponse>(`${ this.apiUrl }/login`, {
+      username,
+      password,
+      sessionTimeout: this.configuration.sessionTimeout
+    }).pipe(
       tap((response: IAuthResponse) => {
         this.localStorage.saveValue('tokens', {
           accessToken: response.accessToken,
@@ -50,7 +58,7 @@ export class AuthService {
 
   refreshToken(): Observable<IToken> {
     const token: string | null = this.localStorage.getValue<string>('tokens');
-    return this.http.post<IToken>(`${ this.apiUrl }/refresh`, { refreshToken: token }).pipe(
+    return this.http.post<IToken>(`${ this.apiUrl }/refresh`, { refreshToken: token, sessionTimeout: this.configuration.sessionTimeout }).pipe(
       tap((response: IToken) => {
         this.localStorage.saveValue('tokens', {
           accessToken: response.accessToken,
