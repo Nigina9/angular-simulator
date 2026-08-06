@@ -1,0 +1,39 @@
+<p>События Change Detection Default</p>
+<p> Значение count: {{ count }}</p>
+
+
+<div class="buttons-cd">
+  <!-- Значение поменялось автоматически, ngDoCheck() 1 раз, ChangeDetectorRef не понадобился -->
+  <button class="button" (click)="changeCount()">поменять count</button>
+</div>
+
+<div class="buttons-cd">
+  <!-- Значение поменялось с паузой, ngDoCheck() 2 раз, ChangeDetectorRef не понадобился -->
+  <button class="button" (click)="changeCountTimeout()">поменять count setTimeout()</button>
+</div>
+
+<div class="buttons-cd">
+  <!-- Значение поменялось автоматически, ngDoCheck() 1 раз, ChangeDetectorRef не понадобился -->
+  <button class="button" (click)="changeCountPromise()">поменять count Promise</button>
+</div>
+
+<div class="buttons-cd">
+  <!-- Значение поменялось автоматически пару секунд, ngDoCheck() 2 раз, ChangeDetectorRef не понадобился -->
+  <button class="button" (click)="changeCountHttp()">поменять count Http</button>
+</div>
+
+<div class="buttons-cd">
+  <!-- Значение поменялось автоматически, ngDoCheck() 10 раз, ChangeDetectorRef не понадобился -->
+  <button class="button" (click)="changeCountSetInterval()">поменять count setInterval()</button>
+</div>
+
+<div class="buttons-cd">
+  <!-- значения появились по очереди значения 200 и 300, но не было события клик значения 100, видимо оно было секунду, а потом перезаписалось на 200.  ngDoCheck() 3 раз, ChangeDetectorRef не понадобился -->
+  <button class="button" (click)="changeCountComboMethods()">поменять count click, setTimeout, Promise</button>
+</div>
+
+<!-- Вывод:
+ngDoCheck() срабатывает на каждый чек CD, а не на каждое изменение данных.
+Синх. код и Promise выполняются вместе и попадают в один чек, поэтому некоторые значения не всегда появлялись, например видно в последнем задании это.
+setTimeout, setInterval, новый клик это отдельный, новый чек.
+я думаю что ngDoCheck() показывает количество проверок самого компонента, а не количество реальных изменений на мониторе(сайте)." -->

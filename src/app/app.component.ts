@@ -6,6 +6,7 @@ import { LocalStorageService } from '../service/local-storage.service';
 import { RouterOutlet } from '@angular/router';
 import { MessageComponent } from '../message/message.component';
 import { LoaderComponent } from './loader/loader.component';
+
 @Component({
   selector: 'app-root',
   imports: [FormsModule, MessageComponent, LoaderComponent, RouterOutlet],

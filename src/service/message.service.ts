@@ -1,4 +1,4 @@
-import { Injectable, inject} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { IMessage } from '../interfaces/IMessage';
 import { Message } from '../enums/Message';
 import { BehaviorSubject, Observable } from 'rxjs';
