@@ -35,7 +35,7 @@ export class ChangeDetectionTestComponent implements DoCheck {
   }
 
   changeCountHttp(): void {
-      this.http.get('https://jsonplaceholder.typicode.com/todos/1').subscribe(() => {
+    this.http.get('https://jsonplaceholder.typicode.com/todos/1').subscribe(() => {
       this.count = 20;
     });
   }
@@ -48,13 +48,12 @@ export class ChangeDetectionTestComponent implements DoCheck {
 
   changeCountComboMethods(): void {
     this.count = 100;
-
     Promise.resolve().then(() => {
       this.count = 200;
     });
 
     setTimeout(() => {
-        this.count = 300;
+      this.count = 300;
     }, 1000);
     }
 

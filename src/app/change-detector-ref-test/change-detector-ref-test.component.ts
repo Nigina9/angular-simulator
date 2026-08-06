@@ -25,9 +25,9 @@ export class ChangeDetectorRefTestComponent implements DoCheck {
   }
 
   changeCountDetectChanges(): void {
-      setTimeout(() => {
-        this.count = 10;
-        this.cd.detectChanges();
+    setTimeout(() => {
+      this.count = 10;
+      this.cd.detectChanges();
     }, 1000);
   }
 
