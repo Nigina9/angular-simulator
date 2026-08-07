@@ -1,0 +1,57 @@
+<p>События Change Detection OnPush</p>
+<p> Значение count: {{ count }}</p>
+
+<!-- 1. -->
+<div class="buttons-cd">
+  <!-- 1.Когда я в метод добавила markForCheck(), компонент был помечен для проверки
+   2. Интерфейс был обновлен через секунду
+   3.Изменение произошло не в момент вызова markForCheck(), когдаsetTimeout закончил выполянться, Zone.js запустил проверку чек
+   4. Так как мы используем стратегию OnPush, без markForCheck(), ничего не меняется. Ангуляр не понимает без markForCheck(), что нужно проверить и обновить-->
+  <button class="button" (click)="changeCount()">поменять count</button>
+</div>
+
+<!-- 2. -->
+<div class="buttons-cd">
+  <!-- 1. Нажав кнопку значение сразу поменялось
+   2. Обнаружение изменений произошло немедленно, не дожидаясь прохождяения цикла CD
+   3. Проверяет текущий компонент и дочерние, а markForCheck() проверяет текущий компонент и всех предков
+   4. Я считаю что этот метод подходит, тогда когда нужно сделать здесь и сейчас, возможно когда пользователь что-то ввводит в инпут,
+   и не нужно дожидаться когда цикл пройдет-->
+  <button class="button" (click)="changeCountDetectChanges()">поменять count Detect Changes</button>
+</div>
+
+<!-- 3. -->
+<div class="buttons-cd">
+  <!-- 1. Интерфейс не обновляется, значения не изменяются, когда я нажимаю кнопку
+   detach
+   2. ngDoCheck() выполняется, чек был виден в консоли
+   3. ангуляр перестал проверять компонент, потомуч что detach отсоединяет компонент от цикла обновления.
+   ангуляр вызывает ngDoCheck(), но  не сравнивает count, потому что мы отключили компонент от CD.
+   4. Все методы, которые я кликала позже detach, не обновляют значение, значение меняется в памяти-->
+  <button class="button" (click)="detachComponent()">Отключить (detach)</button>
+</div>
+
+<div class="buttons-cd">
+  <button class="button" (click)="changeCountClick()">Поменять click</button>
+</div>
+
+<div class="buttons-cd">
+  <button class="button" (click)="changeCountTimeout()">Поменять setTimeout</button>
+</div>
+
+<div class="buttons-cd">
+  <button class="button" (click)="changeCountInterval()">Поменять setInterval</button>
+</div>
+
+<div class="buttons-cd">
+  <button  class="button" (click)="changeCountPromise()">Поменять Promise</button>
+</div>
+
+
+<!-- 4. -->
+<div class="buttons-cd">
+  <!-- 1. компонент верунлся в системе СD.
+   2. компорнент начал участвовать сразу после вызова reattach(), со следующего чека.
+   3. Да, нужно, потому что мы используем стратегию OnPush, и без markForCheck() (или detectChanges()) не сработает-->
+  <button  class="button" (click)="changeCountReattach()">Включить reattach</button>
+</div>
