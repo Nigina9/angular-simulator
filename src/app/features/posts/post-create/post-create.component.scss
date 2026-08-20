@@ -14,7 +14,7 @@
 
   &__item {
     display: grid;
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 150px 1fr;
     gap: 40px;
     justify-content: center;
     align-items: center;
@@ -23,9 +23,10 @@
 
 .input-container {
   display: flex;
+  align-items: center;
   gap: 50px;
 }
 
 .name-label {
-  font-size: 20px;
+  font-weight: bold;
 }

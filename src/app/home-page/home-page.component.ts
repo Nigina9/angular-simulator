@@ -10,18 +10,22 @@ import { MessageService } from '../../service/message.service';
 import { inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { LanguageService } from '../../service/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
+import { DatePickerModule } from 'primeng/datepicker';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule, FontAwesomeModule],
+  imports: [FormsModule, FontAwesomeModule, TranslatePipe, DatePickerModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
 
   messageService: MessageService = inject(MessageService);
+  languageService: LanguageService = inject(LanguageService);
   selectedLocation: string = '';
-  selectedDate: string = '';
+  selectedDate: Date | null = null;
   selectedParticipants: string = '';
   liveText!: string;
   faPersonHiking: IconDefinition = faPersonHiking;
@@ -32,22 +36,22 @@ export class HomePageComponent {
     {
       id: 1,
       value: 'Altai',
-      location: 'Алтай'
+      location: 'LOCATION.ALTAI'
     },
     {
       id: 2,
       value: 'Dagestan',
-      location: 'Дагестан'
+      location: 'LOCATION.DAGESTAN'
     },
     {
       id: 3,
       value: 'Baikal',
-      location: 'Байкал'
+      location: 'LOCATION.BAIKAL'
     },
     {
       id: 4,
       value: 'Kaliningrad',
-      location: 'Калининград'
+      location: 'LOCATION.KALININGRAD'
     }
   ];
 
@@ -77,24 +81,24 @@ export class HomePageComponent {
   destinations: IDestination[] = [
     {
       id: 1,
-      title: 'Озеро возле гор',
-      description: 'романтическое приключение',
+      title: 'HOME.POPULAR_TOURS.DESTINATIONS.LAKE.TITLE',
+      description: 'HOME.POPULAR_TOURS.DESTINATIONS.LAKE.DESCRIPTION',
       price: 480,
       rating: '4.9',
       img: 'lake'
     },
     {
       id: 2,
-      title: 'Ночь в горах',
-      description: 'в компании друзей',
+      title: 'HOME.POPULAR_TOURS.DESTINATIONS.NIGHT.TITLE',
+      description: 'HOME.POPULAR_TOURS.DESTINATIONS.NIGHT.DESCRIPTION',
       price: 500,
       rating: '4.5',
       img: 'night-mountains'
     },
     {
       id: 3,
-      title: 'Йога в горах',
-      description: 'для тех, кто забоится о себе',
+      title: 'HOME.POPULAR_TOURS.DESTINATIONS.YOGA.TITLE',
+      description: 'HOME.POPULAR_TOURS.DESTINATIONS.YOGA.DESCRIPTION',
       price: 230,
       rating: '5.0',
       img: 'stretching'
@@ -104,23 +108,20 @@ export class HomePageComponent {
   offers: IOffer[] = [
     {
       id: 1,
-      title: 'Опытный гид',
-      description:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      title: 'HOME.ADVANTAGES.OFFERS.GUIDE',
+      description:'HOME.ADVANTAGES.OFFERS.DESCRIPTION',
       img: faPersonHiking
     },
     {
       id: 2,
-      title: 'Безопасный поход',
-      description:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      title: 'HOME.ADVANTAGES.OFFERS.HIKE',
+      description:'HOME.ADVANTAGES.OFFERS.DESCRIPTION',
       img: faBuildingShield
     },
     {
       id: 3,
-      title: 'Лояльные цены',
-      description:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      title: 'HOME.ADVANTAGES.OFFERS.PRICE',
+      description:'HOME.ADVANTAGES.OFFERS.DESCRIPTION',
       img: faTags
     }
   ];
@@ -128,31 +129,29 @@ export class HomePageComponent {
   articles: IArticle[] = [
     {
       id: 1,
-      title: 'Красивая Италия, какая она в реальности?',
-      decription:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      title: 'HOME.ARTICLES.ITALY.TITLE',
+      decription: 'HOME.ARTICLES.ITALY.DESCRIPTION',
       publication: '01/04/2023',
       img: 'italy'
     },
     {
       id: 2,
-      title: 'Долой сомнения! Весь мир открыт для вас!',
-      decription:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      title: 'HOME.ARTICLES.DOUBTS.TITLE',
+      decription: 'HOME.ARTICLES.DOUBTS.DESCRIPTION',
       publication: '01/04/2023',
       img: 'plane'
     },
     {
       id: 3,
-      title: 'Как подготовиться к путешествию в одиночку?',
-      decription: 'Для современного мира базовый вектор развития предполагает.',
+      title: 'HOME.ARTICLES.ALONE.TITLE',
+      decription: 'HOME.ARTICLES.ALONE.DESCRIPTION',
       publication: '01/04/2023',
       img: 'woman'
     },
     {
       id: 4,
-      title: 'Индия ... летим?',
-      decription: 'Для современного мира базовый.',
+      title: 'HOME.ARTICLES.INDIA.TITLE',
+      decription: 'HOME.ARTICLES.INDIA.DESCRIPTION',
       publication: '01/04/2023',
       img: 'india'
     }

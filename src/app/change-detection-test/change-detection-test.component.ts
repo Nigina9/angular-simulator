@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, DoCheck, inject} from '@angular/core';
+import { Component, ChangeDetectionStrategy, DoCheck, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

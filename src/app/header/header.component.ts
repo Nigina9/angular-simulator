@@ -16,10 +16,11 @@ import { DatePipe } from '@angular/common';
 import { LocalStorageService } from '../../service/local-storage.service';
 import { applicationConfiguration } from '../configuration.token';
 import { IApplicationConfiguration } from '../../interfaces/IApplicationConfiguration';
-
+import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../service/language.service';
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive, ToggleSwitchModule, FormsModule, FontAwesomeModule, SelectButtonModule, AsyncPipe, DatePipe],
+  imports: [RouterLink, RouterLinkActive, ToggleSwitchModule, FormsModule, FontAwesomeModule, SelectButtonModule, AsyncPipe, DatePipe, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -30,6 +31,7 @@ export class HeaderComponent implements OnInit {
   authservice: AuthService = inject(AuthService);
   localStorageService: LocalStorageService = inject(LocalStorageService);
   configuration: IApplicationConfiguration = inject(applicationConfiguration);
+  languageService: LanguageService = inject(LanguageService);
 
   currentWidget!: 'counter' | 'timeAndDate';
   currentTimeAndDate: Date = new Date();
@@ -42,17 +44,17 @@ export class HeaderComponent implements OnInit {
   navList: INavigation[] = [
     {
       id: 1,
-      navItem: 'Главная',
+      navItem: 'NAV.HOME',
       path: '/'
     },
     {
       id: 2,
-      navItem: 'Пользователи',
+      navItem: 'NAV.USERS',
       path: '/users-page'
     },
     {
       id: 3,
-      navItem: 'Поcты',
+      navItem: 'NAV.POSTS',
       path: '/posts'
     }
   ];

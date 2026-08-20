@@ -1,13 +1,13 @@
 <section class="section-user-page">
   <div class="container user-page">
     <app-create-user (createUser)="onCreateUser($event)"></app-create-user>
-    <h1 class="user-page__title" appBoldText>Список пользоватей</h1>
+    <h1 class="user-page__title" appBoldText>{{ 'USERS_PAGE.TITLE' | translate}}</h1>
     <app-users-filter (filterUsers)="onFilter($event)"></app-users-filter>
     <button class="button-update" (click)="refreshUsers()" id="update-data">
-      <img src="/images/icon-update.svg" width="48" height="48" alt="Кнопка обновления пользоватей" />
+      <img src="/images/icon-update.svg" width="48" height="48" alt="{{ 'USERS_PAGE.UPDATE_BUTTON_ALT' | translate }}" />
     </button>
     <h3>
-      {{ (filteredUsers$ | async)?.length ?? 0 | plural: 'пользователь' : 'пользователя' : 'пользователей' }}
+      {{ (filteredUsers$ | async)?.length ?? 0 }} {{ 'USERS_PAGE.USERS_COUNT' | translate }}
     </h3>
     <ul class="list-none user-card">
       @for (user of filteredUsers$ | async; track user.id) {
@@ -24,7 +24,7 @@
         </app-user-card>
       } @empty {
         <div class="message-not-users">
-          <p class="text">Нет пользователей для отображения</p>
+          <p class="text">{{ 'USERS_PAGE.NO_USERS' | translate }}</p>
         </div>
       }
     </ul>

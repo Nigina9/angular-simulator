@@ -1,9 +1,9 @@
 <div class="users-filter mb26">
-  <label class="users-filter__title mb26" for="usersFilter">Сортировка пользователей</label>
+  <label class="users-filter__title mb26" for="usersFilter">{{ 'USERS_PAGE.FILTER.TITLE' | translate }}</label>
   <input
     class="users-filter__input mb26"
     type="text"
-    placeholder="Введите имя пользователя"
+    placeholder="{{ 'USERS_PAGE.FILTER.PLACEHOLDER' | translate }}"
     id="users-filter"
     [formControl]="filterControl"
   />

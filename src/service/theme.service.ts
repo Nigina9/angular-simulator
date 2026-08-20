@@ -59,7 +59,6 @@ export class ThemeService {
       this.isDarkSubject.next(isDarkMode);
       this.localStorage.saveValue('dark-mode', this.isDarkSubject.value);
     }
-
   }
 
   private initThemeFromStorage(): ITheme {

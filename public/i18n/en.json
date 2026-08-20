@@ -1,0 +1,232 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "USERS": "Users",
+    "POSTS": "Posts"
+  },
+  "HEADER": {
+    "CONSULTATION_BUTTON": "Consultation",
+    "CONSULTATION_MESSAGE": "...",
+    "SHOW_COUNTER": "Show counter",
+    "SHOW_DATE_TIME": "Show date and time",
+    "LOGOUT": "Logout",
+    "LAST_VISIT": "Last visit"
+  },
+  "LOCATION": {
+    "ALTAI": "Altai",
+    "DAGESTAN": "Dagestan",
+    "BAIKAL": "Baikal",
+    "KALININGRAD": "Kaliningrad"
+  },
+  "HOME": {
+    "HERO": {
+      "TITLE": "Enjoy a walk in the mountains with a team of like-minded people",
+      "FORM": {
+        "LOCATION": {
+          "LABEL": "Tour location",
+          "PLACEHOLDER": "select from the list"
+        },
+        "DATE": {
+          "PLACEHOLDER": "specify a range"
+        },
+        "PARTICIPANTS": {
+          "LABEL": "Participants",
+          "PLACEHOLDER": "minimum 4 people"
+        },
+        "SUBMIT": "Find a program",
+        "DISABLED_MESSAGE": "Fill in all fields"
+      },
+      "LIVE_TEXT": {
+        "PLACEHOLDER": "Live input"
+      }
+    },
+    "HISTORY": {
+      "TITLE": "About our hike",
+      "SUBTITLE": "Explore all mountain ranges of the world with us",
+      "DESCRIPTION": "Its roots go back to one fragment of classical Latin from 45 AD, that is, more than two thousand years ago. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, took one of the strangest words in Lorem Ipsum, \"consectetur\" and began searching for it in classical Latin literature.",
+      "BUTTON": "Tour program"
+    },
+    "ADVANTAGES": {
+      "TITLE": "Our offer",
+      "SUBTITLE": "Best programs for you",
+      "DESCRIPTION": "Its roots go back to one fragment of classical Latin from 45 AD, that is, more than two thousand years ago. Richard McClintock, a Latin professor at the college.",
+      "OFFERS": {
+        "DESCRIPTION": "For the modern world, the basic vector of development implies independent ways of implementing the appropriate conditions for activation.",
+        "GUIDE": "Experienced guide",
+        "HIKE": "Safe hiking",
+        "PRICE": "Loyal prices"
+      },
+      "BUTTON": "Program costs"
+    },
+    "POPULAR_TOURS": {
+      "TITLE": "According to vacationers",
+      "SUBTITLE": "Popular destinations",
+      "BUTTON": "Rating of destinations",
+      "DESTINATIONS": {
+        "LAKE": {
+          "TITLE": "Lake near the mountains",
+          "DESCRIPTION": "romantic adventure"
+        },
+        "NIGHT": {
+          "TITLE": "Night in the mountains",
+          "DESCRIPTION": "in the company of friends"
+        },
+        "YOGA": {
+          "TITLE": "Yoga in the mountains",
+          "DESCRIPTION": "for those who care about themselves"
+        }
+      }
+    },
+    "ARTICLES": {
+      "ITALY": {
+        "TITLE": "Beautiful Italy, what is it like in reality?",
+        "DESCRIPTION": "For the modern world, the basic vector of development implies independent ways of implementing the appropriate conditions for activation."
+      },
+      "DOUBTS": {
+        "TITLE": "Away with doubts! The whole world is open to you!",
+        "DESCRIPTION": "For the modern world, the basic vector of development implies independent ways of implementing the appropriate conditions for activation ... independent ways of implementing the appropriate..."
+      },
+      "ALONE": {
+        "TITLE": "How to prepare for a solo trip?",
+        "DESCRIPTION": "For the modern world, the basic vector of development implies."
+      },
+      "INDIA": {
+        "TITLE": "India ... let's fly?",
+        "DESCRIPTION": "For the modern world, the basic."
+      }
+    },
+    "TRAVEL_BLOG": {
+      "TITLE": "Sharing impressions",
+      "SUBTITLE": "Travel blog",
+      "READ_MORE": "Read article",
+      "BUTTON": "Other materials"
+    },
+    "PHOTO_REPORT": {
+      "TITLE": "Photo report",
+      "SUBTITLE": "Sharing impressions",
+      "BUTTON": "Our pinterest"
+    }
+  },
+  "FOOTER": {
+    "PROMO": {
+      "TITLE": "Trending now",
+      "SUBTITLE": "Get useful travel newsletters",
+      "FORM": {
+        "TITLE": "Enter e-mail address",
+        "BUTTON": "Subscribe to news",
+        "DESCRIPTION": "by subscribing to the news, you automatically agree to the terms of personal data processing and the rules of advertising mailings"
+      }
+    },
+    "CONTACTS": {
+      "TITLE": "Company",
+      "DESCRIPTION": "Its roots go back to a fragment of classical Latin from 45 AD, that is, more than two millennia ago. Richard McClintock, a Latin professor at Hampden-Sydney College."
+    },
+    "SERVICES": {
+      "TITLE": "Our services",
+      "SUMMER_HIKES": "Summer mountain hikes",
+      "WINTER_HIKES": "Winter mountain hiking",
+      "TEMPLE_VISITS": "Visiting mountain temples",
+      "EXTREME_TOURISM": "Extreme types of tourism",
+      "AMAZON_HIKING": "Amazon jungle hiking",
+      "AFRICA_TRIP": "Trip to Africa"
+    },
+    "INFO": {
+      "TITLE": "Important for travel",
+      "PACKING": "How to pack for a long hike?",
+      "ESSENTIAL_ITEMS": "Essential items for hiking",
+      "INSURANCE": "Medical insurance, safety guarantees",
+      "DOCTOR": "If you are a doctor - check this out"
+    },
+    "COPYRIGHT": {
+      "AUTHOR": "IP Konstantinopolsky K.K., 2023",
+      "PRIVACY_POLICY": "Privacy Policy"
+    }
+  },
+  "USER": {
+    "COMMON": {
+      "NAME": "Имя",
+      "USERNAME": "Логин",
+      "EMAIL": "Эл. почта",
+      "PHONE": "Телефон",
+      "WEBSITE": "Веб-сайт",
+      "CITY": "Город",
+      "STREET": "Улица",
+      "SUITE": "Офис",
+      "ZIPCODE": "Индекс",
+      "LATITUDE": "Широта",
+      "LONGITUDE": "Долгота",
+      "COORDINATES": "Координаты",
+      "COMPANY": "Компания",
+      "MISSION": "Миссия",
+      "SPECIALIZATION": "Специализация",
+      "UNKNOWN": "Неизвестно"
+    },
+    "REGISTRATION": {
+      "TITLE": "Регистрация пользователя",
+      "NAME_PLACEHOLDER": "Введите имя",
+      "USERNAME_PLACEHOLDER": "Введите логин",
+      "EMAIL_PLACEHOLDER": "Введите email",
+      "PHONE_PLACEHOLDER": "Введите телефон",
+      "WEBSITE_PLACEHOLDER": "Введите сайт",
+      "CITY_PLACEHOLDER": "Введите город",
+      "STREET_PLACEHOLDER": "Введите улицу",
+      "SUITE_PLACEHOLDER": "Введите офис",
+      "ZIPCODE_PLACEHOLDER": "Введите индекс",
+      "LATITUDE_PLACEHOLDER": "Введите широту",
+      "LONGITUDE_PLACEHOLDER": "Введите долготу",
+      "COMPANY_PLACEHOLDER": "Укажите компанию",
+      "MISSION_PLACEHOLDER": "Расскажите о миссии",
+      "SPECIALIZATION_PLACEHOLDER": "Введите специализацию",
+      "SUBMIT": "Зарегистрировать пользователя"
+    },
+    "CARD": {
+      "CONTACTS": "Контакты",
+      "ADDRESS": "Адрес проживания",
+      "WORK": "Место работы",
+      "DELETE": "Удалить карточку"
+    }
+  },
+  "USERS_PAGE": {
+    "TITLE": "User List",
+    "UPDATE_BUTTON_ALT": "Refresh users button",
+    "USERS_COUNT": "users",
+    "NO_USERS": "No users to display",
+    "FILTER": {
+      "TITLE": "Sort users",
+      "PLACEHOLDER": "Enter username"
+    }
+  },
+  "POSTS_PAGE": {
+    "TITLE": "User Posts",
+    "CREATE_BUTTON": "Create new post",
+    "TABLE": {
+      "TITLE": "Title",
+      "TAGS": "Tags",
+      "VIEWS": "Views"
+    },
+    "CONTEXT_MENU": {
+      "EDIT": "Edit",
+      "DELETE": "Delete",
+      "VIEW": "View"
+    }
+  },
+  "POSTS": {
+    "COMMON": {
+      "TITLE": "Title",
+      "BODY": "Body",
+      "TAGS": "Tags",
+      "REACTIONS": "Reactions",
+      "LIKES": "Likes",
+      "DISLIKES": "Dislikes",
+      "VIEWS": "Views",
+      "USER_ID": "User ID"
+    },
+    "CREATE": {
+      "TITLE": "Create a new post",
+      "SUBMIT": "Submit"
+    },
+    "DETAIL": {
+      "TITLE": "Post Detail View"
+    }
+  }
+}

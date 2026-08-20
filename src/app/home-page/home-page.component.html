@@ -2,8 +2,7 @@
   <div class="main-hero__wrapper">
     <div class="container">
       <p class="title-hero">
-        Насладись прогулкой в горах <br />
-        с командой единомышленников
+        {{ 'HOME.HERO.TITLE' | translate }}
       </p>
       <form class="form" id="form">
         <ul class="list-none form__list">
@@ -16,19 +15,25 @@
                 name="location"
                 required
               >
-                <option class="field__option" value="" disabled selected>Локация для тура</option>
+                <option class="field__option" value="" disabled selected>{{ 'HOME.HERO.FORM.LOCATION.LABEL' | translate }}</option>
                 @for (location of locations; track location.id) {
                   <option class="field__option" [value]="location.value">
-                    {{ location.location }}
+                    {{ location.location | translate }}
                   </option>
                 }
               </select>
             </label>
-            <span class="description-field">выберите из списка</span>
+            <span class="description-field">{{ 'HOME.HERO.FORM.LOCATION.PLACEHOLDER' | translate }}</span>
           </li>
           <li class="form__item">
-            <input [(ngModel)]="selectedDate" class="field field--date" type="date" name="date" id="input-date" />
-            <span class="description-field">укажите диапазон</span>
+            <p-datepicker
+              [(ngModel)]="selectedDate"
+              inputId="input-date"
+              name="date"
+              inputStyleClass="field field--date"
+              placeholder="00/00/00"
+            />
+            <span class="description-field">{{ 'HOME.HERO.FORM.DATE.PLACEHOLDER' | translate }}</span>
           </li>
           <li class="form__item">
             <label>
@@ -38,13 +43,13 @@
                 id="participants"
                 name="participants"
               >
-                <option class="field__option" value="" disabled selected>Участники</option>
+                <option class="field__option" value="" disabled selected>{{ 'HOME.HERO.FORM.PARTICIPANTS.LABEL' | translate }}</option>
                 @for (quantity of participants; track quantity.id) {
                   <option class="field__option" [value]="quantity.value">{{ quantity.quantity }} участников</option>
                 }
               </select>
             </label>
-            <span class="description-field">минимум 4 человека</span>
+            <span class="description-field">{{ 'HOME.HERO.FORM.PARTICIPANTS.PLACEHOLDER' | translate }}</span>
           </li>
         </ul>
         <button
@@ -53,7 +58,7 @@
           id="buttom-form"
           [disabled]="!selectedLocation || !selectedDate || !selectedParticipants"
         >
-          Найти программу
+          {{ 'HOME.HERO.FORM.SUBMIT' | translate }}
         </button>
       </form>
 
@@ -63,7 +68,7 @@
             [(ngModel)]="liveText"
             class="field field-live-input"
             type="text"
-            placeholder="Живой инпут"
+            placeholder="{{ 'HOME.HERO.LIVE_TEXT.PLACEHOLDER' | translate }}"
             id="input-live-text"
           />
         </label>
@@ -82,21 +87,16 @@
           <img src="/images/house-mountains.png" width="350" height="400" class="history__img" alt="house" />
         </div>
         <div class="history__about-hike">
-          <h2 class="main-title">о нашем походе</h2>
-          <h3 class="main-subtile">Исследуйте все горные массивы мира вместе с нами</h3>
-          <p class="description">
-            Его корни уходят в&nbsp;один фрагмент классической латыни 45&nbsp;года н.э., то&nbsp;есть более двух
-            тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа Hampden-Sydney, штат Вирджиния, взял
-            одно из&nbsp;самых странных слов в&nbsp;Lorem Ipsum, &quot;consectetur&quot;и занялся его поисками
-            в&nbsp;классической латинской литературе.
-          </p>
+          <h2 class="main-title">{{ 'HOME.HISTORY.TITLE' | translate }}</h2>
+          <h3 class="main-subtile">{{ 'HOME.HISTORY.SUBTITLE' | translate }}</h3>
+          <p class="description">{{ 'HOME.HISTORY.DESCRIPTION' | translate }}</p>
           <button
             (click)="messageService.showSuccess('Программа отправлена')"
             class="button"
             type="submit"
             id="tour-program-button"
           >
-            Программа тура
+            {{ 'HOME.HISTORY.BUTTON' | translate }}
           </button>
         </div>
       </div>
@@ -107,19 +107,16 @@
     <div class="container">
       <div class="advantages__wrapper">
         <div>
-          <h2 class="main-title">наше предложение</h2>
-          <h3 class="main-subtile">Лучшие программы для тебя</h3>
-          <p class="description">
-            Его корни уходят в&nbsp;один фрагмент классической латыни 45&nbsp;года н.э., то&nbsp;есть более двух
-            тысячелетий назад. Ричард МакКлинток, профессор латыни из&nbsp;колледжа.
-          </p>
+          <h2 class="main-title">{{ 'HOME.ADVANTAGES.TITLE' | translate }}</h2>
+          <h3 class="main-subtile">{{ 'HOME.ADVANTAGES.SUBTITLE' | translate }}</h3>
+          <p class="description">{{ 'HOME.ADVANTAGES.DESCRIPTION' | translate }}</p>
           <ul class="list-none advantages__list">
             @for (offer of offers; track offer.id) {
               <li class="advantages__item">
                 <fa-icon [icon]="offer.img" class="advantanges__icon" />
                 <div>
-                  <h3 class="advantages__title">{{ offer.title }}</h3>
-                  <p class="advantages__description">{{ offer.description }}</p>
+                  <h3 class="advantages__title">{{ offer.title | translate }}</h3>
+                  <p class="advantages__description">{{ offer.description | translate }}</p>
                 </div>
               </li>
             }
@@ -130,7 +127,7 @@
             type="button"
             id="program-cost-button"
           >
-            Стоимость программ
+            {{ 'HOME.ADVANTAGES.BUTTON' | translate }}
           </button>
         </div>
 
@@ -146,16 +143,16 @@
 
   <section class="popular-tours">
     <div class="container">
-      <h2 class="main-title">по версии отдыхающих</h2>
-      <h3 class="main-subtile">Популярные направления</h3>
+      <h2 class="main-title">{{ 'HOME.POPULAR_TOURS.TITLE' | translate }}</h2>
+      <h3 class="main-subtile">{{ 'HOME.POPULAR_TOURS.SUBTITLE' | translate }}</h3>
       <ul class="list-none popular-tours__list">
         @for (destination of destinations; track destination.id) {
           <li class="popular-tours__item">
             <img [src]="'/images/' + destination.img + '.png'" [alt]="destination.title" width="380" height="500" />
             <div class="popular-tours__wrapper">
               <div>
-                <h3 class="tour-title">{{ destination.title }}</h3>
-                <p class="tour-description">{{ destination.description }}</p>
+                <h3 class="tour-title">{{ destination.title | translate }}</h3>
+                <p class="tour-description">{{ destination.description | translate }}</p>
               </div>
               <div class="tour-price">{{ destination.price }} &dollar;</div>
             </div>
@@ -172,15 +169,15 @@
         type="submit"
         id="rating-button"
       >
-        Рейтинг направлений
+        {{ 'HOME.POPULAR_TOURS.BUTTON' | translate }}
       </button>
     </div>
   </section>
 
   <section class="travel-blog">
     <div class="container">
-      <h2 class="main-title">делимся впечатлениями</h2>
-      <h3 class="main-subtile">Блог о путешествиях</h3>
+      <h2 class="main-title">{{ 'HOME.TRAVEL_BLOG.TITLE' | translate }}</h2>
+      <h3 class="main-subtile">{{ 'HOME.TRAVEL_BLOG.SUBTITLE' | translate }}</h3>
       <ul class="list-none travel-blog__list">
         @for (article of articles; track article.id) {
           <li class="travel-blog__item">
@@ -193,12 +190,12 @@
             />
             <div class="travel-blog__wrapper">
               <div>
-                <a href="#" class="travel-blog__link" id="link-article">{{ article.title }}</a>
-                <p class="travel-blog__description">{{ article.decription }}</p>
+                <a href="#" class="travel-blog__link" id="link-article">{{ article.title | translate }}</a>
+                <p class="travel-blog__description">{{ article.decription | translate }}</p>
               </div>
               <div class="travel-blog__container">
                 <div class="date-publication">{{ article.publication }}</div>
-                <a href="#" class="link-to-article" id="link-read">читать статью</a>
+                <a href="#" class="link-to-article" id="link-read">{{ 'HOME.TRAVEL_BLOG.READ_MORE' | translate }}</a>
               </div>
             </div>
           </li>
@@ -210,15 +207,15 @@
         type="submit"
         id="show-articles-button"
       >
-        Другие материалы
+        {{ 'HOME.TRAVEL_BLOG.BUTTON' | translate }}
       </button>
     </div>
   </section>
 
   <section class="photo-report">
     <div class="container">
-      <h2 class="main-title">фото-отчет</h2>
-      <h3 class="main-subtile">Делимся впечатлениями</h3>
+      <h2 class="main-title">{{ 'HOME.PHOTO_REPORT.TITLE' | translate }}</h2>
+      <h3 class="main-subtile">{{ 'HOME.PHOTO_REPORT.SUBTITLE' | translate }}</h3>
       <ul class="list-none photo-report__list">
         @for (photo of images; track photo.id) {
           <li class="photo-report__item">
@@ -232,7 +229,7 @@
         class="button button--center"
         type="submit"
       >
-        Наш pinterest
+        {{ 'HOME.PHOTO_REPORT.BUTTON' | translate }}
       </button>
     </div>
   </section>

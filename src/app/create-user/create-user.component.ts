@@ -4,16 +4,20 @@ import { IUser } from '../../interfaces/IUser';
 import { BoldTextDirective } from '../../directives/bold-text.directive';
 import { AnimatedGradientDirective } from '../../directives/animated-gradient.directive';
 import { IGradientConfiguration } from '../../interfaces/IGradientConfiguration';
+import { LanguageService } from '../../service/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-user',
-  imports: [FormsModule, ReactiveFormsModule, BoldTextDirective, AnimatedGradientDirective],
+  imports: [FormsModule, ReactiveFormsModule, BoldTextDirective, AnimatedGradientDirective, TranslatePipe],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.scss'
 })
 export class CreateUserComponent {
 
   @Output() createUser: EventEmitter<IUser> = new EventEmitter<IUser>();
+
+  languageService: LanguageService = inject(LanguageService);
   private fb: FormBuilder = inject(FormBuilder);
   gradientConfig: IGradientConfiguration = {
     delay: 500,

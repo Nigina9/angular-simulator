@@ -1,0 +1,232 @@
+{
+  "NAV": {
+    "HOME": "首页",
+    "USERS": "用户",
+    "POSTS": "帖子"
+  },
+  "HEADER": {
+    "CONSULTATION_BUTTON": "咨询",
+    "CONSULTATION_MESSAGE": "...",
+    "SHOW_COUNTER": "显示计数器",
+    "SHOW_DATE_TIME": "显示日期和时间",
+    "LOGOUT": "退出",
+    "LAST_VISIT": "上次访问"
+  },
+  "LOCATION": {
+    "ALTAI": "阿尔泰",
+    "DAGESTAN": "达吉斯坦",
+    "BAIKAL": "贝加尔湖",
+    "KALININGRAD": "加里宁格勒"
+  },
+  "HOME": {
+    "HERO": {
+      "TITLE": "享受在山中漫步与志同道合的团队一起",
+      "FORM": {
+        "LOCATION": {
+          "LABEL": "旅游地点",
+          "PLACEHOLDER": "从列表中选择"
+        },
+        "DATE": {
+          "PLACEHOLDER": "指定范围"
+        },
+        "PARTICIPANTS": {
+          "LABEL": "参与者",
+          "PLACEHOLDER": "最少4人"
+        },
+        "SUBMIT": "查找方案",
+        "DISABLED_MESSAGE": "填写所有字段"
+      },
+      "LIVE_TEXT": {
+        "PLACEHOLDER": "实时输入"
+      }
+    },
+    "HISTORY": {
+      "TITLE": "关于我们的徒步",
+      "SUBTITLE": "与我们一起去探索世界各地的山脉",
+      "DESCRIPTION": "它的起源可以追溯到公元45年的一段古典拉丁文，也就是说，两千多年前。弗吉尼亚州汉普登-悉尼学院的拉丁语教授理查德·麦克林托克从Lorem Ipsum中选取了一个最奇怪的词\"consectetur\"，并在古典拉丁文学中寻找它的来源。",
+      "BUTTON": "旅游方案"
+    },
+    "ADVANTAGES": {
+      "TITLE": "我们的建议",
+      "SUBTITLE": "为您提供最好的方案",
+      "DESCRIPTION": "它的起源可以追溯到公元45年的一段古典拉丁文，也就是两千多年前。学院的拉丁语教授理查德·麦克林托克。",
+      "OFFERS": {
+        "DESCRIPTION": "对于现代世界而言，发展的基本方向意味着以独立的方式实现相应的激活条件。",
+        "GUIDE": "经验丰富的导游",
+        "HIKE": "安全的徒步",
+        "PRICE": "优惠的价格"
+      },
+      "BUTTON": "方案费用"
+    },
+    "POPULAR_TOURS": {
+      "TITLE": "根据度假者的评价",
+      "SUBTITLE": "热门目的地",
+      "BUTTON": "目的地评级",
+      "DESTINATIONS": {
+        "LAKE": {
+          "TITLE": "山边的湖泊",
+          "DESCRIPTION": "浪漫的冒险"
+        },
+        "NIGHT": {
+          "TITLE": "山中的夜晚",
+          "DESCRIPTION": "在朋友的陪伴下"
+        },
+        "YOGA": {
+          "TITLE": "山中瑜伽",
+          "DESCRIPTION": "适合关心自己的人"
+        }
+      }
+    },
+    "ARTICLES": {
+      "ITALY": {
+        "TITLE": "美丽的意大利，现实中是什么样的？",
+        "DESCRIPTION": "对于现代世界而言，发展的基本方向意味着以独立的方式实现相应的激活条件。"
+      },
+      "DOUBTS": {
+        "TITLE": "抛开疑虑！整个世界向您敞开！",
+        "DESCRIPTION": "对于现代世界而言，发展的基本方向意味着以独立的方式实现相应的激活条件……独立的方式实现相应的..."
+      },
+      "ALONE": {
+        "TITLE": "如何独自准备旅行？",
+        "DESCRIPTION": "对于现代世界而言，发展的基本方向意味着。"
+      },
+      "INDIA": {
+        "TITLE": "印度……我们飞吗？",
+        "DESCRIPTION": "对于现代世界而言，基本的。"
+      }
+    },
+    "TRAVEL_BLOG": {
+      "TITLE": "分享印象",
+      "SUBTITLE": "旅游博客",
+      "READ_MORE": "阅读文章",
+      "BUTTON": "其他材料"
+    },
+    "PHOTO_REPORT": {
+      "TITLE": "照片报告",
+      "SUBTITLE": "分享印象",
+      "BUTTON": "我们的Pinterest"
+    }
+  },
+  "FOOTER": {
+    "PROMO": {
+      "TITLE": "热门推荐",
+      "SUBTITLE": "获取有用的旅行资讯",
+      "FORM": {
+        "TITLE": "输入电子邮箱地址",
+        "BUTTON": "订阅新闻",
+        "DESCRIPTION": "订阅新闻即表示您自动同意个人数据处理条款和广告邮件规则"
+      }
+    },
+    "CONTACTS": {
+      "TITLE": "公司",
+      "DESCRIPTION": "它的起源可以追溯到公元45年的古典拉丁文片段，也就是说，两千多年前。理查德·麦克林托克，汉普登-悉尼学院的拉丁语教授。"
+    },
+    "SERVICES": {
+      "TITLE": "我们的服务",
+      "SUMMER_HIKES": "夏季山地徒步",
+      "WINTER_HIKES": "冬季山地徒步",
+      "TEMPLE_VISITS": "参观山中寺庙",
+      "EXTREME_TOURISM": "极限旅游",
+      "AMAZON_HIKING": "亚马逊丛林徒步",
+      "AFRICA_TRIP": "非洲之旅"
+    },
+    "INFO": {
+      "TITLE": "旅行须知",
+      "PACKING": "如何准备长途徒步？",
+      "ESSENTIAL_ITEMS": "徒步必备物品",
+      "INSURANCE": "医疗保险，安全保障",
+      "DOCTOR": "如果您是医生 - 请看这里"
+    },
+    "COPYRIGHT": {
+      "AUTHOR": "IP 康斯坦丁诺波尔斯基 K.K.，2023",
+      "PRIVACY_POLICY": "隐私政策"
+    }
+  },
+  "USER": {
+    "COMMON": {
+      "NAME": "姓名",
+      "USERNAME": "用户名",
+      "EMAIL": "电子邮箱",
+      "PHONE": "电话",
+      "WEBSITE": "网站",
+      "CITY": "城市",
+      "STREET": "街道",
+      "SUITE": "办公室",
+      "ZIPCODE": "邮政编码",
+      "LATITUDE": "纬度",
+      "LONGITUDE": "经度",
+      "COORDINATES": "坐标",
+      "COMPANY": "公司",
+      "MISSION": "使命",
+      "SPECIALIZATION": "专业领域",
+      "UNKNOWN": "未知"
+    },
+    "REGISTRATION": {
+      "TITLE": "用户注册",
+      "NAME_PLACEHOLDER": "输入姓名",
+      "USERNAME_PLACEHOLDER": "输入用户名",
+      "EMAIL_PLACEHOLDER": "输入电子邮箱",
+      "PHONE_PLACEHOLDER": "输入电话",
+      "WEBSITE_PLACEHOLDER": "输入网站",
+      "CITY_PLACEHOLDER": "输入城市",
+      "STREET_PLACEHOLDER": "输入街道",
+      "SUITE_PLACEHOLDER": "输入办公室",
+      "ZIPCODE_PLACEHOLDER": "输入邮政编码",
+      "LATITUDE_PLACEHOLDER": "输入纬度",
+      "LONGITUDE_PLACEHOLDER": "输入经度",
+      "COMPANY_PLACEHOLDER": "输入公司名称",
+      "MISSION_PLACEHOLDER": "描述您的使命",
+      "SPECIALIZATION_PLACEHOLDER": "输入专业领域",
+      "SUBMIT": "注册用户"
+    },
+    "CARD": {
+      "CONTACTS": "联系方式",
+      "ADDRESS": "居住地址",
+      "WORK": "工作单位",
+      "DELETE": "删除卡片"
+    }
+  },
+  "USERS_PAGE": {
+    "TITLE": "用户列表",
+    "UPDATE_BUTTON_ALT": "刷新用户按钮",
+    "USERS_COUNT": "个用户",
+    "NO_USERS": "没有用户可显示",
+    "FILTER": {
+      "TITLE": "排序用户",
+      "PLACEHOLDER": "输入用户名"
+    }
+  },
+  "POSTS_PAGE": {
+    "TITLE": "用户帖子",
+    "CREATE_BUTTON": "创建新帖子",
+    "TABLE": {
+      "TITLE": "标题",
+      "TAGS": "标签",
+      "VIEWS": "浏览量"
+    },
+    "CONTEXT_MENU": {
+      "EDIT": "编辑",
+      "DELETE": "删除",
+      "VIEW": "查看"
+    }
+  },
+  "POSTS": {
+    "COMMON": {
+      "TITLE": "标题",
+      "BODY": "正文",
+      "TAGS": "标签",
+      "REACTIONS": "反应",
+      "LIKES": "点赞",
+      "DISLIKES": "点踩",
+      "VIEWS": "浏览量",
+      "USER_ID": "用户ID"
+    },
+    "CREATE": {
+      "TITLE": "创建新帖子",
+      "SUBMIT": "提交"
+    },
+    "DETAIL": {
+      "TITLE": "帖子详情"
+    }
+  }
+}
