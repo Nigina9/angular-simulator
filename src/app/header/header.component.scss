@@ -5,7 +5,7 @@
   position: relative;
   z-index: 10;
   padding-top: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 50px;
 }
 
 .header-wrapper {
@@ -70,6 +70,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 25px;
+  margin-bottom: 25px;
 }
 
 .time-date-wrapper {
@@ -114,4 +115,9 @@
 
 .last-entry {
   color: var(--secondary-color);
+}
+
+.user-panel {
+  display: flex;
+  justify-content: space-between;
 }

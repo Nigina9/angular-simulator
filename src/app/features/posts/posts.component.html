@@ -1,6 +1,6 @@
 <div class="user-posts">
-  <h2>Посты пользователей</h2>
-  <a routerLink="/posts/create" id="link-create" class="button">Создать новый пост</a>
+  <h2>{{ 'POSTS_PAGE.TITLE' | translate }}</h2>
+  <a routerLink="/posts/create" id="link-create" class="button">{{ 'POSTS_PAGE.CREATE_BUTTON' | translate }}</a>
   <div class="card">
     @if (postService.isLoading$ | async) {
       @for (row of skeletonRows; track $index) {
@@ -22,9 +22,9 @@
       >
         <ng-template #header>
           <tr>
-            <th class="text">Title</th>
-            <th class="text">Tags</th>
-            <th class="text">Views</th>
+            <th class="text">{{ 'POSTS_PAGE.TABLE.TITLE' | translate }}</th>
+            <th class="text">{{ 'POSTS_PAGE.TABLE.TAGS' | translate }}</th>
+            <th class="text">{{ 'POSTS_PAGE.TABLE.VIEWS' | translate }}</th>
           </tr>
         </ng-template>
         <ng-template #body let-post>

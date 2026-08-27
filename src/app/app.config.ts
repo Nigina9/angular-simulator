@@ -15,6 +15,9 @@ import { provideAppInitializer, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
 import { applicationConfiguration } from './configuration.token';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LanguageService } from '../service/language.service';
 
 type ThemePresetType = typeof Aura | typeof Lara | typeof Nora;
 
@@ -48,6 +51,8 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAppInitializer(() => {
       const authService: AuthService = inject(AuthService);
+      const languageService: LanguageService = inject(LanguageService);
+      languageService.initializeLanguage();
       return firstValueFrom(authService.initAuth());
     }),
     {
@@ -65,6 +70,14 @@ export const appConfig: ApplicationConfig = {
         enableTheming: true,
         sessionTimeout: 1
       }
-    }
+    },
+      provideTranslateService({
+      loader: provideTranslateHttpLoader({
+        prefix: '/i18n/',
+        suffix: '.json'
+      }),
+      fallbackLang: 'en',
+    })
   ]
+
 };

@@ -5,68 +5,68 @@
     appAnimatedGradient
     [gradientConfiguration]="gradientConfig"
   >
-    <h2 class="registration-form__title">Регистрация пользователя</h2>
+    <h2 class="registration-form__title">{{ 'USER.REGISTRATION.TITLE' | translate }}</h2>
 
     <div class="registration-form__wrapper">
-      <label for="name" class="input-label">Имя</label>
+      <label for="name" class="input-label">{{ 'USER.COMMON.NAME' | translate }}</label>
       <input
         class="input-field"
         type="text"
         formControlName="name"
         id="name"
-        placeholder="Введите имя"
+        placeholder="{{ 'USER.REGISTRATION.NAME_PLACEHOLDER' | translate }}"
         appAnimatedGradient
         [gradientConfiguration]="gradientConfig"
       />
     </div>
 
     <div class="registration-form__wrapper">
-      <label for="username" class="input-label">Логин</label>
+      <label for="username" class="input-label">{{ 'USER.COMMON.USERNAME' | translate }}</label>
       <input
         class="input-field"
         type="text"
         formControlName="username"
         id="username"
-        placeholder="Введите логин"
+        placeholder="{{ 'USER.REGISTRATION.USERNAME_PLACEHOLDER' | translate }}"
         appAnimatedGradient
         [gradientConfiguration]="gradientConfig"
       />
     </div>
 
     <div class="registration-form__wrapper">
-      <label for="email" class="input-label">Эл. почта</label>
+      <label for="email" class="input-label">{{ 'USER.COMMON.EMAIL' | translate }}</label>
       <input
         class="input-field"
         type="text"
         formControlName="email"
         id="email"
-        placeholder="Введите email"
+        placeholder="{{ 'USER.REGISTRATION.EMAIL_PLACEHOLDER' | translate }}"
         appAnimatedGradient
         [gradientConfiguration]="gradientConfig"
       />
     </div>
 
     <div class="registration-form__wrapper">
-      <label for="phone" class="input-label">Телефон</label>
+      <label for="phone" class="input-label">{{ 'USER.COMMON.PHONE' | translate }}</label>
       <input
         class="input-field"
         type="text"
         formControlName="phone"
         id="phone"
-        placeholder="Введите телефон"
+        placeholder="{{ 'USER.REGISTRATION.PHONE_PLACEHOLDER' | translate }}"
         appAnimatedGradient
         [gradientConfiguration]="gradientConfig"
       />
     </div>
 
     <div class="registration-form__wrapper">
-      <label for="website" class="input-label">Веб-сайт</label>
+      <label for="website" class="input-label">{{ 'USER.COMMON.WEBSITE' | translate }}</label>
       <input
         class="input-field"
         type="text"
         formControlName="website"
         id="website"
-        placeholder="Введите сайт"
+        placeholder="{{ 'USER.REGISTRATION.WEBSITE_PLACEHOLDER' | translate }}"
         appAnimatedGradient
         [gradientConfiguration]="gradientConfig"
       />
@@ -74,77 +74,77 @@
 
     <div formGroupName="address" class="grid-group">
       <div class="registration-form__wrapper">
-        <label for="city" class="input-label">Город</label>
+        <label for="city" class="input-label">{{ 'USER.COMMON.CITY' | translate }}</label>
         <input
           class="input-field"
           type="text"
           formControlName="city"
           id="city"
-          placeholder="Введите город"
+          placeholder="{{ 'USER.REGISTRATION.CITY_PLACEHOLDER' | translate }}"
           appAnimatedGradient
           [gradientConfiguration]="gradientConfig"
         />
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="street" class="input-label">Улица</label>
+        <label for="street" class="input-label">{{ 'USER.COMMON.STREET' | translate }}</label>
         <input
           class="input-field"
           type="text"
           formControlName="street"
           id="street"
-          placeholder="Введите улицу"
+          placeholder="{{ 'USER.REGISTRATION.STREET_PLACEHOLDER' | translate }}"
           appAnimatedGradient
           [gradientConfiguration]="gradientConfig"
         />
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="suite" class="input-label">Офис</label>
+        <label for="suite" class="input-label">{{ 'USER.COMMON.SUITE' | translate }}</label>
         <input
           class="input-field"
           type="text"
           formControlName="suite"
           id="suite"
-          placeholder="Введите офис"
+          placeholder="{{ 'USER.REGISTRATION.SUITE_PLACEHOLDER' | translate }}"
           appAnimatedGradient
           [gradientConfiguration]="gradientConfig"
         />
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="zipcode" class="input-label">Индекс</label>
+        <label for="zipcode" class="input-label">{{ 'USER.COMMON.ZIPCODE' | translate }}</label>
         <input
           class="input-field"
           type="text"
           formControlName="zipcode"
           id="zipcode"
-          placeholder="Введите индекс"
+          placeholder="{{ 'USER.REGISTRATION.ZIPCODE_PLACEHOLDER' | translate }}"
           appAnimatedGradient
           [gradientConfiguration]="gradientConfig"
         />
       </div>
 
       <div formGroupName="geo" class="registration-form__wrapper">
-        <span class="input-label">Координаты</span>
+        <span class="input-label">{{ 'USER.COMMON.COORDINATES' | translate }}</span>
         <div class="geo-wrapper">
-          <label for="lat" class="visually-hidden">Широта</label>
+          <label for="lat" class="visually-hidden">{{ 'USER.COMMON.LATITUDE' | translate }}</label>
           <input
             class="input-field"
             id="lat"
             formControlName="lat"
             type="text"
-            placeholder="Введите широтy"
+            placeholder="{{ 'USER.REGISTRATION.LATITUDE_PLACEHOLDER' | translate }}"
             appAnimatedGradient
             [gradientConfiguration]="gradientConfig"
           />
-          <label for="lng" class="visually-hidden">Долгота</label>
+          <label for="lng" class="visually-hidden">{{ 'USER.COMMON.LONGITUDE' | translate }}</label>
           <input
             class="input-field"
             id="lng"
             formControlName="lng"
             type="text"
-            placeholder="Введите долготу"
+            placeholder="{{ 'USER.REGISTRATION.LONGITUDE_PLACEHOLDER' | translate }}"
             appAnimatedGradient
             [gradientConfiguration]="gradientConfig"
           />
@@ -154,39 +154,39 @@
 
     <div formGroupName="company" class="grid-group">
       <div class="registration-form__wrapper">
-        <label for="company-name" class="input-label">Компания</label>
+        <label for="company-name" class="input-label">{{ 'USER.COMMON.COMPANY' | translate }}</label>
         <input
           class="input-field"
           type="text"
           formControlName="name"
           id="company-name"
-          placeholder="Укажите компанию"
+          placeholder="{{ 'USER.REGISTRATION.COMPANY_PLACEHOLDER' | translate }}"
           appAnimatedGradient
           [gradientConfiguration]="gradientConfig"
         />
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="catch-phrase" class="input-label">Ваша миссия</label>
+        <label for="catch-phrase" class="input-label">{{ 'USER.COMMON.MISSION' | translate }}</label>
         <input
           class="input-field"
           type="text"
           formControlName="catchPhrase"
           id="catch-phrase"
-          placeholder="Расскажите о миссии"
+          placeholder="{{ 'USER.REGISTRATION.MISSION_PLACEHOLDER' | translate }}"
           appAnimatedGradient
           [gradientConfiguration]="gradientConfig"
         />
       </div>
 
       <div class="registration-form__wrapper">
-        <label for="bs" class="input-label">Специализация</label>
+        <label for="bs" class="input-label">{{ 'USER.COMMON.SPECIALIZATION' | translate }}</label>
         <input
           class="input-field"
           type="text"
           formControlName="bs"
           id="bs"
-          placeholder="Введите специализацию"
+          placeholder="{{ 'USER.REGISTRATION.SPECIALIZATION_PLACEHOLDER' | translate }}"
           appAnimatedGradient
           [gradientConfiguration]="gradientConfig"
         />
@@ -200,7 +200,7 @@
       [disabled]="registrationForm.invalid"
       id="registation-button"
     >
-      Зарегистрировать пользователя
+      {{ 'USER.REGISTRATION.SUBMIT' | translate }}
     </button>
   </form>
 </section>

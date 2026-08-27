@@ -6,9 +6,10 @@ import { tap, BehaviorSubject, map, Observable, combineLatest } from 'rxjs';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { CreateUserComponent } from '../create-user/create-user.component';
 import { UsersFilterComponent } from '../users-filter/users-filter.component';
-import { PluralPipe } from '../../pipes/plural.pipe';
 import { BoldTextDirective } from '../../directives/bold-text.directive';
 import { AnimatedGradientDirective } from '../../directives/animated-gradient.directive';
+import { LanguageService } from '../../service/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-users-page',
@@ -17,9 +18,9 @@ import { AnimatedGradientDirective } from '../../directives/animated-gradient.di
     UserCardComponent,
     CreateUserComponent,
     UsersFilterComponent,
-    PluralPipe,
     BoldTextDirective,
-    AnimatedGradientDirective
+    AnimatedGradientDirective,
+    TranslatePipe
   ],
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss'
@@ -27,6 +28,7 @@ import { AnimatedGradientDirective } from '../../directives/animated-gradient.di
 export class UsersPageComponent implements OnInit {
 
   userService: UserService = inject(UserService);
+  languageService: LanguageService = inject(LanguageService);
 
   private filterSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>('');
 

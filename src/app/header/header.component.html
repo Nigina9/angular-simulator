@@ -17,7 +17,7 @@
                 href="#"
                 id="link-nav"
               >
-                {{ item.navItem }}
+                {{ item.navItem | translate }}
               </a>
             </li>
           }
@@ -28,7 +28,7 @@
           id="consultation-button"
           (click)="messageService.showInfo('Ожидайте звонок от менеджера')"
         >
-          Консультация
+          {{ 'HEADER.CONSULTATION_BUTTON' | translate }}
         </button>
         @if (configuration.enableTheming) {
           <div class="container-toggle-theme">
@@ -51,7 +51,7 @@
           <div class="time-date-wrapper">
             <p class="current-time">{{ currentTimeAndDate | date }}</p>
             <button class="button button--white" (click)="switchWidget('counter')" id="date-toggle-button">
-              Показать счётчик
+              {{ 'HEADER.SHOW_DATE_TIME' | translate }}
             </button>
           </div>
         } @else {
@@ -69,18 +69,29 @@
               </button>
             </div>
             <button class="button button--white" (click)="switchWidget('timeAndDate')" id="count-toggle-button">
-              Показать дату и время
+              {{ 'HEADER.SHOW_COUNTER' | translate }}
             </button>
           </div>
         }
       </div>
     </div>
-    <div class="logout-container">
-      <button class="button" (click)="logout()" id="logout-button">
-        <fa-icon [icon]="faRightFromBracket" class="white-icon" />
-        Выйти
-      </button>
-      <span class="last-entry">Последний вход: {{ lastEntry | date }}</span>
+    <div class="user-panel">
+      <div class="logout-container">
+        <button class="button" (click)="logout()" id="logout-button">
+          <fa-icon [icon]="faRightFromBracket" class="white-icon" />
+          {{ 'HEADER.LOGOUT' | translate }}
+        </button>
+        <span class="last-entry">{{ 'HEADER.LAST_VISIT' | translate }}: {{ lastEntry | date }}</span>
+      </div>
+      <div class="language-switcher">
+        <p-selectbutton
+          [options]="languageService.languages"
+          [ngModel]="languageService.currentLanguage$| async"
+          optionLabel="name"
+          (onChange)="languageService.changeLanguage($event.value)"
+          optionValue="value"
+        />
+      </div>
     </div>
   </div>
 </header>

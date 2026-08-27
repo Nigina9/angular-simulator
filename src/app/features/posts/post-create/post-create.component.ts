@@ -3,10 +3,12 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
+import { LanguageService } from '../../../../service/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-post-create',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './post-create.component.html',
   styleUrl: './post-create.component.scss'
 })
@@ -15,6 +17,7 @@ export class PostCreateComponent {
   private fb: FormBuilder = inject(FormBuilder);
   private router: Router = inject(Router);
   private postService: PostService = inject(PostService);
+  languageService: LanguageService = inject(LanguageService);
 
   createForm: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
