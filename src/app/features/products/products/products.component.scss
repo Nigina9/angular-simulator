@@ -1,0 +1,78 @@
+.product-container {
+  padding: 100px 5%;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 50px;
+  column-gap: 50px;
+}
+
+.product-card-description {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--yellow-color);
+}
+
+:host ::ng-deep .p-card.custom-card {
+  width: 400px;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+:host ::ng-deep .p-card-header img {
+  background-color: rgb(241, 238, 234);
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20%;
+}
+
+.skeleton-card {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-image {
+  height: 200px;
+  width: 100%;
+}
+
+.skeleton-title {
+  height: 1.5rem;
+  width: 70%;
+}
+
+.skeleton-line {
+  height: 1rem;
+  width: 100%;
+}
+
+.skeleton-button {
+  height: 2rem;
+  width: 40%;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.button-filter {
+  background-color: var(--grey-background);
+  color: black;
+}
+
+.field-search {
+  cursor: pointer;
+}
+
+.products-button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,93 @@
+<div class="product-container">
+  <h2>Каталог продуктов</h2>
+  <div class="input-wrapper">
+    <input
+      pInputText
+      type="text"
+      placeholder="Поиск товаров..."
+      [ngModel]="productService.searchQuery()"
+      (ngModelChange)="productService.setSearchQuery($event)"
+      id="input-search"
+      class="field-search"
+    />
+    <p-select
+      [options]="sortFieldOptions"
+      optionLabel="label"
+      optionValue="value"
+      [ngModel]="productService.sortField()"
+      (ngModelChange)="productService.setSortField($event)"
+      placeholder="Сортировать по"
+      id="input-sort-field"
+    />
+    <p-select
+      [options]="sortOrderOptions"
+      optionLabel="label"
+      optionValue="value"
+      [ngModel]="productService.sortOrder()"
+      (ngModelChange)="productService.setSortOrder($event)"
+      placeholder="Направление"
+      id="input-sort-order"
+    />
+    <p-select
+      [options]="productService.categories()"
+      optionLabel="name"
+      optionValue="slug"
+      [ngModel]="productService.selectedCategory()"
+      (ngModelChange)="productService.setSelectedCategory($event)"
+      placeholder="Категория"
+      id="input-sort-select"
+    />
+    <button class="button button-filter" id="show-categories-button"(click)="productService.setSelectedCategory('')">Сбросить фильтры</button>
+  </div>
+    @if (productService.isLoadingProduct()) {
+      @for (item of [1,2,3,4,5,6]; track item) {
+      <div class="skeleton-card">
+        <p-skeleton class="skeleton-image" />
+        <p-skeleton class="skeleton-title" />
+        <p-skeleton class="skeleton-line" />
+        <p-skeleton class="skeleton-line" />
+        <p-skeleton class="skeleton-button" />
+      </div>
+    }
+    } @else {
+    <div class="products-list">
+      @for (product of productService.products(); track product.id) {
+        <p-card class="custom-card">
+          <ng-template #header>
+            <img [src]="product.thumbnail" [alt]="product.title" />
+          </ng-template>
+          <h3>{{ product.title }}</h3>
+          <div class="product-card-description">
+            <p>Категория</p>
+            <p class="bold">{{ product.category }}</p>
+          </div>
+          <div class="product-card-description">
+            <p>Цена</p>
+            <p class="bold">${{ product.price }}</p>
+          </div>
+          <div class="product-card-description">
+            <p>Рейтинг</p>
+            <p class="bold">{{  product.rating  }}</p>
+          </div>
+          <div class="product-card-description">
+            <p>В наличии</p>
+            <p class="bold">{{  product.stock  }}</p>
+          </div>
+          <ng-template #footer>
+            <div class="products-button-wrapper">
+              <button class="button" id="button-detail" (click)="onProductClick(product.id)">Подробнее</button>
+              <button class="button button-product" id="button-cart" (click)="onAddToCart($event, product)">В корзину</button>
+            </div>
+          </ng-template>
+        </p-card>
+      }
+    </div>
+    <p-paginator
+      [first]="productService.currentPage() * productService.pageSize()"
+      [rows]="productService.pageSize()"
+      [totalRecords]="productService.total()"
+      [rowsPerPageOptions]="[10, 20, 30, 50]"
+      (onPageChange)="onPageChange($event)"
+    />
+  }
+</div>

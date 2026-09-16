@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { postResolver } from './features/posts/post.resolver';
 import { authGuard } from './features/auth/auth.guard';
+import { productResolver } from './features/products/product.resolver';
 
 export const routes: Routes = [
   {
@@ -30,7 +31,20 @@ export const routes: Routes = [
       {
         path: 'users-page',
         loadComponent: () => import('./users-page/users-page.component').then((c) => c.UsersPageComponent)
-      }
+      },
+      {
+        path: 'products',
+        loadComponent: () => import('./features/products/products/products.component').then((c) => c.ProductsComponent)
+      },
+      {
+        path: 'products/:id',
+        resolve: { product: productResolver },
+        loadComponent: () => import('./features/products/product-detail/product-detail.component').then((c) => c.ProductDetailComponent)
+      },
+      {
+        path: 'cart',
+        loadComponent: () => import('./features/products/cart/cart.component').then((c) => c.CartComponent)
+      },
     ]
   },
   {

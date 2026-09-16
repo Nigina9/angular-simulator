@@ -2,7 +2,8 @@
   "NAV": {
     "HOME": "首页",
     "USERS": "用户",
-    "POSTS": "帖子"
+    "POSTS": "帖子",
+    "PRODUCTS": "产品中心"
   },
   "HEADER": {
     "CONSULTATION_BUTTON": "咨询",

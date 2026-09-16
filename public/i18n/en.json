@@ -2,7 +2,8 @@
   "NAV": {
     "HOME": "Home",
     "USERS": "Users",
-    "POSTS": "Posts"
+    "POSTS": "Posts",
+    "PRODUCTS": "Products"
   },
   "HEADER": {
     "CONSULTATION_BUTTON": "Consultation",

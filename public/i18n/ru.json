@@ -2,7 +2,8 @@
   "NAV": {
     "HOME": "Главная",
     "USERS": "Пользователи",
-    "POSTS": "Посты"
+    "POSTS": "Посты",
+    "PRODUCTS": "Продукты"
   },
   "HEADER": {
     "CONSULTATION_BUTTON": "Консультация",
