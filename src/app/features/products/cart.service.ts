@@ -33,7 +33,7 @@ export class CartService {
   addItem(product: IProduct): void {
     const existingItem = this.items().find((item: ICartItem) => item.product.id === product.id);
     if (existingItem) {
-      this.items.update((items: ICartItem[]) => items.map(item => item.product.id === product.id ? { ... item, quantity: item.quantity + 1 } : item));
+      this.items.update((items: ICartItem[]) => items.map((item: ICartItem) => item.product.id === product.id ? { ... item, quantity: item.quantity + 1 } : item));
     } else {
       this.items.update((items: ICartItem[]) => [... items, { product, quantity: 1 }]);
     }

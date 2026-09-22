@@ -2,8 +2,9 @@ import { Injectable, inject, WritableSignal, signal, computed, Signal} from '@an
 import { ProductApiService } from './product-api.service';
 import { IProduct } from './interfaces/IProduct';
 import { IProductResponse } from './interfaces/IProductResponse';
-import { tap, Observable, debounceTime, distinctUntilChanged, switchMap, combineLatest } from 'rxjs';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { tap, debounceTime, distinctUntilChanged} from 'rxjs';
+import { toObservable, toSignal, rxResource } from '@angular/core/rxjs-interop';
+import { ResourceRef } from '@angular/core';
 import { ICategory } from './interfaces/ICategory';
 
 @Injectable({
@@ -13,49 +14,51 @@ export class ProductService {
 
   private productApi: ProductApiService = inject(ProductApiService);
 
-  products: WritableSignal<IProduct[]> = signal<IProduct[]>([]);
-  isLoadingProduct: WritableSignal<boolean> = signal(false);
+
   currentPage: WritableSignal<number> = signal<number>(0);
   pageSize: WritableSignal<number> = signal<number>(10);
-  total: WritableSignal<number> = signal<number>(0);
   searchQuery: WritableSignal<string> = signal<string>('');
   sortField: WritableSignal<string> = signal<string>('title');
   sortOrder: WritableSignal<string> = signal<string>('asc');
   categories: WritableSignal<ICategory[]> = signal<ICategory[]>([]);
   selectedCategory: WritableSignal<string> = signal<string>('');
   skip: Signal<number> = computed(() => this.currentPage() * this.pageSize());
-  private debouncedSearchQuery$: Observable<string> = toObservable(this.searchQuery).pipe(
-    debounceTime(400),
-    distinctUntilChanged()
+
+  products: Signal<IProduct[]> = computed(() => this.productsResource.value()?.products ?? []);
+  total: Signal<number> = computed(() => this.productsResource.value()?.total ?? 0);
+  isLoadingProduct: Signal<boolean> = computed(() => this.productsResource.isLoading());
+
+  private debouncedSearchQuery: Signal<string> = toSignal(
+    toObservable(this.searchQuery).pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    ),
+    { initialValue: ''}
   );
+
+  productsResource: ResourceRef<IProductResponse | undefined> = rxResource({
+    params: () => ({
+      page: this.currentPage(),
+      pageSize: this.pageSize(),
+      sortField: this.sortField(),
+      sortOrder: this.sortOrder(),
+      category: this.selectedCategory(),
+      query: this.debouncedSearchQuery()
+    }),
+    stream: ({ params }) => {
+      const skip = params.page * params.pageSize;
+      if (params.query) {
+        return this.productApi.searchProducts(params.query, params.pageSize, skip);
+      }
+      if (params.category) {
+        return this.productApi.getProductsByCategory(params.category, params.pageSize, skip, params.sortField, params.sortOrder);
+      }
+      return this.productApi.getProducts(params.pageSize, skip, params.sortField, params.sortOrder);
+    }
+  });
 
   constructor() {
     this.loadCategories();
-    combineLatest([
-      toObservable(this.currentPage),
-      toObservable(this.pageSize),
-      toObservable(this.sortField),
-      toObservable(this.sortOrder),
-      toObservable(this.selectedCategory),
-      this.debouncedSearchQuery$
-    ]).pipe(
-      tap(() => this.isLoadingProduct.set(true)),
-        switchMap(([ page, pageSize, sortField, sortOrder, category, query ]) => {
-          const skip = page * pageSize;
-          if (query) {
-            return this.productApi.searchProducts(query, pageSize, skip);
-          }
-          if (category) {
-            return this.productApi.getProductsByCategory(category, pageSize, skip, sortField, sortOrder);
-          }
-          return this.productApi.getProducts(pageSize, skip, sortField, sortOrder);
-        }),
-      tap((response: IProductResponse) => {
-        this.products.set(response.products);
-        this.total.set(response.total);
-        this.isLoadingProduct.set(false);
-      })
-    ).subscribe();
   }
 
   setPage(page: number): void {
@@ -69,6 +72,7 @@ export class ProductService {
 
   setSearchQuery(query: string): void {
     this.searchQuery.set(query);
+    this.currentPage.set(0);
   }
 
   setSortField(field: string): void {
@@ -89,7 +93,7 @@ export class ProductService {
     ).subscribe();
   }
 
-  setSelectedCategory(category: string): void {
+  resetSort(category: string): void {
     this.selectedCategory.set(category);
     this.currentPage.set(0);
   }

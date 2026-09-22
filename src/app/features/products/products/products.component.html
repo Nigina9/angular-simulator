@@ -33,11 +33,11 @@
       optionLabel="name"
       optionValue="slug"
       [ngModel]="productService.selectedCategory()"
-      (ngModelChange)="productService.setSelectedCategory($event)"
+      (ngModelChange)="productService.resetSort($event)"
       placeholder="Категория"
       id="input-sort-select"
     />
-    <button class="button button-filter" id="show-categories-button"(click)="productService.setSelectedCategory('')">Сбросить фильтры</button>
+    <button class="button button-filter" id="show-categories-button"(click)="productService.resetSort('')">Сбросить фильтры</button>
   </div>
     @if (productService.isLoadingProduct()) {
       @for (item of [1,2,3,4,5,6]; track item) {

@@ -13,8 +13,14 @@ export class ProductApiService {
   private http: HttpClient = inject(HttpClient);
   private apiUrl: string = 'https://dummyjson.com/products';
 
+  private buildQueryParams(params: Record<string, string | number>): string {
+    const query = Object.entries(params).map(([key, value]) => `${ key }=${ value }`).join('&');
+    return query ? `?${query}` : '';
+  }
+
   getProducts(limit: number, skip: number, sortBy: string, order: string): Observable<IProductResponse> {
-    return this.http.get<IProductResponse>(`${ this.apiUrl }?limit=${ limit }&skip=${ skip }&sortBy=${ sortBy }&order=${ order }`);
+    const query: string = this.buildQueryParams({ limit, skip, sortBy, order });
+    return this.http.get<IProductResponse>(`${ this.apiUrl }${ query }`);
   }
 
   getProductById(id: number): Observable<IProduct> {
@@ -22,11 +28,13 @@ export class ProductApiService {
   }
 
   searchProducts(query: string, limit: number, skip: number): Observable<IProductResponse> {
-    return this.http.get<IProductResponse>(`${ this.apiUrl }/search?q=${ query }&limit=${ limit }&skip=${ skip }`);
+    const queryString: string = this.buildQueryParams({ q: query, limit, skip });
+    return this.http.get<IProductResponse>((`${this.apiUrl}/search${ queryString }`));
   }
 
   getProductsByCategory(category: string, limit: number, skip: number, sortBy: string, order: string): Observable<IProductResponse> {
-    return this.http.get<IProductResponse>(`${ this.apiUrl }/category/${ category }?limit=${ limit }&skip=${ skip }&sortBy=${ sortBy }&order=${ order }`);
+    const query: string = this.buildQueryParams({ limit, skip, sortBy, order });
+    return this.http.get<IProductResponse>(`${ this.apiUrl }/category/${ category }${ query }`);
   }
 
   getCategories(): Observable<ICategory[]> {

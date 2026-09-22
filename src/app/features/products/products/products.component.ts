@@ -20,8 +20,8 @@ import { IProduct } from '../interfaces/IProduct';
 export class ProductsComponent {
 
   private router: Router = inject(Router);
-  private productService: ProductService = inject(ProductService);
   private cartService: CartService = inject(CartService);
+  productService: ProductService = inject(ProductService);
 
   sortFieldOptions: ISelectOption[] = [
     {
