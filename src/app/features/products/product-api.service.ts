@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IProductResponse } from './interfaces/IProductResponse';
 import { IProduct } from './interfaces/IProduct';
 import { ICategory } from './interfaces/ICategory';
+import { IProductQueryParams } from './interfaces/IProductQueryParams';
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +14,13 @@ export class ProductApiService {
   private http: HttpClient = inject(HttpClient);
   private apiUrl: string = 'https://dummyjson.com/products';
 
-  private buildQueryParams(params: Record<string, string | number>): string {
-    const query = Object.entries(params).map(([key, value]) => `${ key }=${ value }`).join('&');
-    return query ? `?${query}` : '';
+  private buildQueryParams(params: Record<string, string | number | undefined>): string {
+    const query: string = Object.entries(params).filter(([, value]) => value !== undefined).map(([key, value]) => `${ key }=${ value }`).join('&');
+    return query ? `?${ query }` : '';
   }
 
-  getProducts(limit: number, skip: number, sortBy: string, order: string): Observable<IProductResponse> {
-    const query: string = this.buildQueryParams({ limit, skip, sortBy, order });
+  getProducts(params: IProductQueryParams): Observable<IProductResponse> {
+    const query: string = this.buildQueryParams(params);
     return this.http.get<IProductResponse>(`${ this.apiUrl }${ query }`);
   }
 
@@ -27,13 +28,13 @@ export class ProductApiService {
     return this.http.get<IProduct>(`${ this.apiUrl }/${ id }`);
   }
 
-  searchProducts(query: string, limit: number, skip: number): Observable<IProductResponse> {
-    const queryString: string = this.buildQueryParams({ q: query, limit, skip });
+  searchProducts(query: string, params: IProductQueryParams): Observable<IProductResponse> {
+    const queryString: string = this.buildQueryParams({ q: query, ...params });
     return this.http.get<IProductResponse>((`${this.apiUrl}/search${ queryString }`));
   }
 
-  getProductsByCategory(category: string, limit: number, skip: number, sortBy: string, order: string): Observable<IProductResponse> {
-    const query: string = this.buildQueryParams({ limit, skip, sortBy, order });
+  getProductsByCategory(category: string, params: IProductQueryParams): Observable<IProductResponse> {
+    const query: string = this.buildQueryParams(params);
     return this.http.get<IProductResponse>(`${ this.apiUrl }/category/${ category }${ query }`);
   }
 

@@ -25,38 +25,40 @@
     </div>
 
     <div class="product-card-description">
-      <p>Бренд</p>
+      <p>{{ 'PRODUCT_DETAIL.BRAND' | translate }}</p>
       <p class="bold">{{ product.brand }}</p>
     </div>
     <div class="product-card-description">
-      <p>Артикул</p>
+      <p>{{ 'PRODUCT_DETAIL.SKU' | translate }}л</p>
       <p class="bold">{{ product.sku }}</p>
     </div>
     <div class="product-card-description">
-      <p>В наличии</p>
+      <p>{{ 'PRODUCT_DETAIL.STOCK' | translate }}</p>
       <p class="bold">{{ product.stock }} шт.</p>
     </div>
     <div class="product-card-description">
-      <p>Вес</p>
+      <p>{{ 'PRODUCT_DETAIL.WEIGHT' | translate }}</p>
       <p class="bold">{{ product.weight }} г</p>
     </div>
     <div class="product-card-description">
-      <p>Размеры</p>
+      <p>{{ 'PRODUCT_DETAIL.DIMENSIONS' | translate }}</p>
       <p class="bold">{{ product.dimensions.width }} × {{ product.dimensions.height }} × {{ product.dimensions.depth }} см</p>
     </div>
     <div class="product-card-description">
-      <p>Гарантия</p>
+      <p>{{ 'PRODUCT_DETAIL.WARRANTY' | translate }}</p>
       <p class="bold">{{ product.warrantyInformation }} г</p>
     </div>
     <div class="product-card-description">
-      <p>Доставка</p>
+      <p>{{ 'PRODUCT_DETAIL.SHIPPING' | translate }}</p>
       <p class="bold">{{ product.shippingInformation }} г</p>
     </div>
     <div class="product-card-description">
-      <p>Возврат</p>
+      <p>{{ 'PRODUCT_DETAIL.RETURN_POLICY' | translate }}</p>
       <p class="bold">{{ product.returnPolicy }} г</p>
     </div>
 
-    <button class="button button-product" id="button-cart" (click)="onAddToCart($event, product)">В корзину</button>
+    <button class="button button-product" id="button-cart" (click)="onAddToCart($event, product)">
+      {{ 'PRODUCT_DETAIL.ADD_TO_CART' | translate }}
+    </button>
   </div>
 </div>

@@ -10,10 +10,12 @@ import { ISelectOption } from '../interfaces/ISelectOption';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
 import { IProduct } from '../interfaces/IProduct';
+import { LanguageService } from '../../../../service/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
-  imports: [CardModule, PaginatorModule, SkeletonModule, FormsModule, InputTextModule, SelectModule],
+  imports: [CardModule, PaginatorModule, SkeletonModule, FormsModule, InputTextModule, SelectModule, TranslatePipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
@@ -22,32 +24,34 @@ export class ProductsComponent {
   private router: Router = inject(Router);
   private cartService: CartService = inject(CartService);
   productService: ProductService = inject(ProductService);
+  languageService: LanguageService = inject(LanguageService);
 
   sortFieldOptions: ISelectOption[] = [
     {
-      label: 'Название',
+      label: 'PRODUCTS_PAGE.SORT_FIELD.TITLE',
       value: 'title'
     },
     {
-      label: 'Цена',
+      label: 'PRODUCTS_PAGE.SORT_FIELD.PRICE',
       value: 'price'
     },
     {
-      label: 'Рейтинг',
-      value: 'rating' },
+      label: 'PRODUCTS_PAGE.SORT_FIELD.RATING',
+      value: 'rating'
+    },
     {
-      label: 'Наличие',
+      label: 'PRODUCTS_PAGE.SORT_FIELD.STOCK',
       value: 'stock'
     },
   ]
 
   sortOrderOptions: ISelectOption[] = [
     {
-      label: 'По возрастанию',
+      label: 'PRODUCTS_PAGE.SORT_ORDER_OPTION.ASC',
       value: 'asc'
     },
     {
-      label: 'По убыванию',
+      label: 'PRODUCTS_PAGE.SORT_ORDER_OPTION.DESC',
       value: 'desc'
     },
   ];

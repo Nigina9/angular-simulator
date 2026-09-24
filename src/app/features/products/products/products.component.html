@@ -1,10 +1,10 @@
 <div class="product-container">
-  <h2>Каталог продуктов</h2>
+  <h2>{{ 'PRODUCTS_PAGE.TITLE' | translate }}</h2>
   <div class="input-wrapper">
     <input
       pInputText
       type="text"
-      placeholder="Поиск товаров..."
+      [placeholder]="'PRODUCTS_PAGE.SEARCH_PLACEHOLDER' | translate"
       [ngModel]="productService.searchQuery()"
       (ngModelChange)="productService.setSearchQuery($event)"
       id="input-search"
@@ -12,32 +12,38 @@
     />
     <p-select
       [options]="sortFieldOptions"
-      optionLabel="label"
       optionValue="value"
       [ngModel]="productService.sortField()"
       (ngModelChange)="productService.setSortField($event)"
-      placeholder="Сортировать по"
+      [placeholder]="'PRODUCTS_PAGE.SORT_BY' | translate"
       id="input-sort-field"
-    />
+    >
+      <ng-template #selectedItem let-option>{{ option.label | translate }}</ng-template>
+      <ng-template #item let-option>{{ option.label | translate }}</ng-template>
+    </p-select>
+
     <p-select
       [options]="sortOrderOptions"
       optionLabel="label"
-      optionValue="value"
       [ngModel]="productService.sortOrder()"
       (ngModelChange)="productService.setSortOrder($event)"
-      placeholder="Направление"
+      [placeholder]="'PRODUCTS_PAGE.SORT_ORDER' | translate"
       id="input-sort-order"
-    />
+    >
+      <ng-template #selectedItem let-option>{{ option.label | translate }}</ng-template>
+      <ng-template #item let-option>{{ option.label | translate }}</ng-template>
+    </p-select>
+
     <p-select
       [options]="productService.categories()"
       optionLabel="name"
       optionValue="slug"
       [ngModel]="productService.selectedCategory()"
       (ngModelChange)="productService.resetSort($event)"
-      placeholder="Категория"
+      [placeholder]="'PRODUCTS_PAGE.CATEGORY' | translate"
       id="input-sort-select"
     />
-    <button class="button button-filter" id="show-categories-button"(click)="productService.resetSort('')">Сбросить фильтры</button>
+    <button class="button button-filter" id="show-categories-button"(click)="productService.resetSort('')">{{ 'PRODUCTS_PAGE.RESET_PRODUCTS' | translate }}</button>
   </div>
     @if (productService.isLoadingProduct()) {
       @for (item of [1,2,3,4,5,6]; track item) {
@@ -58,25 +64,25 @@
           </ng-template>
           <h3>{{ product.title }}</h3>
           <div class="product-card-description">
-            <p>Категория</p>
+            <p>{{ 'PRODUCTS_PAGE.CARD.CATEGORY' | translate }}</p>
             <p class="bold">{{ product.category }}</p>
           </div>
           <div class="product-card-description">
-            <p>Цена</p>
+            <p>{{ 'PRODUCTS_PAGE.CARD.PRICE' | translate }}</p>
             <p class="bold">${{ product.price }}</p>
           </div>
           <div class="product-card-description">
-            <p>Рейтинг</p>
+            <p>{{ 'PRODUCTS_PAGE.CARD.RATING' | translate }}</p>
             <p class="bold">{{  product.rating  }}</p>
           </div>
           <div class="product-card-description">
-            <p>В наличии</p>
+            <p>{{ 'PRODUCTS_PAGE.CARD.STOCK' | translate }}</p>
             <p class="bold">{{  product.stock  }}</p>
           </div>
           <ng-template #footer>
             <div class="products-button-wrapper">
-              <button class="button" id="button-detail" (click)="onProductClick(product.id)">Подробнее</button>
-              <button class="button button-product" id="button-cart" (click)="onAddToCart($event, product)">В корзину</button>
+              <button class="button" id="button-detail" (click)="onProductClick(product.id)">{{ 'PRODUCTS_PAGE.CARD.DETAIL_PRODUCT' | translate }}</button>
+              <button class="button button-product" id="button-cart" (click)="onAddToCart($event, product)">{{ 'PRODUCTS_PAGE.CARD.ADD_TO_CART' | translate }}</button>
             </div>
           </ng-template>
         </p-card>

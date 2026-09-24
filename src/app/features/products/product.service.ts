@@ -6,6 +6,7 @@ import { tap, debounceTime, distinctUntilChanged} from 'rxjs';
 import { toObservable, toSignal, rxResource } from '@angular/core/rxjs-interop';
 import { ResourceRef } from '@angular/core';
 import { ICategory } from './interfaces/ICategory';
+import { IProductQueryParams } from './interfaces/IProductQueryParams';
 
 @Injectable({
   providedIn: 'root',
@@ -46,14 +47,20 @@ export class ProductService {
       query: this.debouncedSearchQuery()
     }),
     stream: ({ params }) => {
-      const skip = params.page * params.pageSize;
+      const skip: number = params.page * params.pageSize;
+      const queryParams: IProductQueryParams = {
+        limit: params.pageSize,
+        skip,
+        sortBy: params.sortField,
+        order: params.sortOrder
+      };
       if (params.query) {
-        return this.productApi.searchProducts(params.query, params.pageSize, skip);
+        return this.productApi.searchProducts(params.query, queryParams);
       }
       if (params.category) {
-        return this.productApi.getProductsByCategory(params.category, params.pageSize, skip, params.sortField, params.sortOrder);
+        return this.productApi.getProductsByCategory(params.category, queryParams);
       }
-      return this.productApi.getProducts(params.pageSize, skip, params.sortField, params.sortOrder);
+      return this.productApi.getProducts(queryParams);
     }
   });
 

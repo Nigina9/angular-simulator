@@ -1,6 +1,6 @@
 <div class="cart-container">
   <div class="cart-header">
-    <h1>Корзина</h1>
+    <h1>{{ 'CART_PAGE.TITLE' | translate }}</h1>
     <span class="badge">{{ cartService.itemsCount() }} товаров</span>
   </div>
 
@@ -30,25 +30,25 @@
       </div>
 
       <div class="order-summary">
-        <h2>Итог заказа</h2>
+        <h2>{{ 'CART_PAGE.ORDER_SUMMARY' | translate }}</h2>
         <div class="summary-row">
-          <span>Subtotal</span>
+          <span>{{ 'CART_PAGE.SUBTOTAL' | translate }}</span>
           <span>${{ cartService.subtotal() }}</span>
         </div>
         <div class="summary-row">
-          <span>Tax ({{ cartService.TAX_RATE * 100 }}%)</span>
+          <span>{{ 'CART_PAGE.TAX' | translate }} ({{ cartService.TAX_RATE * 100 }}%)</span>
           <span>${{ cartService.tax() }}</span>
         </div>
         <div class="summary-divider"></div>
         <div class="summary-row total-row">
-          <span>Total</span>
+          <span>{{ 'CART_PAGE.TOTAL' | translate }}</span>
           <span class="total-amount">${{ cartService.total() }}</span>
         </div>
       </div>
     </div>
   } @else {
     <div class="empty-cart">
-      <h2>Корзина пуста</h2>
+      <h2>{{ 'CART_PAGE.EMPTY_TITLE' | translate }}</h2>
       <a routerLink="/products" class="button">К каталогу</a>
     </div>
   }

@@ -229,5 +229,55 @@
     "DETAIL": {
       "TITLE": "帖子详情"
     }
+  },
+  "PRODUCTS_PAGE": {
+    "TITLE": "产品目录",
+    "SEARCH_PLACEHOLDER": "搜索商品...",
+    "SORT_BY": "排序方式",
+    "SORT_ORDER": "排序方向",
+    "CATEGORY": "分类",
+    "RESET_PRODUCTS": "重置筛选",
+    "CARD": {
+      "CATEGORY": "分类",
+      "PRICE": "价格",
+      "RATING": "评分",
+      "STOCK": "库存",
+      "DETAIL_PRODUCT": "详情",
+      "ADD_TO_CART": "加入购物车"
+    },
+    "SORT_FIELD": {
+      "TITLE": "名称",
+      "PRICE": "价格",
+      "RATING": "评分",
+      "STOCK": "库存"
+    },
+    "SORT_ORDER_OPTION": {
+      "ASC": "升序",
+      "DESC": "降序"
+    }
+  },
+  "PRODUCT_DETAIL": {
+    "CATEGORY": "分类",
+    "PRICE": "价格",
+    "DISCOUNT": "折扣",
+    "BRAND": "品牌",
+    "SKU": "货号",
+    "STOCK": "库存",
+    "WEIGHT": "重量",
+    "DIMENSIONS": "尺寸",
+    "WARRANTY": "保修",
+    "SHIPPING": "配送信息",
+    "RETURN_POLICY": "退货政策",
+    "ADD_TO_CART": "加入购物车"
+  },
+  "CART_PAGE": {
+    "TITLE": "购物车",
+    "ITEMS_COUNT": "件商品",
+    "ORDER_SUMMARY": "订单摘要",
+    "SUBTOTAL": "小计",
+    "TAX": "税费",
+    "TOTAL": "总计",
+    "EMPTY_TITLE": "购物车是空的",
+    "TO_CATALOG": "去逛逛"
   }
 }
