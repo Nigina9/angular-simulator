@@ -2,7 +2,8 @@
   "NAV": {
     "HOME": "Главная",
     "USERS": "Пользователи",
-    "POSTS": "Посты"
+    "POSTS": "Посты",
+    "PRODUCTS": "Продукты"
   },
   "HEADER": {
     "CONSULTATION_BUTTON": "Консультация",
@@ -228,5 +229,55 @@
     "DETAIL": {
       "TITLE": "Детальный просмотр поста"
     }
-}
+},
+  "PRODUCTS_PAGE": {
+    "TITLE": "Каталог продуктов",
+    "SEARCH_PLACEHOLDER": "Поиск товаров...",
+    "SORT_BY": "Сортировать по",
+    "SORT_ORDER": "Направление",
+    "CATEGORY": "Категория",
+    "RESET_PRODUCTS": "Сбросить фильтры",
+    "CARD": {
+      "CATEGORY": "Категория",
+      "PRICE": "Цена",
+      "RATING": "Рейтинг",
+      "STOCK": "В наличии",
+      "DETAIL_PRODUCT": "Подробнее",
+      "ADD_TO_CART": "В корзину"
+    },
+    "SORT_FIELD": {
+      "TITLE": "Название",
+      "PRICE": "Цена",
+      "RATING": "Рейтинг",
+      "STOCK": "Наличие"
+    },
+    "SORT_ORDER_OPTION": {
+      "ASC": "По возрастанию",
+      "DESC": "По убыванию"
+    }
+  },
+  "PRODUCT_DETAIL": {
+    "CATEGORY": "Категория",
+    "PRICE": "Цена",
+    "DISCOUNT": "Скидка",
+    "BRAND": "Бренд",
+    "SKU": "Артикул",
+    "STOCK": "В наличии",
+    "WEIGHT": "Вес",
+    "DIMENSIONS": "Размеры",
+    "WARRANTY": "Гарантия",
+    "SHIPPING": "Доставка",
+    "RETURN_POLICY": "Возврат",
+    "ADD_TO_CART": "В корзину"
+  },
+  "CART_PAGE": {
+    "TITLE": "Корзина",
+    "ITEMS_COUNT": "товаров",
+    "ORDER_SUMMARY": "Итог заказа",
+    "SUBTOTAL": "Подытог",
+    "TAX": "Налог",
+    "TOTAL": "Итого",
+    "EMPTY_TITLE": "Корзина пуста",
+    "TO_CATALOG": "К каталогу"
+  }
 }

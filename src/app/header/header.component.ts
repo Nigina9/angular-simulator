@@ -18,6 +18,8 @@ import { applicationConfiguration } from '../configuration.token';
 import { IApplicationConfiguration } from '../../interfaces/IApplicationConfiguration';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService } from '../../service/language.service';
+import { CartService } from '../features/products/cart.service';
+
 @Component({
   selector: 'app-header',
   imports: [RouterLink, RouterLinkActive, ToggleSwitchModule, FormsModule, FontAwesomeModule, SelectButtonModule, AsyncPipe, DatePipe, TranslatePipe],
@@ -32,6 +34,7 @@ export class HeaderComponent implements OnInit {
   localStorageService: LocalStorageService = inject(LocalStorageService);
   configuration: IApplicationConfiguration = inject(applicationConfiguration);
   languageService: LanguageService = inject(LanguageService);
+  cartService: CartService = inject(CartService);
 
   currentWidget!: 'counter' | 'timeAndDate';
   currentTimeAndDate: Date = new Date();
@@ -56,6 +59,11 @@ export class HeaderComponent implements OnInit {
       id: 3,
       navItem: 'NAV.POSTS',
       path: '/posts'
+    },
+    {
+      id: 3,
+      navItem: 'NAV.PRODUCTS',
+      path: '/products'
     }
   ];
 
