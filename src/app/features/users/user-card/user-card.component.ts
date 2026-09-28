@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { IUser } from '../../interfaces/IUser';
+import { IUser } from '../interfaces/IUser';
 import { UpperCasePipe } from '@angular/common';
-import { PhoneFormatPipe } from '../../pipes/phone-format.pipe';
-import { PhoneFormat } from '../../enums/Format';
-import { BoldTextDirective } from '../../directives/bold-text.directive';
-import { LanguageService } from '../../service/language.service';
+import { PhoneFormatPipe } from '../../../../pipes/phone-format.pipe';
+import { PhoneFormat } from '../../../../enums/Format';
+import { BoldTextDirective } from '../../../../directives/bold-text.directive';
+import { LanguageService } from '../../../../service/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({

@@ -3,7 +3,7 @@ import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { tap, debounceTime, distinctUntilChanged } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { LanguageService } from '../../service/language.service';
+import { LanguageService } from '../../../../service/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({

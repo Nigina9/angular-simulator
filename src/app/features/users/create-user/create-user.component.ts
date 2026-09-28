@@ -1,10 +1,10 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IUser } from '../../interfaces/IUser';
-import { BoldTextDirective } from '../../directives/bold-text.directive';
-import { AnimatedGradientDirective } from '../../directives/animated-gradient.directive';
-import { IGradientConfiguration } from '../../interfaces/IGradientConfiguration';
-import { LanguageService } from '../../service/language.service';
+import { IUser } from '../interfaces/IUser';
+import { BoldTextDirective } from '../../../../directives/bold-text.directive';
+import { AnimatedGradientDirective } from '../../../../directives/animated-gradient.directive';
+import { IGradientConfiguration } from '../../../../interfaces/IGradientConfiguration';
+import { LanguageService } from '../../../../service/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({

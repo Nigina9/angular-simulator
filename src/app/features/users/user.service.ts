@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, finalize, Observable, of } from 'rxjs';
-import { IUser } from '../interfaces/IUser';
-import { LoaderService } from './loader.service';
+import { IUser } from './interfaces/IUser';
+import { LoaderService } from '../../../service/loader.service';
 import { UserApiService } from './user-api.service';
-import { MessageService } from './message.service';
+import { MessageService } from '../../../service/message.service';
 
 @Injectable({
   providedIn: 'root'
