@@ -16,7 +16,7 @@ export class LanguageService {
   private localStorage: LocalStorageService = inject(LocalStorageService);
   private translate: TranslateService = inject(TranslateService);
 
-  private currentLanguageSubject: BehaviorSubject<Language> = new BehaviorSubject<Language>(this.getLanguage());
+  private currentLanguageSubject: BehaviorSubject<Language> = new BehaviorSubject<Language>(Language.RU);
   currentLanguage$: Observable<Language> = this.currentLanguageSubject.asObservable();
 
 

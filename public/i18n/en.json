@@ -2,7 +2,8 @@
   "NAV": {
     "HOME": "Home",
     "USERS": "Users",
-    "POSTS": "Posts"
+    "POSTS": "Posts",
+    "PRODUCTS": "Products"
   },
   "HEADER": {
     "CONSULTATION_BUTTON": "Consultation",
@@ -228,5 +229,55 @@
     "DETAIL": {
       "TITLE": "Post Detail View"
     }
+  },
+  "PRODUCTS_PAGE": {
+    "TITLE": "Product Catalog",
+    "SEARCH_PLACEHOLDER": "Search products...",
+    "SORT_BY": "Sort by",
+    "SORT_ORDER": "Order",
+    "CATEGORY": "Category",
+    "RESET_PRODUCTS": "Reset filters",
+    "CARD": {
+      "CATEGORY": "Category",
+      "PRICE": "Price",
+      "RATING": "Rating",
+      "STOCK": "In stock",
+      "DETAIL_PRODUCT": "Details",
+      "ADD_TO_CART": "Add to cart"
+    },
+    "SORT_FIELD": {
+      "TITLE": "Title",
+      "PRICE": "Price",
+      "RATING": "Rating",
+      "STOCK": "Stock"
+    },
+    "SORT_ORDER_OPTION": {
+      "ASC": "Ascending",
+      "DESC": "Descending"
+    }
+  },
+  "PRODUCT_DETAIL": {
+    "CATEGORY": "Category",
+    "PRICE": "Price",
+    "DISCOUNT": "Discount",
+    "BRAND": "Brand",
+    "SKU": "SKU",
+    "STOCK": "In stock",
+    "WEIGHT": "Weight",
+    "DIMENSIONS": "Dimensions",
+    "WARRANTY": "Warranty",
+    "SHIPPING": "Shipping",
+    "RETURN_POLICY": "Return policy",
+    "ADD_TO_CART": "Add to cart"
+  },
+  "CART_PAGE": {
+    "TITLE": "Cart",
+    "ITEMS_COUNT": "items",
+    "ORDER_SUMMARY": "Order summary",
+    "SUBTOTAL": "Subtotal",
+    "TAX": "Tax",
+    "TOTAL": "Total",
+    "EMPTY_TITLE": "Your cart is empty",
+    "TO_CATALOG": "Go to catalog"
   }
 }

@@ -8,6 +8,10 @@
   padding-bottom: 50px;
 }
 
+.header-container {
+  padding: 0 5%;
+}
+
 .header-wrapper {
   display: flex;
   align-items: center;
@@ -66,8 +70,7 @@
 
 .functional {
   display: flex;
-  align-items: flex-end;
-  flex-direction: column;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 25px;
   margin-bottom: 25px;
@@ -120,4 +123,9 @@
 .user-panel {
   display: flex;
   justify-content: space-between;
+}
+
+.button-cart {
+  background-color: var(--yellow-color);
+  color: #000000;
 }

@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="container">
+  <div class="header-container">
     <div class="header-wrapper">
       <div class="logo-wrapper">
         <img src="/images/logo.svg" alt="Логотип сайта" width="137" height="28" />
@@ -74,6 +74,13 @@
           </div>
         }
       </div>
+      <a routerLink="/cart" class="button button-cart" id="cart-link">
+        Корзина
+        <i class="pi pi-shopping-cart"></i>
+          @if (cartService.itemsCount() > 0) {
+            <span class="cart-badge">{{ cartService.itemsCount() }}</span>
+          }
+      </a>
     </div>
     <div class="user-panel">
       <div class="logout-container">

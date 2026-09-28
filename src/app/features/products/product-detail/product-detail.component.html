@@ -1,0 +1,64 @@
+<div class="product-detail container">
+  <div class="product-gallery">
+    <p-galleria [value]="product.images" [numVisible]="5" [circular]="true">
+      <ng-template #item let-image>
+        <img [src]="image" [alt]="product.title" class="gallery-image" />
+      </ng-template>
+      <ng-template #thumbnail let-image>
+        <img [src]="image" [alt]="product.title" class="gallery-image" />
+      </ng-template>
+    </p-galleria>
+  </div>
+
+  <div class="product-info">
+    <h1>{{ product.title }}</h1>
+    <p-tag [value]="product.category" />
+    <p-rating [ngModel]="product.rating" [readonly]="true" />
+
+    <p class="description">{{ product.description }}</p>
+
+    <div class="price-block">
+      <span class="price">${{ product.price }}</span>
+      @if (product.discountPercentage) {
+        <span class="discount">-{{ product.discountPercentage }}%</span>
+      }
+    </div>
+
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.BRAND' | translate }}</p>
+      <p class="bold">{{ product.brand }}</p>
+    </div>
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.SKU' | translate }}л</p>
+      <p class="bold">{{ product.sku }}</p>
+    </div>
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.STOCK' | translate }}</p>
+      <p class="bold">{{ product.stock }} шт.</p>
+    </div>
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.WEIGHT' | translate }}</p>
+      <p class="bold">{{ product.weight }} г</p>
+    </div>
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.DIMENSIONS' | translate }}</p>
+      <p class="bold">{{ product.dimensions.width }} × {{ product.dimensions.height }} × {{ product.dimensions.depth }} см</p>
+    </div>
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.WARRANTY' | translate }}</p>
+      <p class="bold">{{ product.warrantyInformation }} г</p>
+    </div>
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.SHIPPING' | translate }}</p>
+      <p class="bold">{{ product.shippingInformation }} г</p>
+    </div>
+    <div class="product-card-description">
+      <p>{{ 'PRODUCT_DETAIL.RETURN_POLICY' | translate }}</p>
+      <p class="bold">{{ product.returnPolicy }} г</p>
+    </div>
+
+    <button class="button button-product" id="button-cart" (click)="onAddToCart($event, product)">
+      {{ 'PRODUCT_DETAIL.ADD_TO_CART' | translate }}
+    </button>
+  </div>
+</div>
