@@ -6,9 +6,9 @@ import { tap, BehaviorSubject, map, Observable, combineLatest } from 'rxjs';
 import { UserCardComponent } from '../user-card/user-card.component';
 import { CreateUserComponent } from '../create-user/create-user.component';
 import { UsersFilterComponent } from '../users-filter/users-filter.component';
-import { BoldTextDirective } from '../../../../directives/bold-text.directive';
-import { AnimatedGradientDirective } from '../../../../directives/animated-gradient.directive';
-import { LanguageService } from '../../../../service/language.service';
+import { BoldTextDirective } from '../../../shared/directives/bold-text.directive';
+import { AnimatedGradientDirective } from '../../../shared/directives/animated-gradient.directive';
+import { LanguageService } from '../../../core/services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({

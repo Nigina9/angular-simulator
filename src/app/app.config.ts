@@ -5,19 +5,19 @@ import Aura from '@primeuix/themes/aura';
 import Nora from '@primeuix/themes/nora';
 import Lara from '@primeuix/themes/lara';
 import { routes } from './app.routes';
-import { Theme } from '../enums/Theme';
+import { Theme } from './core/enums/Theme';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loggingInterceptor } from './core/interceptors/logging.interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
-import { AuthService } from './features/auth/auth.service';
+import { AuthService } from './core/auth/auth.service';
 import { provideAppInitializer, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
-import { applicationConfiguration } from './configuration.token';
+import { applicationConfiguration } from './core/configuration.token';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { LanguageService } from '../service/language.service';
+import { LanguageService } from './core/services/language.service';
 
 type ThemePresetType = typeof Aura | typeof Lara | typeof Nora;
 

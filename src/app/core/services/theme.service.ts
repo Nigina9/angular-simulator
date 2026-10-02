@@ -7,7 +7,7 @@ import Nora from '@primeuix/themes/nora';
 import { ITheme } from '../interfaces/ITheme';
 import { LocalStorageService } from './local-storage.service';
 import { Theme } from '../enums/Theme';
-import { applicationConfiguration } from '../app/configuration.token';
+import { applicationConfiguration } from '../configuration.token';
 import { IApplicationConfiguration } from '../interfaces/IApplicationConfiguration';
 
 @Injectable({

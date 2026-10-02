@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTelegram, IconDefinition, faVk, faPinterest, faSkype } from '@fortawesome/free-brands-svg-icons';
-import { applicationConfiguration } from '../configuration.token';
+import { applicationConfiguration } from '../../configuration.token';
 import { IApplicationConfiguration } from '../../interfaces/IApplicationConfiguration';
-import { LanguageService } from '../../service/language.service';
+import { LanguageService } from '../../services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-footer',

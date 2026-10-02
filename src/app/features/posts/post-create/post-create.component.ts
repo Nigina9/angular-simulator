@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
-import { LanguageService } from '../../../../service/language.service';
+import { LanguageService } from '../../../core/services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({

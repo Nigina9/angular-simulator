@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { INavigation } from '../../interfaces/INavigation';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
-import { MessageService } from '../../service/message.service';
+import { MessageService } from '../../services/message.service';
 import { inject } from '@angular/core';
 import { ToggleSwitchChangeEvent, ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSun, faMoon, IconDefinition, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { ThemeService } from '../../service/theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { AsyncPipe } from '@angular/common';
-import { AuthService } from '../features/auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { DatePipe } from '@angular/common';
-import { LocalStorageService } from '../../service/local-storage.service';
-import { applicationConfiguration } from '../configuration.token';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { applicationConfiguration } from '../../configuration.token';
 import { IApplicationConfiguration } from '../../interfaces/IApplicationConfiguration';
 import { TranslatePipe } from '@ngx-translate/core';
-import { LanguageService } from '../../service/language.service';
-import { CartService } from '../features/products/cart.service';
+import { LanguageService } from '../../services/language.service';
+import { CartService } from '../../../features/cart/cart.service';
 
 @Component({
   selector: 'app-header',

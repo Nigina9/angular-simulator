@@ -8,8 +8,8 @@ import {
 } from '@angular/common/http';
 import { catchError, tap, throwError } from 'rxjs';
 import { inject } from '@angular/core';
-import { applicationConfiguration } from '../../configuration.token';
-import { IApplicationConfiguration } from '../../../interfaces/IApplicationConfiguration';
+import { applicationConfiguration } from '../configuration.token';
+import { IApplicationConfiguration } from '../interfaces/IApplicationConfiguration';
 
 export const loggingInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const configuration: IApplicationConfiguration = inject(applicationConfiguration);

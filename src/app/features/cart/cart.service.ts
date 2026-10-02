@@ -2,7 +2,7 @@ import { Injectable, WritableSignal, inject } from '@angular/core';
 import { Signal, signal, computed } from '@angular/core';
 import { CartApiService } from './cart-api.service';
 import { ICartItem } from './interfaces/ICartItem';
-import { IProduct } from './interfaces/IProduct';
+import { IProduct } from '../products/interfaces/IProduct';
 
 @Injectable({
   providedIn: 'root',

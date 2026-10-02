@@ -11,7 +11,7 @@ import { PostService } from './post.service';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { tap } from 'rxjs';
-import { LanguageService } from '../../../service/language.service';
+import { LanguageService } from '../../core/services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';

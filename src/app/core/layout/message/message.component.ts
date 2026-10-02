@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { MessageService } from '../service/message.service';
-import { Message } from '../enums/Message';
+import { MessageService } from '../../services/message.service';
+import { Message } from '../../enums/Message';
 import { inject } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { IMessage } from '../interfaces/IMessage';
+import { IMessage } from '../../interfaces/IMessage';
 import { AsyncPipe } from '@angular/common';
 
 @Component({

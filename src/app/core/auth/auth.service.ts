@@ -1,13 +1,13 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LocalStorageService } from '../../../service/local-storage.service';
+import { LocalStorageService } from '../services/local-storage.service';
 import { catchError, Observable, tap, of, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-import { IToken } from './login/IToken';
-import { IAuthUser } from './IAuthUser';
-import { IAuthResponse } from './IAuthResponse';
-import { applicationConfiguration } from '../../configuration.token';
-import { IApplicationConfiguration } from '../../../interfaces/IApplicationConfiguration';
+import { IToken } from './interfaces/IToken';
+import { IAuthUser } from './interfaces/IAuthUser';
+import { IAuthResponse } from './interfaces/IAuthResponse';
+import { applicationConfiguration } from '../configuration.token';
+import { IApplicationConfiguration } from '../interfaces/IApplicationConfiguration';
 
 
 @Injectable({

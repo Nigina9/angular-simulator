@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Color } from '../enums/Color';
-import './collection';
+import { Color } from './shared/enums/Color';
+import './playground/collection';
 import { FormsModule } from '@angular/forms';
-import { LocalStorageService } from '../service/local-storage.service';
+import { LocalStorageService } from './core/services/local-storage.service';
 import { RouterOutlet } from '@angular/router';
-import { MessageComponent } from '../message/message.component';
-import { LoaderComponent } from './loader/loader.component';
+import { MessageComponent } from './core/layout/message/message.component';
+import { LoaderComponent } from './core/layout/loader/loader.component';
 
 @Component({
   selector: 'app-root',

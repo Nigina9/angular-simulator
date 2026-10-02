@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../../core/auth/auth.service';
 import { catchError, tap, of } from 'rxjs';
-import { MessageService } from '../../../../service/message.service';
+import { MessageService } from '../../../core/services/message.service';
 
 @Component({
   selector: 'app-login',

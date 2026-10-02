@@ -8,9 +8,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
 import { ISelectOption } from '../interfaces/ISelectOption';
 import { Router } from '@angular/router';
-import { CartService } from '../cart.service';
+import { CartService } from '../../cart/cart.service';
 import { IProduct } from '../interfaces/IProduct';
-import { LanguageService } from '../../../../service/language.service';
+import { LanguageService } from '../../../core/services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({

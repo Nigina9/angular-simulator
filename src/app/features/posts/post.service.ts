@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, Observable, tap, of, catchError } from 'rxjs';
 import { IPost } from './IPost';
 import { PostApiService } from './post-api.service';
-import { MessageService } from '../../../service/message.service';
+import { MessageService } from '../../core/services/message.service';
 import { IPostsApiResponse } from './IPostsApiResponse';
 
 @Injectable({

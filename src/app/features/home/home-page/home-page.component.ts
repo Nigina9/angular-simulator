@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ILocation } from '../../interfaces/ILocation';
-import { IParticipant } from '../../interfaces/IParticipant';
-import { IDestination } from '../../interfaces/IDestination';
-import { IOffer } from '../../interfaces/IOffer';
-import { IArticle } from '../../interfaces/IArticle';
-import { IReport } from '../../interfaces/IReport';
-import { MessageService } from '../../service/message.service';
+import { ILocation } from '../interfaces/ILocation';
+import { IParticipant } from '../interfaces/IParticipant';
+import { IDestination } from '../interfaces/IDestination';
+import { IOffer } from '../interfaces/IOffer';
+import { IArticle } from '../interfaces/IArticle';
+import { IReport } from '../interfaces/IReport';
+import { MessageService } from '../../../core/services/message.service';
 import { inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPersonHiking, faBuildingShield, faTags, IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { LanguageService } from '../../service/language.service';
+import { LanguageService } from '../../../core/services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { DatePickerModule } from 'primeng/datepicker';
 
