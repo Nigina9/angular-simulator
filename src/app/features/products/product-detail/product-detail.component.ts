@@ -6,8 +6,8 @@ import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { GalleriaModule } from 'primeng/galleria';
 import { FormsModule } from '@angular/forms';
-import { CartService } from '../cart.service';
-import { LanguageService } from '../../../../service/language.service';
+import { CartService } from '../../cart/cart.service';
+import { LanguageService } from '../../../core/services/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
